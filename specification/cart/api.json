@@ -1,0 +1,120 @@
+{
+  "name": "cart",
+  "description": "To simplify the POC, we consider that there is only one cart and we can operate on its elements",
+  "models": {
+    "cart_item": {
+      "description": "Represent a single cart-item in the system",
+      "fields": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "articleId",
+          "type": "uuid"
+        },
+        {
+          "name": "articleName",
+          "type": "string"
+        },
+        {
+          "name": "articlePrice",
+          "type": "string"
+        },
+        {
+          "name": "quantity",
+          "type": "integer"
+        }
+      ]
+    },
+    "cart_item_form": {
+      "description": "The model used to create instances of cart-items",
+      "fields": [
+        {
+          "name": "articleId",
+          "type": "uuid"
+        },
+        {
+          "name": "quantity",
+          "type": "integer",
+          "required": false,
+          "default": 1
+        }
+      ]
+    }
+  },
+  "resources": {
+    "cart_item": {
+      "path": "/cart/items",
+      "operations": [
+        {
+          "method": "GET",
+          "description": "Get all the items of the cart",
+          "responses": {
+            "200": {
+              "type": "[cart_item]"
+            }
+          }
+        },
+        {
+          "method": "POST",
+          "description": "Add an item in the cart",
+          "body": {
+            "type": "cart_item_form"
+          },
+          "responses": {
+            "201": {
+              "type": "cart_item"
+            }
+          }
+        },
+        {
+          "method": "PUT",
+          "description": "Checkout the items for the payment (in our POC this will update article's stocks and empty the cart)",
+          "path": "/checkout",
+          "responses": {
+            "204": {
+              "type": "unit"
+            }
+          }
+        },
+        {
+          "method": "PUT",
+          "description": "Update an item of the cart",
+          "path": "/:id",
+          "body": {
+            "type": "cart_item_form"
+          },
+          "responses": {
+            "200": {
+              "type": "cart_item"
+            }
+          }
+        },
+        {
+          "method": "PUT",
+          "description": "Update the quantity of an item of the cart",
+          "path": "/:id/quantity",
+          "body": {
+            "type": "integer"
+          },
+          "responses": {
+            "200": {
+              "type": "cart_item"
+            }
+          }
+        },
+        {
+          "method": "DELETE",
+          "description": "Delete an item of the cart",
+          "path": "/:id",
+          "responses": {
+            "204": {
+              "type": "unit"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

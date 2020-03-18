@@ -1,0 +1,7 @@
+type CartItem {
+  id: ID! @id
+  articleId: ID!
+  articleName: String!
+  articlePrice: Float!
+  quantity: Int!
+}

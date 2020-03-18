@@ -1,0 +1,41 @@
+version: '3'
+services:
+  app:
+    build: .
+    command: sh -c "./wait-for-it.sh -t 15 prisma:4466 --strict -- prisma deploy && yarn run dev"
+    volumes:
+      - .:/app/
+      - /app/node_modules
+      - /app/generated
+    ports:
+      - '${SERVER_PORT:-3500}:${SERVER_PORT:-3500}'
+    depends_on:
+      - prisma
+    environment:
+      PRISMA_MANAGEMENT_API_SECRET: ${PRISMA_MANAGEMENT_API_SECRET:-wsflk897dh%£}
+  prisma:
+    image: prismagraphql/prisma:1.34
+    restart: always
+    environment:
+      PRISMA_CONFIG: |
+        port: 4466
+        managementApiSecret: ${PRISMA_MANAGEMENT_API_SECRET:-wsflk897dh%£}
+        databases:
+          default:
+            connector: postgres
+            host: postgres
+            port: 5432
+            user: postgres
+            password: postgres
+  postgres:
+    image: postgres:10.3
+    restart: always
+    environment:
+      POSTGRES_DB: prisma
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+volumes:
+  postgres: ~
