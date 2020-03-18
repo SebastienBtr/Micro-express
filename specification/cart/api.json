@@ -44,6 +44,20 @@
     }
   },
   "resources": {
+    "health": {
+      "path": "/health",
+      "operations": [
+        {
+          "method": "GET",
+          "description": "Health of the service",
+          "responses": {
+            "200": {
+              "type": "unit"
+            }
+          }
+        }
+      ]
+    },
     "cart_item": {
       "path": "/cart/items",
       "operations": [

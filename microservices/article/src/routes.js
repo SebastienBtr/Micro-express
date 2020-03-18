@@ -4,7 +4,7 @@ const router = express.Router();
 const ctrl = require('./controllers');
 
 /**
- * Heath of the service
+ * Health of the service
  */
 router.get('/health', (req, res) => res.status(200).send());
 
