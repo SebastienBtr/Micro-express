@@ -6,7 +6,7 @@ services:
     volumes:
       - ./src:/app/src
     ports:
-      - '${SERVER_PORT:-3500}:${SERVER_PORT:-3500}'
+      - '${SERVER_PORT:-3400}:${SERVER_PORT:-3400}'
     depends_on:
       - prisma
     environment:
