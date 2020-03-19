@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const winston = require('winston');
 const routes = require('./routes');
+const { launchConsumers } = require('./events/consumer');
 require('dotenv').config();
 
 const app = express();
@@ -39,6 +40,11 @@ winston.add(new winston.transports.Console({
  * Register our routes
  */
 app.use(routes);
+
+/**
+ * Launch kafka consumers
+ */
+launchConsumers();
 
 /**
  * Start the server

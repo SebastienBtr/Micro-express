@@ -3,7 +3,8 @@ services:
   kafka:
     image: wurstmeister/kafka
     container_name: kafka
-    hostname: kafka
+    networks: 
+      - broker
     depends_on:
       - zookeeper
     environment:
@@ -14,3 +15,9 @@ services:
   zookeeper:
     image: wurstmeister/zookeeper
     container_name: zookeeper
+    networks: 
+      - broker
+
+networks:
+  broker:
+    driver: bridge

@@ -1,5 +1,6 @@
 const winston = require('winston');
 const { prisma } = require('../../generated/prisma-client');
+const { produce } = require('../events/producer');
 
 /**
  * Check if the body of the request contains the good elements
@@ -30,6 +31,7 @@ module.exports.updateArticle = async (req, res) => {
           id: req.params.id,
         },
       });
+      await produce('update-article', newArticle);
       res.status(200).send(newArticle);
     } catch (e) {
       winston.error(e);

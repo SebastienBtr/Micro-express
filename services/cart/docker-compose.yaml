@@ -7,6 +7,9 @@ services:
       - ./src:/app/src
     ports:
       - '${SERVER_PORT:-3400}:${SERVER_PORT:-3400}'
+    networks: 
+      - kafka_broker
+      - app
     depends_on:
       - prisma
     environment:
@@ -15,6 +18,9 @@ services:
   prisma:
     image: prismagraphql/prisma:1.34
     restart: always
+    networks: 
+      - app
+      - postgres
     environment:
       PRISMA_CONFIG: |
         port: 4466
@@ -30,12 +36,22 @@ services:
   postgres:
     image: postgres:10.3
     restart: always
+    networks: 
+      - postgres
     environment:
       POSTGRES_DB: prisma
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     volumes:
       - postgres:/var/lib/postgresql/data
+      
+networks:
+  kafka_broker:
+    external: true
+  app:
+    driver: bridge
+  postgres:
+    driver: bridge
 
 volumes:
   postgres: ~
