@@ -9,7 +9,6 @@ services:
       - '${SERVER_PORT:-3500}:${SERVER_PORT:-3500}'
     depends_on:
       - prisma
-      - kafka
     environment:
       PRISMA_MANAGEMENT_API_SECRET: ${PRISMA_MANAGEMENT_API_SECRET:-wsflk897dh%£}
 
