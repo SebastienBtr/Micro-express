@@ -1,0 +1,16 @@
+version: '3'
+services:
+  kafka:
+  image: wurstmeister/kafka
+  container_name: kafka
+  hostname: kafka
+  depends_on:
+    - zookeeper
+  environment:
+    KAFKA_ADVERTISED_HOST_NAME: kafka
+    KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    KAFKA_ADVERTISED_PORT: 9092
+      
+  zookeeper:
+    image: wurstmeister/zookeeper
+    container_name: zookeeper
