@@ -7,7 +7,7 @@ const ctrl = require('./controllers');
 /**
  * Health of the service
  */
-router.get('/health', (req, res) => res.status(200).send());
+router.get('/health', (req, res) => res.status(200).send({ message: 'ok' }));
 
 /**
  * Get all the articles
