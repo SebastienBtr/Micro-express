@@ -1,13 +1,13 @@
 const winston = require('winston');
-const { prisma } = require('../../generated/prisma-client');
+const { getAllCartItems } = require('../repository');
 
 /**
- * Get all the cart items
+ * Get all the items of the cart
  * @see GET /cart/items
  */
 module.exports.getAllCartItems = async (req, res) => {
   try {
-    const cartItems = await prisma.cartItems();
+    const cartItems = await getAllCartItems();
     res.status(200).send(cartItems);
   } catch (e) {
     winston.error(e);

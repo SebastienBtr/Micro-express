@@ -1,5 +1,5 @@
 const winston = require('winston');
-const { prisma } = require('../../generated/prisma-client');
+const { updateArticle } = require('../repository');
 const { produce } = require('../events/producer');
 
 /**
@@ -21,18 +21,13 @@ const bodyIsValid = (body) => {
 module.exports.updateArticle = async (req, res) => {
   if (bodyIsValid(req.body)) {
     try {
-      const newArticle = await prisma.updateArticle({
-        data: {
-          name: req.body.name,
-          stock: req.body.stock,
-          price: req.body.price,
-        },
-        where: {
-          id: req.params.id,
-        },
-      });
-      await produce('update-article', newArticle);
-      res.status(200).send(newArticle);
+      const updatedArticle = await updateArticle(req.params.id, req.body);
+      if (updatedArticle != null) {
+        await produce('update-article', updatedArticle);
+        res.status(200).send(updatedArticle);
+      } else {
+        res.status(404).send({ message: `No article with id: ${req.params.id}` });
+      }
     } catch (e) {
       winston.error(e);
       res.status(500).send({ message: e });

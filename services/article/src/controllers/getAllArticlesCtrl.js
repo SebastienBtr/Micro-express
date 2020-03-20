@@ -1,5 +1,5 @@
 const winston = require('winston');
-const { prisma } = require('../../generated/prisma-client');
+const { getAllArticles } = require('../repository');
 
 /**
  * Get all the articles
@@ -7,7 +7,7 @@ const { prisma } = require('../../generated/prisma-client');
  */
 module.exports.getAllArticles = async (req, res) => {
   try {
-    const articles = await prisma.articles();
+    const articles = await getAllArticles();
     res.status(200).send(articles);
   } catch (e) {
     winston.error(e);

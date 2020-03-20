@@ -35,6 +35,14 @@
           "type": "uuid"
         },
         {
+          "name": "articleName",
+          "type": "string"
+        },
+        {
+          "name": "articlePrice",
+          "type": "string"
+        },
+        {
           "name": "quantity",
           "type": "integer",
           "required": false,

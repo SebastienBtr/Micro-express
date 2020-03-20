@@ -1,5 +1,5 @@
 const winston = require('winston');
-const { prisma } = require('../../generated/prisma-client');
+const { createArticle } = require('../repository');
 
 
 /**
@@ -21,11 +21,7 @@ const bodyIsValid = (body) => {
 module.exports.createArticle = async (req, res) => {
   if (bodyIsValid(req.body)) {
     try {
-      const newArticle = await prisma.createArticle({
-        name: req.body.name,
-        stock: req.body.stock,
-        price: req.body.price,
-      });
+      const newArticle = await createArticle(req.body);
       res.status(201).send(newArticle);
     } catch (e) {
       winston.error(e);

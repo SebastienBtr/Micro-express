@@ -1,6 +1,6 @@
 type CartItem {
   id: ID! @id
-  articleId: ID!
+  articleId: ID! @unique
   articleName: String!
   articlePrice: Float!
   quantity: Int!
