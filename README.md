@@ -2,6 +2,12 @@
 
 Complete example of a small microservices architecture driven by specifications.
 
+# Documentation
+
+A generated swagger documentation can be found at the route `/documentation` through the api-gateway.
+
+You can also find postman collection files under `services/documentation/postman`
+
 # Project structure
 
 ## **Generator**
