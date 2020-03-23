@@ -1,17 +1,18 @@
 const winston = require('winston');
 const { produce } = require('../events/producer');
-const { deleteAllCartItems } = require('../repository');
+const { deleteAllCartItems, getAllCartItems } = require('../repository');
 
 /**
  * Checkout the items for the payment
  * (in our POC this will update article's stocks and empty the cart)
  * @see PUT /cart/items/checkout
  */
-module.exports.deleteCartItem = async (req, res) => {
+module.exports.checkout = async (req, res) => {
   try {
+    const cartItems = await getAllCartItems();
     const deletedCartItems = await deleteAllCartItems();
-    if (deletedCartItems && deletedCartItems.length > 0) {
-      await produce('cart-checkout', deletedCartItems);
+    if (deletedCartItems.count > 0) {
+      await produce('cart-checkout', cartItems);
     }
     res.status(204).send();
   } catch (e) {

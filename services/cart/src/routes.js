@@ -24,10 +24,11 @@ router.post('/cart/items', routesVersioning({
 }));
 
 /**
- * Delete an item of the cart
+ * Checkout the items for the payment
+ * (in our POC this will update article's stocks and empty the cart)
  */
-router.delete('/cart/items/:id', routesVersioning({
-  '^1.0.0': ctrl.deleteCartItem,
+router.put('/cart/items/checkout', routesVersioning({
+  '^1.0.0': ctrl.checkout,
 }));
 
 /**
@@ -38,11 +39,10 @@ router.put('/cart/items/:id/quantity', routesVersioning({
 }));
 
 /**
- * Checkout the items for the payment
- * (in our POC this will update article's stocks and empty the cart)
+ * Delete an item of the cart
  */
-router.put('/cart/items/checkout', routesVersioning({
-  '^1.0.0': ctrl.checkout,
+router.delete('/cart/items/:id', routesVersioning({
+  '^1.0.0': ctrl.deleteCartItem,
 }));
 
 module.exports = router;

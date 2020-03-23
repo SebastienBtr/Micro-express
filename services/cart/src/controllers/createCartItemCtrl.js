@@ -25,12 +25,12 @@ module.exports.createCartItem = async (req, res) => {
     }
     try {
       const existingCartItem = await getCartItemByArticleId(req.body.articleId);
-      if (existingCartItem) {
-        const newQuantity = existingCartItem.quantity + quantity;
+      if (existingCartItem != null) {
+        const newQuantity = existingCartItem.quantity + req.body.quantity;
         const cartItem = await updateCartItemQuantity(existingCartItem.id, newQuantity);
         res.status(200).send(cartItem);
       } else {
-        const cartItem = await createCartItem();
+        const cartItem = await createCartItem(req.body);
         res.status(201).send(cartItem);
       }
     } catch (e) {

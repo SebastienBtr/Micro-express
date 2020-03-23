@@ -14,7 +14,7 @@ const bodyIsValid = (body) => {
 
 /**
  * Update the quantity of an item of the cart
- * @see PUT /article/:id/quantity
+ * @see PUT /cart/items/:id/quantity
  */
 module.exports.updateCartItemQuantity = async (req, res) => {
   if (bodyIsValid(req.body)) {
