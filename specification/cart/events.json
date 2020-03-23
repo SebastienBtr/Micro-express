@@ -1,0 +1,15 @@
+{
+  "consume": {
+    "delete-article": {
+      "type": "article"
+    },
+    "update-article": {
+      "type": "article"
+    }
+  },
+  "produce": {
+    "cart-checkout": {
+      "type": "cart"
+    }
+  }
+}
