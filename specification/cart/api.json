@@ -52,20 +52,6 @@
     }
   },
   "resources": {
-    "health": {
-      "path": "/health",
-      "operations": [
-        {
-          "method": "GET",
-          "description": "Health of the service",
-          "responses": {
-            "200": {
-              "type": "unit"
-            }
-          }
-        }
-      ]
-    },
     "cart_item": {
       "path": "/cart/items",
       "operations": [
@@ -87,6 +73,9 @@
           "responses": {
             "201": {
               "type": "cart_item"
+            },
+            "400": {
+              "type": "unit"
             }
           }
         },
@@ -102,19 +91,6 @@
         },
         {
           "method": "PUT",
-          "description": "Update an item of the cart",
-          "path": "/:id",
-          "body": {
-            "type": "cart_item_form"
-          },
-          "responses": {
-            "200": {
-              "type": "cart_item"
-            }
-          }
-        },
-        {
-          "method": "PUT",
           "description": "Update the quantity of an item of the cart",
           "path": "/:id/quantity",
           "body": {
@@ -123,6 +99,12 @@
           "responses": {
             "200": {
               "type": "cart_item"
+            },
+            "400": {
+              "type": "unit"
+            },
+            "404": {
+              "type": "unit"
             }
           }
         },

@@ -41,20 +41,6 @@
     }
   },
   "resources": {
-    "health": {
-      "path": "/health",
-      "operations": [
-        {
-          "method": "GET",
-          "description": "Health of the service",
-          "responses": {
-            "200": {
-              "type": "unit"
-            }
-          }
-        }
-      ]
-    },
     "article": {
       "operations": [
         {
@@ -92,6 +78,9 @@
             },
             "404": {
               "type": "unit"
+            },
+            "400": {
+              "type": "unit"
             }
           }
         },
@@ -104,6 +93,9 @@
           "responses": {
             "201": {
               "type": "article"
+            },
+            "400": {
+              "type": "unit"
             }
           }
         },

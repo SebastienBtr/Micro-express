@@ -41,7 +41,7 @@ router.put('/cart/items/:id/quantity', routesVersioning({
  * Checkout the items for the payment
  * (in our POC this will update article's stocks and empty the cart)
  */
-router.put('/cart/checkout', routesVersioning({
+router.put('/cart/items/checkout', routesVersioning({
   '^1.0.0': ctrl.checkout,
 }));
 
