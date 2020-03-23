@@ -1,6 +1,6 @@
 # POC microservices
 
-Complete example of a small microservies architecture driven by specifications
+Complete example of a small microservices architecture driven by specifications.
 
 # Project structure
 
@@ -25,7 +25,7 @@ see: [specification](specification)
 
 You just need Docker installed.
 
-**Developement:** 
+**Development:** 
 
 In `services` there is a `launcher.sh` script to launch the desired services with docker.
 
