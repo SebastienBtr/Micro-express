@@ -53,7 +53,7 @@ WIP
 
 * Create its specification
 * Generate the service with the generator
-* Implement the "TODOs"
+* Implement the "TODOs" by following the bellow information about editing a service
 
 **Edit a service**
 
