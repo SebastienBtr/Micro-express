@@ -1,0 +1,183 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "article",
+    "version": "0.0.1"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/articles": {
+      "get": {
+        "description": "Get all the articles",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/article"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Create an article",
+        "parameters": [
+          {
+            "name": "article_form",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/article_form"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "201 response",
+            "schema": {
+              "$ref": "#/definitions/article"
+            }
+          },
+          "400": {
+            "description": "400 response"
+          }
+        }
+      }
+    },
+    "/articles/{id}": {
+      "get": {
+        "description": "Get a specific article",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/article"
+            }
+          },
+          "404": {
+            "description": "404 response"
+          }
+        }
+      },
+      "put": {
+        "description": "Update a specific article",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "article_form",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/article_form"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/article"
+            }
+          },
+          "400": {
+            "description": "400 response"
+          },
+          "404": {
+            "description": "404 response"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete a specific article",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "204 response"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "article": {
+      "type": "object",
+      "description": "Represent a single article in the system",
+      "title": "article",
+      "required": [
+        "id",
+        "name",
+        "stock",
+        "price"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "name": {
+          "type": "string"
+        },
+        "stock": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "price": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "article_form": {
+      "type": "object",
+      "description": "The model used to create instances of articles",
+      "title": "article_form",
+      "required": [
+        "name",
+        "stock",
+        "price"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "stock": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "price": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    }
+  }
+}

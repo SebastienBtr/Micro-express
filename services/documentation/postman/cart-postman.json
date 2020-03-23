@@ -1,0 +1,405 @@
+{
+  "info" : {
+    "name" : "cart",
+    "schema" : "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description" : {
+      "content" : "To simplify the POC, we consider that there is only one cart and we can operate on its elements"
+    },
+    "version" : "0.0.1"
+  },
+  "item" : [ {
+    "name" : "cart_items",
+    "item" : [ {
+      "request" : {
+        "url" : {
+          "raw" : "{{BASE_URL}}/cart/items",
+          "host" : [ "{{BASE_URL}}" ],
+          "path" : [ "cart", "items" ],
+          "query" : [ ],
+          "variable" : [ ]
+        },
+        "method" : "GET",
+        "description" : {
+          "content" : "Get all the items of the cart"
+        },
+        "header" : [ ]
+      },
+      "name" : "GET /cart/items",
+      "description" : {
+        "content" : "Get all the items of the cart"
+      },
+      "event" : [ {
+        "listen" : "test",
+        "script" : {
+          "exec" : [ "pm.test(\"GET requests should return 2xx\", function () {", "    pm.response.to.be.success;", "});" ],
+          "type" : "text/javascript"
+        }
+      } ],
+      "response" : [ {
+        "name" : "Example 200 - [cart_item]",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/cart/items",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "cart", "items" ],
+            "query" : [ ],
+            "variable" : [ ]
+          },
+          "method" : "GET",
+          "description" : {
+            "content" : "Get all the items of the cart"
+          },
+          "header" : [ ]
+        },
+        "body" : "[ {\n  \"quantity\" : 1,\n  \"articleName\" : \"1a53b36f2cb5\",\n  \"id\" : \"671bd500-d465-4401-8a3c-636145a20912\",\n  \"articlePrice\" : \"5e278240eec4\",\n  \"articleId\" : \"9c803571-44a8-4137-b7df-e21386afc665\"\n} ]",
+        "code" : 200
+      } ],
+      "type" : "item"
+    }, {
+      "request" : {
+        "url" : {
+          "raw" : "{{BASE_URL}}/cart/items",
+          "host" : [ "{{BASE_URL}}" ],
+          "path" : [ "cart", "items" ],
+          "query" : [ ],
+          "variable" : [ ]
+        },
+        "method" : "POST",
+        "description" : {
+          "content" : "Add an item in the cart"
+        },
+        "header" : [ {
+          "key" : "Content-Type",
+          "value" : "application/json",
+          "description" : {
+            "content" : "Required to send JSON body"
+          }
+        } ],
+        "body" : {
+          "raw" : "{\n  \"articleId\" : \"c5b55d95-29e5-4644-8a40-44890e2804cc\",\n  \"articleName\" : \"980b6e35625d\",\n  \"articlePrice\" : \"109b113f3603\",\n  \"quantity\" : 1\n}",
+          "mode" : "raw"
+        }
+      },
+      "name" : "POST /cart/items",
+      "description" : {
+        "content" : "Add an item in the cart"
+      },
+      "event" : [ {
+        "listen" : "test",
+        "script" : {
+          "exec" : [ "pm.test(\"POST requests should return 2xx\", function () {", "    pm.response.to.be.success;", "});" ],
+          "type" : "text/javascript"
+        }
+      } ],
+      "response" : [ {
+        "name" : "Example 201 - cart_item",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/cart/items",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "cart", "items" ],
+            "query" : [ ],
+            "variable" : [ ]
+          },
+          "method" : "POST",
+          "description" : {
+            "content" : "Add an item in the cart"
+          },
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json",
+            "description" : {
+              "content" : "Required to send JSON body"
+            }
+          } ],
+          "body" : {
+            "raw" : "{\n  \"articleId\" : \"c5b55d95-29e5-4644-8a40-44890e2804cc\",\n  \"articleName\" : \"980b6e35625d\",\n  \"articlePrice\" : \"109b113f3603\",\n  \"quantity\" : 1\n}",
+            "mode" : "raw"
+          }
+        },
+        "body" : "{\n  \"quantity\" : 1,\n  \"articleName\" : \"73d99fcb84da\",\n  \"id\" : \"8cb436a5-881c-4f48-9d27-2599bab8f617\",\n  \"articlePrice\" : \"72cd0bbfe483\",\n  \"articleId\" : \"0b4abe5a-0497-40bc-961c-17a02c87b3f1\"\n}",
+        "code" : 201
+      }, {
+        "name" : "Example 400 - unit",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/cart/items",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "cart", "items" ],
+            "query" : [ ],
+            "variable" : [ ]
+          },
+          "method" : "POST",
+          "description" : {
+            "content" : "Add an item in the cart"
+          },
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json",
+            "description" : {
+              "content" : "Required to send JSON body"
+            }
+          } ],
+          "body" : {
+            "raw" : "{\n  \"articleId\" : \"c5b55d95-29e5-4644-8a40-44890e2804cc\",\n  \"articleName\" : \"980b6e35625d\",\n  \"articlePrice\" : \"109b113f3603\",\n  \"quantity\" : 1\n}",
+            "mode" : "raw"
+          }
+        },
+        "code" : 400
+      } ],
+      "type" : "item"
+    }, {
+      "request" : {
+        "url" : {
+          "raw" : "{{BASE_URL}}/cart/items/checkout",
+          "host" : [ "{{BASE_URL}}" ],
+          "path" : [ "cart", "items", "checkout" ],
+          "query" : [ ],
+          "variable" : [ ]
+        },
+        "method" : "PUT",
+        "description" : {
+          "content" : "Checkout the items for the payment (in our POC this will update article's stocks and empty the cart)"
+        },
+        "header" : [ ]
+      },
+      "name" : "PUT /cart/items/checkout",
+      "description" : {
+        "content" : "Checkout the items for the payment (in our POC this will update article's stocks and empty the cart)"
+      },
+      "event" : [ {
+        "listen" : "test",
+        "script" : {
+          "exec" : [ "pm.test(\"PUT requests should return 2xx\", function () {", "    pm.response.to.be.success;", "});" ],
+          "type" : "text/javascript"
+        }
+      } ],
+      "response" : [ {
+        "name" : "Example 204 - unit",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/cart/items/checkout",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "cart", "items", "checkout" ],
+            "query" : [ ],
+            "variable" : [ ]
+          },
+          "method" : "PUT",
+          "description" : {
+            "content" : "Checkout the items for the payment (in our POC this will update article's stocks and empty the cart)"
+          },
+          "header" : [ ]
+        },
+        "code" : 204
+      } ],
+      "type" : "item"
+    }, {
+      "request" : {
+        "url" : {
+          "raw" : "{{BASE_URL}}/cart/items/:id/quantity",
+          "host" : [ "{{BASE_URL}}" ],
+          "path" : [ "cart", "items", ":id", "quantity" ],
+          "query" : [ ],
+          "variable" : [ {
+            "key" : "id",
+            "value" : "{{id}}",
+            "description" : {
+              "content" : "Type: uuid  | Required: true"
+            },
+            "disabled" : false
+          } ]
+        },
+        "method" : "PUT",
+        "description" : {
+          "content" : "Update the quantity of an item of the cart"
+        },
+        "header" : [ {
+          "key" : "Content-Type",
+          "value" : "application/json",
+          "description" : {
+            "content" : "Required to send JSON body"
+          }
+        } ],
+        "body" : {
+          "raw" : "{\n  \"quantity\" : 1\n}",
+          "mode" : "raw"
+        }
+      },
+      "name" : "PUT /cart/items/:id/quantity",
+      "description" : {
+        "content" : "Update the quantity of an item of the cart"
+      },
+      "event" : [ {
+        "listen" : "test",
+        "script" : {
+          "exec" : [ "pm.test(\"PUT requests should return 2xx\", function () {", "    pm.response.to.be.success;", "});" ],
+          "type" : "text/javascript"
+        }
+      } ],
+      "response" : [ {
+        "name" : "Example 200 - cart_item",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/cart/items/:id/quantity",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "cart", "items", ":id", "quantity" ],
+            "query" : [ ],
+            "variable" : [ {
+              "key" : "id",
+              "value" : "{{id}}",
+              "description" : {
+                "content" : "Type: uuid  | Required: true"
+              },
+              "disabled" : false
+            } ]
+          },
+          "method" : "PUT",
+          "description" : {
+            "content" : "Update the quantity of an item of the cart"
+          },
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json",
+            "description" : {
+              "content" : "Required to send JSON body"
+            }
+          } ],
+          "body" : {
+            "raw" : "{\n  \"quantity\" : 1\n}",
+            "mode" : "raw"
+          }
+        },
+        "body" : "{\n  \"quantity\" : 1,\n  \"articleName\" : \"62377f7cd3af\",\n  \"id\" : \"e384aab6-7879-49d0-a76d-f1fad81ea996\",\n  \"articlePrice\" : \"8e75a774e722\",\n  \"articleId\" : \"36ab7049-b721-45e4-beff-22acd9c5341a\"\n}",
+        "code" : 200
+      }, {
+        "name" : "Example 400 - unit",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/cart/items/:id/quantity",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "cart", "items", ":id", "quantity" ],
+            "query" : [ ],
+            "variable" : [ {
+              "key" : "id",
+              "value" : "{{id}}",
+              "description" : {
+                "content" : "Type: uuid  | Required: true"
+              },
+              "disabled" : false
+            } ]
+          },
+          "method" : "PUT",
+          "description" : {
+            "content" : "Update the quantity of an item of the cart"
+          },
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json",
+            "description" : {
+              "content" : "Required to send JSON body"
+            }
+          } ],
+          "body" : {
+            "raw" : "{\n  \"quantity\" : 1\n}",
+            "mode" : "raw"
+          }
+        },
+        "code" : 400
+      }, {
+        "name" : "Example 404 - unit",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/cart/items/:id/quantity",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "cart", "items", ":id", "quantity" ],
+            "query" : [ ],
+            "variable" : [ {
+              "key" : "id",
+              "value" : "{{id}}",
+              "description" : {
+                "content" : "Type: uuid  | Required: true"
+              },
+              "disabled" : false
+            } ]
+          },
+          "method" : "PUT",
+          "description" : {
+            "content" : "Update the quantity of an item of the cart"
+          },
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json",
+            "description" : {
+              "content" : "Required to send JSON body"
+            }
+          } ],
+          "body" : {
+            "raw" : "{\n  \"quantity\" : 1\n}",
+            "mode" : "raw"
+          }
+        },
+        "code" : 404
+      } ],
+      "type" : "item"
+    }, {
+      "request" : {
+        "url" : {
+          "raw" : "{{BASE_URL}}/cart/items/:id",
+          "host" : [ "{{BASE_URL}}" ],
+          "path" : [ "cart", "items", ":id" ],
+          "query" : [ ],
+          "variable" : [ {
+            "key" : "id",
+            "value" : "{{id}}",
+            "description" : {
+              "content" : "Type: uuid  | Required: true"
+            },
+            "disabled" : false
+          } ]
+        },
+        "method" : "DELETE",
+        "description" : {
+          "content" : "Delete an item of the cart"
+        },
+        "header" : [ ]
+      },
+      "name" : "DELETE /cart/items/:id",
+      "description" : {
+        "content" : "Delete an item of the cart"
+      },
+      "response" : [ {
+        "name" : "Example 204 - unit",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/cart/items/:id",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "cart", "items", ":id" ],
+            "query" : [ ],
+            "variable" : [ {
+              "key" : "id",
+              "value" : "{{id}}",
+              "description" : {
+                "content" : "Type: uuid  | Required: true"
+              },
+              "disabled" : false
+            } ]
+          },
+          "method" : "DELETE",
+          "description" : {
+            "content" : "Delete an item of the cart"
+          },
+          "header" : [ ]
+        },
+        "code" : 204
+      } ],
+      "type" : "item"
+    } ],
+    "type" : "folder"
+  } ],
+  "event" : [ ],
+  "variable" : [ {
+    "key" : "BASE_URL",
+    "value" : "",
+    "type" : "string"
+  } ]
+}

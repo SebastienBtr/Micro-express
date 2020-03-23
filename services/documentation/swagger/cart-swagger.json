@@ -1,0 +1,196 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "cart",
+    "description": "To simplify the POC, we consider that there is only one cart and we can operate on its elements",
+    "version": "0.0.1"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/cart/items": {
+      "get": {
+        "description": "Get all the items of the cart",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/cart_item"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Add an item in the cart",
+        "parameters": [
+          {
+            "name": "cart_item_form",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/cart_item_form"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "201 response",
+            "schema": {
+              "$ref": "#/definitions/cart_item"
+            }
+          },
+          "400": {
+            "description": "400 response"
+          }
+        }
+      }
+    },
+    "/cart/items/checkout": {
+      "put": {
+        "description": "Checkout the items for the payment (in our POC this will update article's stocks and empty the cart)",
+        "parameters": [],
+        "responses": {
+          "204": {
+            "description": "204 response"
+          }
+        }
+      }
+    },
+    "/cart/items/{id}/quantity": {
+      "put": {
+        "description": "Update the quantity of an item of the cart",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "cart_item_quantity_form",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/cart_item_quantity_form"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/cart_item"
+            }
+          },
+          "400": {
+            "description": "400 response"
+          },
+          "404": {
+            "description": "404 response"
+          }
+        }
+      }
+    },
+    "/cart/items/{id}": {
+      "delete": {
+        "description": "Delete an item of the cart",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "204 response"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "cart_item": {
+      "type": "object",
+      "description": "Represent a single cart-item in the system",
+      "title": "cart_item",
+      "required": [
+        "id",
+        "articleId",
+        "articleName",
+        "articlePrice",
+        "quantity"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "articleId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "articleName": {
+          "type": "string"
+        },
+        "articlePrice": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "cart_item_form": {
+      "type": "object",
+      "description": "The model used to create instances of cart-items",
+      "title": "cart_item_form",
+      "required": [
+        "articleId",
+        "articleName",
+        "articlePrice"
+      ],
+      "properties": {
+        "articleId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "articleName": {
+          "type": "string"
+        },
+        "articlePrice": {
+          "type": "string"
+        },
+        "quantity": {
+          "default": "1",
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "cart_item_quantity_form": {
+      "type": "object",
+      "description": "The model used to update quantities of cart-items",
+      "title": "cart_item_quantity_form",
+      "required": [
+        "quantity"
+      ],
+      "properties": {
+        "quantity": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    }
+  }
+}

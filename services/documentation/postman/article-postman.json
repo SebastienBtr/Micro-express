@@ -1,0 +1,442 @@
+{
+  "info" : {
+    "name" : "article",
+    "schema" : "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description" : { },
+    "version" : "0.0.1"
+  },
+  "item" : [ {
+    "name" : "articles",
+    "item" : [ {
+      "request" : {
+        "url" : {
+          "raw" : "{{BASE_URL}}/articles",
+          "host" : [ "{{BASE_URL}}" ],
+          "path" : [ "articles" ],
+          "query" : [ ],
+          "variable" : [ ]
+        },
+        "method" : "GET",
+        "description" : {
+          "content" : "Get all the articles"
+        },
+        "header" : [ ]
+      },
+      "name" : "GET /articles",
+      "description" : {
+        "content" : "Get all the articles"
+      },
+      "event" : [ {
+        "listen" : "test",
+        "script" : {
+          "exec" : [ "pm.test(\"GET requests should return 2xx\", function () {", "    pm.response.to.be.success;", "});" ],
+          "type" : "text/javascript"
+        }
+      } ],
+      "response" : [ {
+        "name" : "Example 200 - [article]",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/articles",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "articles" ],
+            "query" : [ ],
+            "variable" : [ ]
+          },
+          "method" : "GET",
+          "description" : {
+            "content" : "Get all the articles"
+          },
+          "header" : [ ]
+        },
+        "body" : "[ {\n  \"id\" : \"ccbb80e2-cdf9-4e8c-aa60-dfc8dca2d21e\",\n  \"name\" : \"6f978d7331e7\",\n  \"stock\" : 1,\n  \"price\" : 1\n} ]",
+        "code" : 200
+      } ],
+      "type" : "item"
+    }, {
+      "request" : {
+        "url" : {
+          "raw" : "{{BASE_URL}}/articles/:id",
+          "host" : [ "{{BASE_URL}}" ],
+          "path" : [ "articles", ":id" ],
+          "query" : [ ],
+          "variable" : [ {
+            "key" : "id",
+            "value" : "{{id}}",
+            "description" : {
+              "content" : "Type: uuid  | Required: true"
+            },
+            "disabled" : false
+          } ]
+        },
+        "method" : "GET",
+        "description" : {
+          "content" : "Get a specific article"
+        },
+        "header" : [ ]
+      },
+      "name" : "GET /articles/:id",
+      "description" : {
+        "content" : "Get a specific article"
+      },
+      "event" : [ {
+        "listen" : "test",
+        "script" : {
+          "exec" : [ "pm.test(\"GET requests should return 2xx\", function () {", "    pm.response.to.be.success;", "});" ],
+          "type" : "text/javascript"
+        }
+      } ],
+      "response" : [ {
+        "name" : "Example 200 - article",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/articles/:id",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "articles", ":id" ],
+            "query" : [ ],
+            "variable" : [ {
+              "key" : "id",
+              "value" : "{{id}}",
+              "description" : {
+                "content" : "Type: uuid  | Required: true"
+              },
+              "disabled" : false
+            } ]
+          },
+          "method" : "GET",
+          "description" : {
+            "content" : "Get a specific article"
+          },
+          "header" : [ ]
+        },
+        "body" : "{\n  \"id\" : \"d5224ea7-e677-4274-a16c-4e88e41ac175\",\n  \"name\" : \"c4c1d27a3b25\",\n  \"stock\" : 1,\n  \"price\" : 1\n}",
+        "code" : 200
+      }, {
+        "name" : "Example 404 - unit",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/articles/:id",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "articles", ":id" ],
+            "query" : [ ],
+            "variable" : [ {
+              "key" : "id",
+              "value" : "{{id}}",
+              "description" : {
+                "content" : "Type: uuid  | Required: true"
+              },
+              "disabled" : false
+            } ]
+          },
+          "method" : "GET",
+          "description" : {
+            "content" : "Get a specific article"
+          },
+          "header" : [ ]
+        },
+        "code" : 404
+      } ],
+      "type" : "item"
+    }, {
+      "request" : {
+        "url" : {
+          "raw" : "{{BASE_URL}}/articles/:id",
+          "host" : [ "{{BASE_URL}}" ],
+          "path" : [ "articles", ":id" ],
+          "query" : [ ],
+          "variable" : [ {
+            "key" : "id",
+            "value" : "{{id}}",
+            "description" : {
+              "content" : "Type: uuid  | Required: true"
+            },
+            "disabled" : false
+          } ]
+        },
+        "method" : "PUT",
+        "description" : {
+          "content" : "Update a specific article"
+        },
+        "header" : [ {
+          "key" : "Content-Type",
+          "value" : "application/json",
+          "description" : {
+            "content" : "Required to send JSON body"
+          }
+        } ],
+        "body" : {
+          "raw" : "{\n  \"name\" : \"9d9cf423bbfb\",\n  \"stock\" : 1,\n  \"price\" : 1\n}",
+          "mode" : "raw"
+        }
+      },
+      "name" : "PUT /articles/:id",
+      "description" : {
+        "content" : "Update a specific article"
+      },
+      "event" : [ {
+        "listen" : "test",
+        "script" : {
+          "exec" : [ "pm.test(\"PUT requests should return 2xx\", function () {", "    pm.response.to.be.success;", "});" ],
+          "type" : "text/javascript"
+        }
+      } ],
+      "response" : [ {
+        "name" : "Example 200 - article",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/articles/:id",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "articles", ":id" ],
+            "query" : [ ],
+            "variable" : [ {
+              "key" : "id",
+              "value" : "{{id}}",
+              "description" : {
+                "content" : "Type: uuid  | Required: true"
+              },
+              "disabled" : false
+            } ]
+          },
+          "method" : "PUT",
+          "description" : {
+            "content" : "Update a specific article"
+          },
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json",
+            "description" : {
+              "content" : "Required to send JSON body"
+            }
+          } ],
+          "body" : {
+            "raw" : "{\n  \"name\" : \"9d9cf423bbfb\",\n  \"stock\" : 1,\n  \"price\" : 1\n}",
+            "mode" : "raw"
+          }
+        },
+        "body" : "{\n  \"id\" : \"dccc17bb-a49c-4295-8e9f-d94a316194ce\",\n  \"name\" : \"2fc35c535b99\",\n  \"stock\" : 1,\n  \"price\" : 1\n}",
+        "code" : 200
+      }, {
+        "name" : "Example 404 - unit",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/articles/:id",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "articles", ":id" ],
+            "query" : [ ],
+            "variable" : [ {
+              "key" : "id",
+              "value" : "{{id}}",
+              "description" : {
+                "content" : "Type: uuid  | Required: true"
+              },
+              "disabled" : false
+            } ]
+          },
+          "method" : "PUT",
+          "description" : {
+            "content" : "Update a specific article"
+          },
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json",
+            "description" : {
+              "content" : "Required to send JSON body"
+            }
+          } ],
+          "body" : {
+            "raw" : "{\n  \"name\" : \"9d9cf423bbfb\",\n  \"stock\" : 1,\n  \"price\" : 1\n}",
+            "mode" : "raw"
+          }
+        },
+        "code" : 404
+      }, {
+        "name" : "Example 400 - unit",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/articles/:id",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "articles", ":id" ],
+            "query" : [ ],
+            "variable" : [ {
+              "key" : "id",
+              "value" : "{{id}}",
+              "description" : {
+                "content" : "Type: uuid  | Required: true"
+              },
+              "disabled" : false
+            } ]
+          },
+          "method" : "PUT",
+          "description" : {
+            "content" : "Update a specific article"
+          },
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json",
+            "description" : {
+              "content" : "Required to send JSON body"
+            }
+          } ],
+          "body" : {
+            "raw" : "{\n  \"name\" : \"9d9cf423bbfb\",\n  \"stock\" : 1,\n  \"price\" : 1\n}",
+            "mode" : "raw"
+          }
+        },
+        "code" : 400
+      } ],
+      "type" : "item"
+    }, {
+      "request" : {
+        "url" : {
+          "raw" : "{{BASE_URL}}/articles",
+          "host" : [ "{{BASE_URL}}" ],
+          "path" : [ "articles" ],
+          "query" : [ ],
+          "variable" : [ ]
+        },
+        "method" : "POST",
+        "description" : {
+          "content" : "Create an article"
+        },
+        "header" : [ {
+          "key" : "Content-Type",
+          "value" : "application/json",
+          "description" : {
+            "content" : "Required to send JSON body"
+          }
+        } ],
+        "body" : {
+          "raw" : "{\n  \"name\" : \"72a5f8c72125\",\n  \"stock\" : 1,\n  \"price\" : 1\n}",
+          "mode" : "raw"
+        }
+      },
+      "name" : "POST /articles",
+      "description" : {
+        "content" : "Create an article"
+      },
+      "event" : [ {
+        "listen" : "test",
+        "script" : {
+          "exec" : [ "pm.test(\"POST requests should return 2xx\", function () {", "    pm.response.to.be.success;", "});" ],
+          "type" : "text/javascript"
+        }
+      } ],
+      "response" : [ {
+        "name" : "Example 201 - article",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/articles",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "articles" ],
+            "query" : [ ],
+            "variable" : [ ]
+          },
+          "method" : "POST",
+          "description" : {
+            "content" : "Create an article"
+          },
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json",
+            "description" : {
+              "content" : "Required to send JSON body"
+            }
+          } ],
+          "body" : {
+            "raw" : "{\n  \"name\" : \"72a5f8c72125\",\n  \"stock\" : 1,\n  \"price\" : 1\n}",
+            "mode" : "raw"
+          }
+        },
+        "body" : "{\n  \"id\" : \"0ae5882f-4df6-4c0e-bdd2-98bc9727fcad\",\n  \"name\" : \"30f4989abcd7\",\n  \"stock\" : 1,\n  \"price\" : 1\n}",
+        "code" : 201
+      }, {
+        "name" : "Example 400 - unit",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/articles",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "articles" ],
+            "query" : [ ],
+            "variable" : [ ]
+          },
+          "method" : "POST",
+          "description" : {
+            "content" : "Create an article"
+          },
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json",
+            "description" : {
+              "content" : "Required to send JSON body"
+            }
+          } ],
+          "body" : {
+            "raw" : "{\n  \"name\" : \"72a5f8c72125\",\n  \"stock\" : 1,\n  \"price\" : 1\n}",
+            "mode" : "raw"
+          }
+        },
+        "code" : 400
+      } ],
+      "type" : "item"
+    }, {
+      "request" : {
+        "url" : {
+          "raw" : "{{BASE_URL}}/articles/:id",
+          "host" : [ "{{BASE_URL}}" ],
+          "path" : [ "articles", ":id" ],
+          "query" : [ ],
+          "variable" : [ {
+            "key" : "id",
+            "value" : "{{id}}",
+            "description" : {
+              "content" : "Type: uuid  | Required: true"
+            },
+            "disabled" : false
+          } ]
+        },
+        "method" : "DELETE",
+        "description" : {
+          "content" : "Delete a specific article"
+        },
+        "header" : [ ]
+      },
+      "name" : "DELETE /articles/:id",
+      "description" : {
+        "content" : "Delete a specific article"
+      },
+      "response" : [ {
+        "name" : "Example 204 - unit",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/articles/:id",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "articles", ":id" ],
+            "query" : [ ],
+            "variable" : [ {
+              "key" : "id",
+              "value" : "{{id}}",
+              "description" : {
+                "content" : "Type: uuid  | Required: true"
+              },
+              "disabled" : false
+            } ]
+          },
+          "method" : "DELETE",
+          "description" : {
+            "content" : "Delete a specific article"
+          },
+          "header" : [ ]
+        },
+        "code" : 204
+      } ],
+      "type" : "item"
+    } ],
+    "type" : "folder"
+  } ],
+  "event" : [ ],
+  "variable" : [ {
+    "key" : "BASE_URL",
+    "value" : "",
+    "type" : "string"
+  } ]
+}
