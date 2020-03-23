@@ -7,17 +7,17 @@ Complete example of a small microservies architecture driven by specifications
 ## **Generator**
 
 A microservice generator based on the specifications.  
-see: [generator](generator/readme.md)
+see: [generator](generator)
 
 ## **Services**
 
 All the microservices of the architecture.  
-see: [services](services/readme.md)
+see: [services](services)
 
 ## **Specification**
 
 The specification of each microservices.  
-see: [specification](specification/readme.md)
+see: [specification](specification)
 
 # Get started
 
@@ -57,4 +57,4 @@ WIP
 * Run `yarn install`
 
 These steps are necessary to have autocompletion.
-Now you can start coding but make sure to not edit code that will be overriden by the generator. See [services](services/readme.md) for more informations.
+Now you can start coding but make sure to not edit code that will be overriden by the generator. See [services](services) for more informations.
