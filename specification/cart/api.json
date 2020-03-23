@@ -49,6 +49,15 @@
           "default": 1
         }
       ]
+    },
+    "cart_item_quantity_form": {
+      "description": "The model used to update quantities of cart-items",
+      "fields": [
+        {
+          "name": "quantity",
+          "type": "integer"
+        }
+      ]
     }
   },
   "resources": {
@@ -94,7 +103,7 @@
           "description": "Update the quantity of an item of the cart",
           "path": "/:id/quantity",
           "body": {
-            "type": "integer"
+            "type": "cart_item_quantity_form"
           },
           "responses": {
             "200": {
