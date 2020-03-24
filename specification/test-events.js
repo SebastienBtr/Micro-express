@@ -26,8 +26,13 @@ Object.entries(services).forEach(([name, value]) => {
 });
 
 Object.entries(services).forEach(([name, value]) => {
-  // Check every produced events are at least in one consumer
+  // Check every produced events are at least in one consumer and is in kebab case
   Object.keys(value.produce).forEach(produceKey => {
+    assert(
+      produceKey === produceKey.toLowerCase().replace(/\s/g, '')
+      && !produceKey.includes('_'),
+      'Event names must be in kebab case'
+    );
     assert(
       consumers.has(produceKey),
       `"${produceKey}" is produced in "${name}" service but never consumed`
