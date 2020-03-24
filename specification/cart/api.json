@@ -66,7 +66,7 @@
       "operations": [
         {
           "method": "GET",
-          "description": "Get all the items of the cart",
+          "description": "Get all the items of the cart; methodName: getAllCartItems",
           "responses": {
             "200": {
               "type": "[cart_item]"
@@ -75,7 +75,7 @@
         },
         {
           "method": "POST",
-          "description": "Add an item in the cart",
+          "description": "Add an item in the cart; methodName: createCartItem",
           "body": {
             "type": "cart_item_form"
           },
@@ -90,7 +90,7 @@
         },
         {
           "method": "PUT",
-          "description": "Checkout the items for the payment (in our POC this will update article's stocks and empty the cart)",
+          "description": "Checkout the items for the payment (in our POC this will update article's stocks and empty the cart); methodName: checkout",
           "path": "/checkout",
           "responses": {
             "204": {
@@ -100,7 +100,7 @@
         },
         {
           "method": "PUT",
-          "description": "Update the quantity of an item of the cart",
+          "description": "Update the quantity of an item of the cart; methodName: updateCartItemQuantity",
           "path": "/:id/quantity",
           "body": {
             "type": "cart_item_quantity_form"
@@ -119,10 +119,13 @@
         },
         {
           "method": "DELETE",
-          "description": "Delete an item of the cart",
+          "description": "Delete an item of the cart; methodName: deleteCartItem",
           "path": "/:id",
           "responses": {
             "204": {
+              "type": "unit"
+            },
+            "404": {
               "type": "unit"
             }
           }

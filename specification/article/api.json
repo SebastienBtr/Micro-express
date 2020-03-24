@@ -45,7 +45,7 @@
       "operations": [
         {
           "method": "GET",
-          "description": "Get all the articles",
+          "description": "Get all the articles; methodName: getAllArticles",
           "responses": {
             "200": {
               "type": "[article]"
@@ -54,7 +54,7 @@
         },
         {
           "method": "GET",
-          "description": "Get a specific article",
+          "description": "Get a specific article; methodName: getArticleById",
           "path": "/:id",
           "responses": {
             "200": {
@@ -67,7 +67,7 @@
         },
         {
           "method": "PUT",
-          "description": "Update a specific article",
+          "description": "Update a specific article; methodName: updateArticle",
           "path": "/:id",
           "body": {
             "type": "article_form"
@@ -86,7 +86,7 @@
         },
         {
           "method": "POST",
-          "description": "Create an article",
+          "description": "Create an article; methodName: createArticle",
           "body": {
             "type": "article_form"
           },
@@ -101,10 +101,13 @@
         },
         {
           "method": "DELETE",
-          "description": "Delete a specific article",
+          "description": "Delete a specific article; methodName: deleteArticle",
           "path": "/:id",
           "responses": {
             "204": {
+              "type": "unit"
+            },
+            "404": {
               "type": "unit"
             }
           }
