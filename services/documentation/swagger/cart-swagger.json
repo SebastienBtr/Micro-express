@@ -14,7 +14,7 @@
   "paths": {
     "/cart/items": {
       "get": {
-        "description": "Get all the items of the cart",
+        "description": "Get all the items of the cart; methodName: getAllCartItems",
         "parameters": [],
         "responses": {
           "200": {
@@ -29,7 +29,7 @@
         }
       },
       "post": {
-        "description": "Add an item in the cart",
+        "description": "Add an item in the cart; methodName: createCartItem",
         "parameters": [
           {
             "name": "cart_item_form",
@@ -54,7 +54,7 @@
     },
     "/cart/items/checkout": {
       "put": {
-        "description": "Checkout the items for the payment (in our POC this will update article's stocks and empty the cart)",
+        "description": "Checkout the items for the payment (in our POC this will update article's stocks and empty the cart); methodName: checkout",
         "parameters": [],
         "responses": {
           "204": {
@@ -65,7 +65,7 @@
     },
     "/cart/items/{id}/quantity": {
       "put": {
-        "description": "Update the quantity of an item of the cart",
+        "description": "Update the quantity of an item of the cart; methodName: updateCartItemQuantity",
         "parameters": [
           {
             "name": "id",
@@ -100,7 +100,7 @@
     },
     "/cart/items/{id}": {
       "delete": {
-        "description": "Delete an item of the cart",
+        "description": "Delete an item of the cart; methodName: deleteCartItem",
         "parameters": [
           {
             "name": "id",
@@ -113,6 +113,9 @@
         "responses": {
           "204": {
             "description": "204 response"
+          },
+          "404": {
+            "description": "404 response"
           }
         }
       }
