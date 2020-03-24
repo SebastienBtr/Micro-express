@@ -7,8 +7,12 @@ const { deleteCartItem } = require('../repository');
  */
 module.exports.deleteCartItem = async (req, res) => {
   try {
-    await deleteCartItem(req.params.id);
-    res.status(204).send();
+    const deletedCartItem = await deleteCartItem(req.params.id);
+    if (deletedCartItem != null) {
+      res.status(204).send();
+    } else {
+      res.status(404).send({ message: `No cart-item with id: ${req.params.id}` });
+    }
   } catch (e) {
     winston.error(e);
     res.status(500).send({ message: e });
