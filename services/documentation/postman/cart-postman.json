@@ -20,13 +20,13 @@
         },
         "method" : "GET",
         "description" : {
-          "content" : "Get all the items of the cart"
+          "content" : "Get all the items of the cart; methodName: getAllCartItems"
         },
         "header" : [ ]
       },
       "name" : "GET /cart/items",
       "description" : {
-        "content" : "Get all the items of the cart"
+        "content" : "Get all the items of the cart; methodName: getAllCartItems"
       },
       "event" : [ {
         "listen" : "test",
@@ -47,11 +47,11 @@
           },
           "method" : "GET",
           "description" : {
-            "content" : "Get all the items of the cart"
+            "content" : "Get all the items of the cart; methodName: getAllCartItems"
           },
           "header" : [ ]
         },
-        "body" : "[ {\n  \"quantity\" : 1,\n  \"articleName\" : \"1a53b36f2cb5\",\n  \"id\" : \"671bd500-d465-4401-8a3c-636145a20912\",\n  \"articlePrice\" : \"5e278240eec4\",\n  \"articleId\" : \"9c803571-44a8-4137-b7df-e21386afc665\"\n} ]",
+        "body" : "[ {\n  \"quantity\" : 1,\n  \"articleName\" : \"8c77f6e99d18\",\n  \"id\" : \"538566d2-c020-4555-8565-36c012e1ba43\",\n  \"articlePrice\" : 1,\n  \"articleId\" : \"a5172b3e-bd48-4e36-a75a-cfce82a6fac1\"\n} ]",
         "code" : 200
       } ],
       "type" : "item"
@@ -66,7 +66,7 @@
         },
         "method" : "POST",
         "description" : {
-          "content" : "Add an item in the cart"
+          "content" : "Add an item in the cart; methodName: createCartItem"
         },
         "header" : [ {
           "key" : "Content-Type",
@@ -76,13 +76,13 @@
           }
         } ],
         "body" : {
-          "raw" : "{\n  \"articleId\" : \"c5b55d95-29e5-4644-8a40-44890e2804cc\",\n  \"articleName\" : \"980b6e35625d\",\n  \"articlePrice\" : \"109b113f3603\",\n  \"quantity\" : 1\n}",
+          "raw" : "{\n  \"articleId\" : \"775805ad-db5b-4e27-93a8-6d03add1f67e\",\n  \"articleName\" : \"bec2113e4f5a\",\n  \"articlePrice\" : 1,\n  \"quantity\" : 1\n}",
           "mode" : "raw"
         }
       },
       "name" : "POST /cart/items",
       "description" : {
-        "content" : "Add an item in the cart"
+        "content" : "Add an item in the cart; methodName: createCartItem"
       },
       "event" : [ {
         "listen" : "test",
@@ -103,7 +103,7 @@
           },
           "method" : "POST",
           "description" : {
-            "content" : "Add an item in the cart"
+            "content" : "Add an item in the cart; methodName: createCartItem"
           },
           "header" : [ {
             "key" : "Content-Type",
@@ -113,11 +113,11 @@
             }
           } ],
           "body" : {
-            "raw" : "{\n  \"articleId\" : \"c5b55d95-29e5-4644-8a40-44890e2804cc\",\n  \"articleName\" : \"980b6e35625d\",\n  \"articlePrice\" : \"109b113f3603\",\n  \"quantity\" : 1\n}",
+            "raw" : "{\n  \"articleId\" : \"775805ad-db5b-4e27-93a8-6d03add1f67e\",\n  \"articleName\" : \"bec2113e4f5a\",\n  \"articlePrice\" : 1,\n  \"quantity\" : 1\n}",
             "mode" : "raw"
           }
         },
-        "body" : "{\n  \"quantity\" : 1,\n  \"articleName\" : \"73d99fcb84da\",\n  \"id\" : \"8cb436a5-881c-4f48-9d27-2599bab8f617\",\n  \"articlePrice\" : \"72cd0bbfe483\",\n  \"articleId\" : \"0b4abe5a-0497-40bc-961c-17a02c87b3f1\"\n}",
+        "body" : "{\n  \"quantity\" : 1,\n  \"articleName\" : \"cf4b9a3043e3\",\n  \"id\" : \"8fe3b7a1-0195-4346-af14-e79fde1c19a3\",\n  \"articlePrice\" : 1,\n  \"articleId\" : \"8caceaeb-049c-4488-b533-6b5958710d2c\"\n}",
         "code" : 201
       }, {
         "name" : "Example 400 - unit",
@@ -131,7 +131,7 @@
           },
           "method" : "POST",
           "description" : {
-            "content" : "Add an item in the cart"
+            "content" : "Add an item in the cart; methodName: createCartItem"
           },
           "header" : [ {
             "key" : "Content-Type",
@@ -141,7 +141,7 @@
             }
           } ],
           "body" : {
-            "raw" : "{\n  \"articleId\" : \"c5b55d95-29e5-4644-8a40-44890e2804cc\",\n  \"articleName\" : \"980b6e35625d\",\n  \"articlePrice\" : \"109b113f3603\",\n  \"quantity\" : 1\n}",
+            "raw" : "{\n  \"articleId\" : \"775805ad-db5b-4e27-93a8-6d03add1f67e\",\n  \"articleName\" : \"bec2113e4f5a\",\n  \"articlePrice\" : 1,\n  \"quantity\" : 1\n}",
             "mode" : "raw"
           }
         },
@@ -159,13 +159,13 @@
         },
         "method" : "PUT",
         "description" : {
-          "content" : "Checkout the items for the payment (in our POC this will update article's stocks and empty the cart)"
+          "content" : "Checkout the items for the payment (in our POC this will update article's stocks and empty the cart); methodName: checkout"
         },
         "header" : [ ]
       },
       "name" : "PUT /cart/items/checkout",
       "description" : {
-        "content" : "Checkout the items for the payment (in our POC this will update article's stocks and empty the cart)"
+        "content" : "Checkout the items for the payment (in our POC this will update article's stocks and empty the cart); methodName: checkout"
       },
       "event" : [ {
         "listen" : "test",
@@ -186,7 +186,7 @@
           },
           "method" : "PUT",
           "description" : {
-            "content" : "Checkout the items for the payment (in our POC this will update article's stocks and empty the cart)"
+            "content" : "Checkout the items for the payment (in our POC this will update article's stocks and empty the cart); methodName: checkout"
           },
           "header" : [ ]
         },
@@ -196,9 +196,9 @@
     }, {
       "request" : {
         "url" : {
-          "raw" : "{{BASE_URL}}/cart/items/:id/quantity",
+          "raw" : "{{BASE_URL}}/cart/items/quantity/:id",
           "host" : [ "{{BASE_URL}}" ],
-          "path" : [ "cart", "items", ":id", "quantity" ],
+          "path" : [ "cart", "items", "quantity", ":id" ],
           "query" : [ ],
           "variable" : [ {
             "key" : "id",
@@ -211,7 +211,7 @@
         },
         "method" : "PUT",
         "description" : {
-          "content" : "Update the quantity of an item of the cart"
+          "content" : "Update the quantity of an item of the cart; methodName: updateCartItemQuantity"
         },
         "header" : [ {
           "key" : "Content-Type",
@@ -225,9 +225,9 @@
           "mode" : "raw"
         }
       },
-      "name" : "PUT /cart/items/:id/quantity",
+      "name" : "PUT /cart/items/quantity/:id",
       "description" : {
-        "content" : "Update the quantity of an item of the cart"
+        "content" : "Update the quantity of an item of the cart; methodName: updateCartItemQuantity"
       },
       "event" : [ {
         "listen" : "test",
@@ -240,9 +240,9 @@
         "name" : "Example 200 - cart_item",
         "originalRequest" : {
           "url" : {
-            "raw" : "{{BASE_URL}}/cart/items/:id/quantity",
+            "raw" : "{{BASE_URL}}/cart/items/quantity/:id",
             "host" : [ "{{BASE_URL}}" ],
-            "path" : [ "cart", "items", ":id", "quantity" ],
+            "path" : [ "cart", "items", "quantity", ":id" ],
             "query" : [ ],
             "variable" : [ {
               "key" : "id",
@@ -255,7 +255,7 @@
           },
           "method" : "PUT",
           "description" : {
-            "content" : "Update the quantity of an item of the cart"
+            "content" : "Update the quantity of an item of the cart; methodName: updateCartItemQuantity"
           },
           "header" : [ {
             "key" : "Content-Type",
@@ -269,15 +269,15 @@
             "mode" : "raw"
           }
         },
-        "body" : "{\n  \"quantity\" : 1,\n  \"articleName\" : \"62377f7cd3af\",\n  \"id\" : \"e384aab6-7879-49d0-a76d-f1fad81ea996\",\n  \"articlePrice\" : \"8e75a774e722\",\n  \"articleId\" : \"36ab7049-b721-45e4-beff-22acd9c5341a\"\n}",
+        "body" : "{\n  \"quantity\" : 1,\n  \"articleName\" : \"a65b640148ca\",\n  \"id\" : \"3a924b6b-8f82-46dc-bb16-6cad74912294\",\n  \"articlePrice\" : 1,\n  \"articleId\" : \"a9fab911-8d7a-474c-a4a8-6f11c61a8cd3\"\n}",
         "code" : 200
       }, {
         "name" : "Example 400 - unit",
         "originalRequest" : {
           "url" : {
-            "raw" : "{{BASE_URL}}/cart/items/:id/quantity",
+            "raw" : "{{BASE_URL}}/cart/items/quantity/:id",
             "host" : [ "{{BASE_URL}}" ],
-            "path" : [ "cart", "items", ":id", "quantity" ],
+            "path" : [ "cart", "items", "quantity", ":id" ],
             "query" : [ ],
             "variable" : [ {
               "key" : "id",
@@ -290,7 +290,7 @@
           },
           "method" : "PUT",
           "description" : {
-            "content" : "Update the quantity of an item of the cart"
+            "content" : "Update the quantity of an item of the cart; methodName: updateCartItemQuantity"
           },
           "header" : [ {
             "key" : "Content-Type",
@@ -309,9 +309,9 @@
         "name" : "Example 404 - unit",
         "originalRequest" : {
           "url" : {
-            "raw" : "{{BASE_URL}}/cart/items/:id/quantity",
+            "raw" : "{{BASE_URL}}/cart/items/quantity/:id",
             "host" : [ "{{BASE_URL}}" ],
-            "path" : [ "cart", "items", ":id", "quantity" ],
+            "path" : [ "cart", "items", "quantity", ":id" ],
             "query" : [ ],
             "variable" : [ {
               "key" : "id",
@@ -324,7 +324,7 @@
           },
           "method" : "PUT",
           "description" : {
-            "content" : "Update the quantity of an item of the cart"
+            "content" : "Update the quantity of an item of the cart; methodName: updateCartItemQuantity"
           },
           "header" : [ {
             "key" : "Content-Type",
@@ -359,13 +359,13 @@
         },
         "method" : "DELETE",
         "description" : {
-          "content" : "Delete an item of the cart"
+          "content" : "Delete an item of the cart; methodName: deleteCartItem"
         },
         "header" : [ ]
       },
       "name" : "DELETE /cart/items/:id",
       "description" : {
-        "content" : "Delete an item of the cart"
+        "content" : "Delete an item of the cart; methodName: deleteCartItem"
       },
       "response" : [ {
         "name" : "Example 204 - unit",
@@ -386,11 +386,35 @@
           },
           "method" : "DELETE",
           "description" : {
-            "content" : "Delete an item of the cart"
+            "content" : "Delete an item of the cart; methodName: deleteCartItem"
           },
           "header" : [ ]
         },
         "code" : 204
+      }, {
+        "name" : "Example 404 - unit",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/cart/items/:id",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "cart", "items", ":id" ],
+            "query" : [ ],
+            "variable" : [ {
+              "key" : "id",
+              "value" : "{{id}}",
+              "description" : {
+                "content" : "Type: uuid  | Required: true"
+              },
+              "disabled" : false
+            } ]
+          },
+          "method" : "DELETE",
+          "description" : {
+            "content" : "Delete an item of the cart; methodName: deleteCartItem"
+          },
+          "header" : [ ]
+        },
+        "code" : 404
       } ],
       "type" : "item"
     } ],

@@ -63,7 +63,7 @@
         }
       }
     },
-    "/cart/items/{id}/quantity": {
+    "/cart/items/quantity/{id}": {
       "put": {
         "description": "Update the quantity of an item of the cart; methodName: updateCartItemQuantity",
         "parameters": [
@@ -146,7 +146,8 @@
           "type": "string"
         },
         "articlePrice": {
-          "type": "string"
+          "type": "number",
+          "format": "double"
         },
         "quantity": {
           "type": "integer",
@@ -172,7 +173,8 @@
           "type": "string"
         },
         "articlePrice": {
-          "type": "string"
+          "type": "number",
+          "format": "double"
         },
         "quantity": {
           "default": "1",

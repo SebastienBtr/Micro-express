@@ -34,7 +34,7 @@ router.put('/cart/items/checkout', routesVersioning({
 /**
  * Update the quantity of an item of the cart
  */
-router.put('/cart/items/:id/quantity', routesVersioning({
+router.put('/cart/items/quantity/:id', routesVersioning({
   '^1.0.0': ctrl.updateCartItemQuantity,
 }));
 
