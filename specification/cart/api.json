@@ -19,7 +19,7 @@
         },
         {
           "name": "articlePrice",
-          "type": "string"
+          "type": "double"
         },
         {
           "name": "quantity",
@@ -40,7 +40,7 @@
         },
         {
           "name": "articlePrice",
-          "type": "string"
+          "type": "double"
         },
         {
           "name": "quantity",
@@ -101,7 +101,7 @@
         {
           "method": "PUT",
           "description": "Update the quantity of an item of the cart; methodName: updateCartItemQuantity",
-          "path": "/:id/quantity",
+          "path": "/quantity/:id",
           "body": {
             "type": "cart_item_quantity_form"
           },
