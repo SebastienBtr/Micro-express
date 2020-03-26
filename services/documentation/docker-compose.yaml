@@ -9,7 +9,10 @@ services:
       - '${SERVER_PORT:-3300}:${SERVER_PORT:-3300}'
     networks: 
       - app
+      - api-gateway_krakend
       
 networks:
+  api-gateway_krakend:
+    external: true
   app:
     driver: bridge

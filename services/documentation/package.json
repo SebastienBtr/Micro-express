@@ -3,10 +3,10 @@
   "description": "",
   "version": "1.0.0",
   "license": "MIT",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/events/test.js",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "lint-check": "eslint ./ --ext js; exit 0",
     "lint-fix": "eslint ./ --ext js --fix; exit 0"
   },

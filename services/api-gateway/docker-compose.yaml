@@ -1,0 +1,20 @@
+version: '3'
+services:
+  krakend_ce:
+    image: devopsfaith/krakend:1.1.1
+    container_name: krakend
+    volumes:
+      - .:/etc/krakend
+    ports:
+      - "8080:8080"
+    networks: 
+      - krakend
+    environment: 
+      FC_ENABLE: 1
+      FC_SETTINGS: "/etc/krakend/settings"
+      FC_TEMPLATES: "/etc/krakend/templates"
+      FC_OUT: "out.json"
+
+networks:
+  krakend:
+    driver: bridge

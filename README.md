@@ -39,7 +39,7 @@ In `services` there is a `launcher.sh` script to launch the desired services wit
 
 * To launch specific services: `./service/launcher.sh <service-name> <service-name-2>`
 
-The "service name" is the same as the service's directory and the services will be launched in the order you pass them to the script.
+The "service name" is the same as the service's directory and the services will be launched in the order you pass them to the script. The api-gateway and kafka services will be launched automatically.
 
 To simplify the development and allow you to work on a service without using the api-gateway, each business services are exposed to your host with a default port that can be seen in the docker-compose file and this value can overriden if you create a `.env` file in the project. An example is provided with the `.env.default` file.
 

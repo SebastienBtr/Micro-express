@@ -1,0 +1,19 @@
+{{ range $i, $el := .endpoints }}
+{{if $i}},{{end}}
+{
+  "endpoint": "{{ $el.endpoint }}",
+  "headers_to_pass": [
+    "accept-version"
+  ],
+  "output_encoding": "no-op",
+  "method": "{{ $el.method }}",
+  "backend": [
+    {
+      "encoding": "no-op",
+      "host": {{ marshal $.hosts }},
+      "url_pattern": "{{ $el.url_pattern }}",
+      "method": "{{ $el.method }}"
+    }
+  ]
+}
+{{ end }}

@@ -1,0 +1,32 @@
+{
+  "hosts": [
+    "http://cart_app_1:3400"
+  ],
+  "endpoints": [
+    {
+      "endpoint": "/cart/items",
+      "method": "GET",
+      "url_pattern": "/cart/items"
+    },
+    {
+      "endpoint": "/cart/items",
+      "method": "POST",
+      "url_pattern": "/cart/items"
+    },
+    {
+      "endpoint": "/cart/items/checkout",
+      "method": "PUT",
+      "url_pattern": "/cart/items/checkout"
+    },
+    {
+      "endpoint": "/cart/items/quantity/{id}",
+      "method": "PUT",
+      "url_pattern": "/cart/items/quantity/{id}"
+    },
+    {
+      "endpoint": "/cart/items/{id}",
+      "method": "DELETE",
+      "url_pattern": "/cart/items/{id}"
+    }
+  ]
+}

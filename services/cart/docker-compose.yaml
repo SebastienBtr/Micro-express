@@ -9,6 +9,7 @@ services:
       - '${SERVER_PORT:-3400}:${SERVER_PORT:-3400}'
     networks: 
       - kafka_broker
+      - api-gateway_krakend
       - app
     depends_on:
       - prisma
@@ -47,6 +48,8 @@ services:
       
 networks:
   kafka_broker:
+    external: true
+  api-gateway_krakend:
     external: true
   app:
     driver: bridge

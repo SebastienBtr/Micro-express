@@ -1,0 +1,32 @@
+{
+  "hosts": [
+    "http://article_app_1:3500"
+  ],
+  "endpoints": [
+    {
+      "endpoint": "/articles",
+      "method": "GET",
+      "url_pattern": "/articles"
+    },
+    {
+      "endpoint": "/articles",
+      "method": "POST",
+      "url_pattern": "/articles"
+    },
+    {
+      "endpoint": "/articles/{id}",
+      "method": "GET",
+      "url_pattern": "/articles/{id}"
+    },
+    {
+      "endpoint": "/articles/{id}",
+      "method": "PUT",
+      "url_pattern": "/articles/{id}"
+    },
+    {
+      "endpoint": "/articles/{id}",
+      "method": "DELETE",
+      "url_pattern": "/articles/{id}"
+    }
+  ]
+}

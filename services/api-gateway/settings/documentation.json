@@ -1,0 +1,42 @@
+{
+  "hosts": [
+    "http://documentation_app_1:3300"
+  ],
+  "endpoints": [
+    {
+      "endpoint": "/documentation",
+      "method": "GET",
+      "url_pattern": "/documentation"
+    },
+    {
+      "endpoint": "/swagger-ui.css",
+      "method": "GET",
+      "url_pattern": "/documentation/swagger-ui.css"
+    },
+    {
+      "endpoint": "/swagger-ui-bundle.js",
+      "method": "GET",
+      "url_pattern": "/documentation/swagger-ui-bundle.js"
+    },
+    {
+      "endpoint": "/swagger-ui-standalone-preset.js",
+      "method": "GET",
+      "url_pattern": "/documentation/swagger-ui-standalone-preset.js"
+    },
+    {
+      "endpoint": "/swagger-ui-init.js",
+      "method": "GET",
+      "url_pattern": "/documentation/swagger-ui-init.js"
+    },
+    {
+      "endpoint": "/favicon-32x32.png",
+      "method": "GET",
+      "url_pattern": "/documentation/favicon-32x32.png"
+    },
+    {
+      "endpoint": "/favicon-16x16.png",
+      "method": "GET",
+      "url_pattern": "/documentation/favicon-16x16.png"
+    }
+  ]
+}
