@@ -6,7 +6,7 @@ services:
     volumes:
       - ./src:/app/src
     ports:
-      - '${SERVER_PORT:-3500}:${SERVER_PORT:-3500}'
+      - '${SERVER_PORT:-3500}:3500'
     networks: 
       - kafka_broker
       - api-gateway_krakend
