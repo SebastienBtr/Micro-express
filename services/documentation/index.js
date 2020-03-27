@@ -4,7 +4,7 @@ const swaggerUi = require('swagger-ui-express');
 require('dotenv').config();
 
 const app = express();
-const port = process.env.SERVER_PORT || 3300;
+const port = 3500;
 
 /**
  * Add headers

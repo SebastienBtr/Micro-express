@@ -6,7 +6,7 @@ services:
     volumes:
       - .:/app
     ports:
-      - '${SERVER_PORT:-3300}:${SERVER_PORT:-3300}'
+      - '${SERVER_PORT:-3300}:3500'
     networks: 
       - app
       - api-gateway_krakend
