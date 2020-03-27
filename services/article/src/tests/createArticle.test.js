@@ -9,45 +9,6 @@ const sampleOk = {
   price: 1020.5,
 };
 
-const sampleMissingPrice = {
-  name: 'article',
-  stock: 109,
-};
-
-const sampleMissingStock = {
-  name: 'article',
-  price: 1020.5,
-};
-
-const sampleMissingName = {
-  stock: 109,
-  price: 1020.5,
-};
-
-const samplePriceNaN = {
-  name: 'article',
-  stock: 109,
-  price: 'toto',
-};
-
-const samplePriceStringNumber = {
-  name: 'article',
-  stock: 109,
-  price: '1020.5',
-};
-
-const sampleStockNaN = {
-  name: 'article',
-  stock: 'toto',
-  price: 1020.5,
-};
-
-const sampleStockStringNumber = {
-  name: 'article',
-  stock: '109',
-  price: 1020.5,
-};
-
 beforeEach(async (done) => {
   await prisma.deleteManyArticles();
   done();
@@ -69,52 +30,24 @@ describe('Create Article', () => {
     expect(res.body.price).toEqual(sampleOk.price);
     done();
   });
-  it('should return a 400 because no "price"', async (done) => {
+  it.each([
+    { name: 'article', stock: 109 },
+    { name: 'article', price: 1020.5 },
+    { stock: 109, price: 1020.5 },
+  ])('should return a 400 because a required field is missing', async (data, done) => {
     const res = await request(app)
       .post('/articles')
-      .send(sampleMissingPrice);
+      .send(data);
     expect(res.statusCode).toEqual(400);
     done();
   });
-  it('should return a 400 because no "stock"', async (done) => {
+  it.each([
+    { name: 'article', stock: 109, price: '1020.5' },
+    { name: 'article', stock: '109', price: 1020.5 },
+  ])('should return a 400 because a number field is not a number', async (data, done) => {
     const res = await request(app)
       .post('/articles')
-      .send(sampleMissingStock);
-    expect(res.statusCode).toEqual(400);
-    done();
-  });
-  it('should return a 400 because no "name"', async (done) => {
-    const res = await request(app)
-      .post('/articles')
-      .send(sampleMissingName);
-    expect(res.statusCode).toEqual(400);
-    done();
-  });
-  it('should return a 400 because price is not a number', async (done) => {
-    const res = await request(app)
-      .post('/articles')
-      .send(samplePriceNaN);
-    expect(res.statusCode).toEqual(400);
-    done();
-  });
-  it('should return a 400 because price is a string number', async (done) => {
-    const res = await request(app)
-      .post('/articles')
-      .send(samplePriceStringNumber);
-    expect(res.statusCode).toEqual(400);
-    done();
-  });
-  it('should return a 400 because stock is not a number', async (done) => {
-    const res = await request(app)
-      .post('/articles')
-      .send(sampleStockNaN);
-    expect(res.statusCode).toEqual(400);
-    done();
-  });
-  it('should return a 400 because stock is a string number', async (done) => {
-    const res = await request(app)
-      .post('/articles')
-      .send(sampleStockStringNumber);
+      .send(data);
     expect(res.statusCode).toEqual(400);
     done();
   });
