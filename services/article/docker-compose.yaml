@@ -2,7 +2,7 @@ version: '3'
 services:
   app:
     build: .
-    command: sh -c "./wait-for-it.sh -t 15 prisma:4466 --strict -- prisma deploy && yarn run dev"
+    command: sh -c "./wait-for-it.sh -t 15 prisma:4466 --strict -- prisma deploy && yarn run ${ENV:-dev}"
     volumes:
       - ./src:/app/src
     ports:
@@ -58,3 +58,4 @@ networks:
 
 volumes:
   postgres-dev:
+  postgres-test:
