@@ -1,5 +1,5 @@
-exports.getAllArticles = require('./getAllArticlesCtrl').getAllArticles;
-exports.createArticle = require('./createArticleCtrl').createArticle;
-exports.updateArticle = require('./updateArticleCtrl').updateArticle;
-exports.getArticleById = require('./getArticleByIdCtrl').getArticleById;
-exports.deleteArticle = require('./deleteArticleCtrl').deleteArticle;
+exports.getAllArticles = require('./getAllArticles.ctrl').getAllArticles;
+exports.createArticle = require('./createArticle.ctrl').createArticle;
+exports.updateArticle = require('./updateArticle.ctrl').updateArticle;
+exports.getArticleById = require('./getArticleById.ctrl').getArticleById;
+exports.deleteArticle = require('./deleteArticle.ctrl').deleteArticle;
