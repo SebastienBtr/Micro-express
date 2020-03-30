@@ -1,6 +1,6 @@
 {
   "hosts": [
-    "http://documentation_app_1:3300"
+    "http://documentation_app_1:3500"
   ],
   "endpoints": [
     {

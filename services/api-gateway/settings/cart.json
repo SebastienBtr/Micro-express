@@ -1,6 +1,6 @@
 {
   "hosts": [
-    "http://cart_app_1:3400"
+    "http://cart_app_1:3500"
   ],
   "endpoints": [
     {
