@@ -13,7 +13,7 @@ services:
       FC_ENABLE: 1
       FC_SETTINGS: "/etc/krakend/settings"
       FC_TEMPLATES: "/etc/krakend/templates"
-      FC_OUT: "out.json"
+      #FC_OUT: "out.json" # only for debug purpose
 
 networks:
   krakend:

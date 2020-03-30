@@ -2,9 +2,10 @@ version: '3'
 services:
   app:
     build: .
-    command: yarn run dev
+    command: yarn run ${ENV:-dev}
     volumes:
       - .:/app
+      - /app/node_modules
     ports:
       - '${SERVER_PORT:-3300}:3500'
     networks: 

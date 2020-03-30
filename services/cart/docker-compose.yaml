@@ -5,6 +5,7 @@ services:
     command: sh -c "./wait-for-it.sh -t 15 prisma:4466 --strict -- prisma deploy && yarn run ${ENV:-dev}"
     volumes:
       - ./src:/app/src
+      - /app/node_modules
     ports:
       - '${SERVER_PORT:-3400}:3500'
     networks: 
