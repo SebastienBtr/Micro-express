@@ -1,4 +1,5 @@
 #!/bin/bash
+source ~/.bashrc # to access "docker-compose" alias in production
 scriptArguments=$@
 root="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
