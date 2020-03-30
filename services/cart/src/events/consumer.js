@@ -1,12 +1,10 @@
-const { Kafka } = require('kafkajs');
 const winston = require('winston');
+const { Kafka } = require('kafkajs');
 const { updateCartItemByArticleId, deleteCartItemByArticleId } = require('../repository');
+const topics = require('./topics');
+const kafkaConfig = require('./kafkaConfig');
 
-const kafka = new Kafka({
-  clientId: 'cart',
-  brokers: ['kafka:9092'],
-});
-
+const kafka = new Kafka(kafkaConfig.config);
 const consumer = kafka.consumer({ groupId: 'cart' });
 
 /**
@@ -54,21 +52,25 @@ const deleteArticleEvent = async (article) => {
 };
 
 module.exports.launchConsumers = async () => {
-  await consumer.connect();
-  await consumer.subscribe({ topic: 'delete-article' });
-  await consumer.subscribe({ topic: 'update-article' });
+  try {
+    await consumer.connect();
+    await consumer.subscribe({ topic: topics.DELETE_ARTICLE });
+    await consumer.subscribe({ topic: topics.UPDATE_ARTICLE });
 
-  await consumer.run({
-    eachMessage: async ({ topic, message }) => {
-      switch (topic) {
-        case 'delete-article':
-          await deleteArticleEvent(JSON.parse(message.value.toString()));
-          break;
-        case 'update-article':
-          await updateArticleEvent(JSON.parse(message.value.toString()));
-          break;
-        default:
-      }
-    },
-  });
+    await consumer.run({
+      eachMessage: async ({ topic, message }) => {
+        switch (topic) {
+          case topics.DELETE_ARTICLE:
+            await deleteArticleEvent(JSON.parse(message.value.toString()));
+            break;
+          case topics.UPDATE_ARTICLE:
+            await updateArticleEvent(JSON.parse(message.value.toString()));
+            break;
+          default:
+        }
+      },
+    });
+  } catch (e) {
+    winston.error(e);
+  }
 };

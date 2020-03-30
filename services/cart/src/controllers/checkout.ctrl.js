@@ -1,5 +1,6 @@
 const winston = require('winston');
 const { produce } = require('../events/producer');
+const topics = require('../events/topics');
 const { deleteAllCartItems, getAllCartItems } = require('../repository');
 
 /**
@@ -12,7 +13,7 @@ module.exports.checkout = async (req, res) => {
     const cartItems = await getAllCartItems();
     const deletedCartItems = await deleteAllCartItems();
     if (deletedCartItems.count > 0) {
-      await produce('cart-checkout', cartItems);
+      await produce(topics.CART_CHECKOUT, cartItems);
     }
     res.status(204).send();
   } catch (e) {
