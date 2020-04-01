@@ -20,35 +20,35 @@ do
     esac
 done
 
-launchAll() {
-  cd "$root"/api-gateway
-  ENV=$env docker-compose up -d --build --force-recreate
-  cd "$root"/kafka
-  ENV=$env docker-compose up -d --build --force-recreate
-  cd "$root"/article
-  ENV=$env docker-compose up -d --build --force-recreate
-  cd "$root"/cart
-  ENV=$env docker-compose up -d --build --force-recreate
-  cd "$root"/documentation
-  ENV=$env docker-compose up -d --build --force-recreate
-}
-
 if test ${#scriptArguments[@]} -lt 1
 then
   echo "Launch all"
-  launchAll
-else
-  cd "$root"/api-gateway
-  ENV=$env docker-compose up -d --build --force-recreate
-  if [[ $env != "prod" ]]
-  then
-    cd "$root"/kafka
-    ENV=$env docker-compose up -d --build --force-recreate
-  fi
-  for var in $scriptArguments
-  do 
-    echo "Launch " $var
-    cd "$root"/$var
-    ENV=$env docker-compose up -d --build --force-recreate
-  done
+  scriptArguments=(article cart documentation)
 fi
+cd "$root"/api-gateway
+ENV=$env docker-compose up -d --build --quiet-pull
+if [[ $env != "prod" ]]
+then
+  cd "$root"/kafka
+  ENV=$env docker-compose up -d --build --quiet-pull
+fi
+for i in "${scriptArguments[@]}"
+do 
+  echo "=============================== Launch "$i" ==============================="
+  cd "$root"/"$i" 
+  ENV=$env docker-compose up --build -d --quiet-pull
+  if [[ $env == "test" ]]
+  then
+    docker logs -f "$i"_app_1
+    res=$(docker wait "$i"_app_1)
+    if [[ $res != 0 ]]
+    then
+      echo ""
+      echo "=================================================================================="
+      echo "TEST FAIL FOR "$i""
+      echo "=================================================================================="
+      echo ""
+      exit 1
+    fi
+  fi
+done
