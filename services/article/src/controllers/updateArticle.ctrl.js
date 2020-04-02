@@ -1,6 +1,7 @@
 const winston = require('winston');
 const { updateArticle } = require('../repository');
 const { produce } = require('../events/producer');
+const topics = require('../events/topics');
 
 /**
  * Check if the body of the request contains the good elements
@@ -23,7 +24,7 @@ module.exports.updateArticle = async (req, res) => {
     try {
       const updatedArticle = await updateArticle(req.params.id, req.body);
       if (updatedArticle != null) {
-        await produce('update-article', updatedArticle);
+        await produce(topics.UPDATE_ARTICLE, updatedArticle);
         res.status(200).send(updatedArticle);
       } else {
         res.status(404).send({ message: `No article with id: ${req.params.id}` });

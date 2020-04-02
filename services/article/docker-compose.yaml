@@ -6,10 +6,7 @@ services:
     volumes:
       - ./src:/app/src
       - /app/node_modules
-    ports:
-      - '${SERVER_PORT:-3500}:3500'
     networks: 
-      - kafka_broker
       - api-gateway_krakend
       - app
     depends_on:
@@ -22,7 +19,6 @@ services:
     restart: always
     networks: 
       - app
-      - postgres
     environment:
       PRISMA_CONFIG: |
         port: 4466
@@ -30,33 +26,15 @@ services:
         databases:
           default:
             connector: postgres
-            host: postgres
-            port: 5432
-            user: postgres
-            password: postgres
-
-  postgres:
-    image: postgres:10.3
-    restart: always
-    networks: 
-      - postgres
-    environment:
-      POSTGRES_DB: prisma
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-    volumes:
-      - postgres-${ENV:-dev}:/var/lib/postgresql/data
+            host: ${DB_HOST}
+            port: ${DB_PORT}
+            database: ${DB_NAME}
+            schema: public
+            user: ${DB_USER}
+            password: ${DB_PASSWORD}
       
 networks:
-  kafka_broker:
-    external: true
   api-gateway_krakend:
     external: true
   app:
     driver: bridge
-  postgres:
-    driver: bridge
-
-volumes:
-  postgres-dev:
-  postgres-test:

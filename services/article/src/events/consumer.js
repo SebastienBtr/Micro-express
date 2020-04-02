@@ -1,12 +1,10 @@
 const { Kafka } = require('kafkajs');
 const winston = require('winston');
 const { decrementArticleStock } = require('../repository');
+const topics = require('./topics');
+const kafkaConfig = require('./kafkaConfig');
 
-const kafka = new Kafka({
-  clientId: 'article',
-  brokers: ['kafka:9092'],
-});
-
+const kafka = new Kafka(kafkaConfig.config);
 const consumer = kafka.consumer({ groupId: 'article' });
 
 /**
@@ -41,17 +39,21 @@ const cartCheckoutEvent = async (cartItems) => {
  * Subscribe to kafka topics
  */
 module.exports.launchConsumers = async () => {
-  await consumer.connect();
-  await consumer.subscribe({ topic: 'cart-checkout' });
+  try {
+    await consumer.connect();
+    await consumer.subscribe({ topic: topics.CART_CHECKOUT });
 
-  await consumer.run({
-    eachMessage: async ({ topic, message }) => {
-      switch (topic) {
-        case 'cart-checkout':
-          await cartCheckoutEvent(JSON.parse(message.value.toString()));
-          break;
-        default:
-      }
-    },
-  });
+    await consumer.run({
+      eachMessage: async ({ topic, message }) => {
+        switch (topic) {
+          case topics.CART_CHECKOUT:
+            await cartCheckoutEvent(JSON.parse(message.value.toString()));
+            break;
+          default:
+        }
+      },
+    });
+  } catch (e) {
+    winston.error(e);
+  }
 };
