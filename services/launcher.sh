@@ -36,7 +36,14 @@ for i in "${scriptArguments[@]}"
 do 
   echo "=============================== Launch "$i" ==============================="
   cd "$root"/"$i" 
-  ENV=$env docker-compose up --build -d --quiet-pull
+
+  if [[ $env == "prod" ]]
+  then 
+    ENV=$env docker-compose -f docker-compose.yaml up --build -d --quiet-pull --remove-orphans
+  else
+    ENV=$env docker-compose up --build -d --quiet-pull --remove-orphans
+  fi
+  
   if [[ $env == "test" ]]
   then
     docker logs -f "$i"_app_1
