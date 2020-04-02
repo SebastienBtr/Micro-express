@@ -28,10 +28,10 @@ services:
             connector: postgres
             host: ${DB_HOST}
             port: ${DB_PORT}
-            name: ${DB_NAME}
+            database: ${DB_NAME}
+            schema: public
             user: ${DB_USER}
             password: ${DB_PASSWORD}
-            schema: public
       
 networks:
   api-gateway_krakend:
