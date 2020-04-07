@@ -5,6 +5,7 @@ const path = require('path');
 const fs = require('fs');
 const copyStaticFiles = require('./copyStaticFiles');
 const copyVariableFiles = require('./copyVariableFiles');
+const copyEvents = require('./copyEvents');
 
 const specsDir = path.resolve(__dirname, '../../../specification');
 const servicesDir = path.resolve(__dirname, '../../../toto');
@@ -50,8 +51,9 @@ module.exports = class extends Generator {
     copyStaticFiles.run(this, addEvents);
     copyVariableFiles.run(this, addEvents, apiSpec);
 
-    // if (addEvents) {
-    //   const eventSpec = require(`${specsDir}/${this.options.serviceName}/events.json`);
-    // }
+    if (addEvents) {
+      const eventSpec = require(`${specsDir}/${this.options.serviceName}/events.json`);
+      copyEvents.run(this, eventSpec, this.options.serviceName);
+    }
   }
 };

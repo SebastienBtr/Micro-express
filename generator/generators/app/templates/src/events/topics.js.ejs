@@ -1,10 +1,9 @@
 /**
  * Consume
- */
-module.exports.CART_CHECKOUT = 'cart-checkout';
+ */<% consumers.forEach(consumer => { %>
+module.exports.<%= consumer.variableName %> = '<%= consumer.value %>';<% }) %>
 
 /**
  * Produce
- */
-module.exports.DELETE_ARTICLE = 'delete-article';
-module.exports.UPDATE_ARTICLE = 'update-article';
+ */<% producers.forEach(producer => { %>
+module.exports.<%= producer.variableName %> = '<%= producer.value %>';<% }) %>
