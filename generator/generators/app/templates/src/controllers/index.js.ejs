@@ -1,0 +1,3 @@
+<% controllers.forEach(controller => { -%>
+exports.<%= controller %> = require('./<%= controller %>.ctrl').<%= controller %>;
+<% }) %>

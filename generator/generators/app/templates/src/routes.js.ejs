@@ -1,0 +1,19 @@
+const express = require('express');
+const routesVersioning = require('express-routes-versioning')();
+
+const router = express.Router();
+const ctrl = require('./controllers');
+
+/**
+ * Health of the service
+ */
+router.get('/health', (req, res) => res.status(200).send({ message: 'ok' }));
+<% routes.forEach(route => { %>
+/**
+ * <%= route.description %>
+ */
+router.<%= route.requestMethod.toLowerCase() %>('<%= route.path %>', routesVersioning({
+  '^1.0.0': ctrl.<%= route.methodName %>,
+}));
+<% }) %>
+module.exports = router;

@@ -1,0 +1,41 @@
+const winston = require('winston');
+<% if (body) { %>
+/**
+ * Check if the body of the request contains the good elements
+ */
+const bodyIsValid = (body) => {
+  const { <% body.forEach(item => { %><%= item.name %>, <% }) %>} = body;
+  if (<% body.forEach((item, i) => { -%>
+!<%= item.name -%>
+<%_ if (item.type === 'integer') { -%> || <%= item.name %> !== parseInt(<%= item.name %>, 10)<% } -%>
+<%_ if (item.type === 'double') { -%> || <%= item.name %> !== parseFloat(<%= item.name %>, 10)<% } -%>
+<%_ if (i !== body.length - 1) { -%> || <% } -%>
+<%_ }) -%>) {
+    return false;
+  }
+  return true;
+};
+<% } %>
+/**
+ * <%= description %>
+ * @see <%= requestMethod %> <%= route %>
+ */
+module.exports.<%= methodName %> = async (req, res) => {
+  <% if (body) { %>if (bodyIsValid(req.body)) {
+    try {
+      // TODO:
+      res.status(200).send({});
+    } catch (e) {
+      winston.error(e);
+      res.status(500).send({ message: e });
+    }
+  } else {
+    res.status(400).send({ message: 'Invalid body format' });
+  }<% } else { %>try {
+    // TODO:
+    res.status(200).send({});
+  } catch (e) {
+    winston.error(e);
+    res.status(500).send({ message: e });
+  }<% } %>
+};
