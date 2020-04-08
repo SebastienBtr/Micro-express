@@ -1,4 +1,4 @@
-const fss = require('fs');
+const fs = require('fs');
 const ports = require('./usedPorts.json');
 
 module.exports.run = (self, addEvents, apiSpec) => {
@@ -24,7 +24,7 @@ module.exports.run = (self, addEvents, apiSpec) => {
   );
 
   ports.used.push(port);
-  fss.writeFileSync(`${__dirname}/usedPorts.json`, JSON.stringify(ports));
+  fs.writeFileSync(`${__dirname}/usedPorts.json`, JSON.stringify(ports));
 
   const controllers = [];
   const routes = [];

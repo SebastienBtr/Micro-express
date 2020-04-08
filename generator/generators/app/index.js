@@ -49,6 +49,10 @@ module.exports = class extends Generator {
     const addEvents = fs.existsSync(`${specsDir}/${this.options.serviceName}/events.json`);
 
     copyStaticFiles.run(this, addEvents);
+    this.fs.copy(
+      `${specsDir}/${this.options.serviceName}/datamodel.prisma`,
+      this.destinationPath('datamodel.prisma'),
+    );
     copyVariableFiles.run(this, addEvents, apiSpec);
 
     if (addEvents) {
