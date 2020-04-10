@@ -18,7 +18,7 @@ module.exports = class extends Generator {
     this.argument('action', { desc: 'The action to perform: "create" or "update"', type: String, required: true });
 
     if (!['create', 'update'].includes(this.options.action)) {
-      this.log.error('Wrong action provided, available options are: "create or "update"');
+      this.log.error('Wrong action provided, available options are: "create" or "update"');
       process.exit(1);
     }
 
