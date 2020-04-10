@@ -29,7 +29,7 @@ dirs.forEach(dir => {
     );
 
     apiSpec.models[key].fields.forEach(field => {
-      // Check model name is in camel case
+      // Check model fields are in camel case
       assert(
         field.name
         && field.name === field.name.replace(/\s/g, '')

@@ -6,6 +6,7 @@ const fs = require('fs');
 const copyStaticFiles = require('./copyStaticFiles');
 const copyVariableFiles = require('./copyVariableFiles');
 const copyEvents = require('./copyEvents');
+const copyTests = require('./copyTests');
 
 const specsDir = path.resolve(__dirname, '../../../specification');
 const servicesDir = path.resolve(__dirname, '../../../toto');
@@ -48,12 +49,14 @@ module.exports = class extends Generator {
     const apiSpec = require(`${specsDir}/${this.options.serviceName}/api.json`);
     const addEvents = fs.existsSync(`${specsDir}/${this.options.serviceName}/events.json`);
 
-    copyStaticFiles.run(this, addEvents);
     this.fs.copy(
       `${specsDir}/${this.options.serviceName}/datamodel.prisma`,
       this.destinationPath('datamodel.prisma'),
     );
+
+    copyStaticFiles.run(this, addEvents);
     copyVariableFiles.run(this, addEvents, apiSpec);
+    copyTests.run(this, apiSpec);
 
     if (addEvents) {
       const eventSpec = require(`${specsDir}/${this.options.serviceName}/events.json`);

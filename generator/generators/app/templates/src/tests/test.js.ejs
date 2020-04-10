@@ -1,0 +1,119 @@
+/* eslint-disable no-undef */
+const request = require('supertest');
+const app = require('../server');
+const { prisma } = require('../../generated/prisma-client');<% if (!requestBody || hasIdInPath) { %>
+
+const sampleOk = {<% resourceModel.forEach(item => { %>
+  <%= item.name -%>
+  <%_ if (item.type === 'string') { %>: '<%= item.name %>'<% } -%>
+  <%_ if (item.type === 'uuid') { %>: '0909090909'<% } -%>
+  <%_ if (item.type === 'double') { %>: 10.5<% } -%>
+  <%_ if (item.type === 'integer') { %>: 10<% } -%>,<% }) %>
+};<% } %><% if (requestBody) { %>
+
+const requestBody = {<% requestBody.forEach(item => { %>
+  <%= item.name -%>
+  <%_ if (item.type === 'string') { %>: '<%= item.name %>!'<% } -%>
+  <%_ if (item.type === 'uuid') { %>: '0606060606'<% } -%>
+  <%_ if (item.type === 'double') { %>: 20.5<% } -%>
+  <%_ if (item.type === 'integer') { %>: 20<% } -%>,<% }) %>
+};<% } %>
+<%_ if (hasIdInPath) { %>
+const notPresentId = '000000';
+let presentId;<% } %>
+
+beforeEach(async (done) => {
+  await prisma.deleteMany<%= resourceName -%>s();<% if (hasIdInPath) { %>
+  const article = await prisma.create<%= resourceName -%>(sampleOk);
+  presentId = article.id;<% } %>
+  done();
+});
+
+describe('<%= description %>', () => {<% responses.forEach(response => { if (response.code.startsWith('2')) { %>
+  it('Nominal case', async (done) => {<% if (response.isList) { %>
+    const data = await prisma.create<%= resourceName -%>(sampleOk);<% } %>
+    const res = await request(app)
+      .<%= requestMethod %>(<% if (hasIdInPath) { %>`<%= route %>/${presentId}`<% } else {%>'<%= route %>'<% } %>)<% if (!requestBody) { %>;<% } else { %>
+      .send(requestBody);<% } %>
+    expect(res.statusCode).toEqual(<%= response.code %>);<% if (response.body) { %><% if (response.isList) { %>
+    expect(Array.isArray(res.body)).toBeTruthy();
+    expect(res.body.length).toEqual(1);
+    res.body = res.body[0];<% } %><% response.body.forEach(item => {%>
+    expect(res.body).toHaveProperty('<%= item.name %>');<% if (item.name === 'id' && hasIdInPath) { %>
+    expect(res.body.id).toEqual(presentId);<% } else if (item.name === 'id' && response.isList) { %>
+    expect(res.body.id).toEqual(data.id);<% } else if (item.name !== 'id') { %><% if (requestBody && requestBody.filter(e => e.name === item.name).length > 0) { %>
+    expect(res.body.<%= item.name %>).toEqual(requestBody.<%= item.name %>);<% } else { %>
+    expect(res.body.<%= item.name %>).toEqual(sampleOk.<%= item.name %>);<% }}})} %>
+    done();
+  });<% } else if (response.code === '404') { %>
+  it('404 error case', async (done) => {
+    const res = await request(app)
+      .<%= requestMethod %>(<% if (hasIdInPath) { %>`<%= route %>/${notPresentId}`<% } else {%>'<%= route %>'<% } %>)<% if (!requestBody) { %>;<% } else { %>
+      .send(requestBody);<% } %>
+    expect(res.statusCode).toEqual(404);
+    done();
+  });<% } else if (response.code === '400') { -%>
+  <%
+    const cases = [];
+    const numberIndexes = [];
+    const params = requestBody.filter(e => e.required != false);
+    if (params.length === 1) {
+      if (params[0].type === 'integer' || params[0].type === 'double') {
+        numberIndexes.push(0);
+      }
+      cases.push({'eeeoooo': 'aboer'});
+    } else {
+      for (let i = 0; i < params.length; i++) {
+        let currentValue = "";
+        if (params[i].type === 'string' || params[i].type === 'uuid') {
+          currentValue = params[i].name;
+        } else if (params[i].type === 'double' || params[i].type === 'integer') {
+          currentValue = 10;
+          numberIndexes.push(i);
+        }
+        for (let j = i + 1; j < params.length; j++) {
+          let data = {};
+          data[params[i].name] = currentValue;
+          if (params[j].type === 'string' || params[j].type === 'uuid') {
+            data[params[j].name] = params[j].name;
+          } else if (params[j].type === 'double' || params[j].type === 'integer') {
+            data[params[j].name] =  10;
+          }
+          cases.push(data);
+        }
+      }
+    }
+  %>
+  it.each(
+  <%- JSON.stringify(cases) %>
+  )('Should return a 400 because a required field is missing', async (data, done) => {
+    const res = await request(app)
+      .<%= requestMethod %>(<% if (hasIdInPath) { %>`<%= route %>/${notPresentId}`<% } else {%>'<%= route %>'<% } %>)
+      .send(data);
+    expect(res.statusCode).toEqual(400);
+    done();
+  });
+  <%
+    const casesNaN = [];
+    numberIndexes.forEach((index) => {
+      let data = {};
+      params.forEach((param, i) => {
+        if (index === i) {
+          data[param.name] = '10';
+        } else if (param.type === 'double' || param.type === 'integer') {
+          data[param.name] = 10;
+        } else {
+          data[param.name] = param.name;
+        }
+      });
+      casesNaN.push(data);
+    });%><% if (casesNaN.length > 0) { %>it.each(
+  <%- JSON.stringify(casesNaN) %>
+  )('Should return a 400 because a required number field is not a number', async (data, done) => {
+    const res = await request(app)
+      .<%= requestMethod %>(<% if (hasIdInPath) { %>`<%= route %>/${notPresentId}`<% } else {%>'<%= route %>'<% } %>)
+      .send(data);
+    expect(res.statusCode).toEqual(400);
+    done();
+  });<% } %><% } %><% }) %>
+});
