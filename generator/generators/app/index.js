@@ -9,7 +9,7 @@ const copyEvents = require('./copyEvents');
 const copyTests = require('./copyTests');
 
 const specsDir = path.resolve(__dirname, '../../../specification');
-const servicesDir = path.resolve(__dirname, '../../../toto');
+const servicesDir = path.resolve(__dirname, '../../../services');
 
 module.exports = class extends Generator {
   constructor(args, opts) {

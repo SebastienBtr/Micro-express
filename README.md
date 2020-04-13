@@ -1,66 +1,18 @@
 # POC microservices
 
-Complete example of a small microservices architecture driven by specifications.
-
-# Documentation
-
-A generated swagger documentation can be found at the route `/documentation` through the api-gateway.
-
-You can also find postman collection files under `services/documentation/postman`
+Example of a specs driven develoment microservices (SDD) architecture using code generation.
+The project is keeping simple but includes all the necesary tools to be production ready. The business logic implemented does not really matter, the goal is to demonstrate how a SDD can be organized and the good pratices of a microservices architecture.
 
 # Project structure
 
 ## **Generator**
 
-A microservice generator based on the specifications.  
-see: [generator](generator)
+A generator using spec files for our microservices. To know how to use it or how it works, see: [generator](generator).
 
 ## **Services**
 
-All the microservices of the architecture.  
-see: [services](services)
+All the microservices of the architecture, which include two business services, an API gateway and a service to expose the documentation (swagger docs and postman collections). To know how to run them or how to create/update some, see: [services](services).
 
 ## **Specification**
 
-The specification of each microservices.  
-see: [specification](specification)
-
-# Get started
-
-## **Running**
-
-You just need Docker installed.
-
-**Development:** 
-
-In `services` there is a `launcher.sh` script to launch the desired services with docker.
-
-* To launch all: `./services/launcher.sh`
-
-* To launch specific services: `./service/launcher.sh <service-name> <service-name-2>`
-
-The "service name" is the same as the service's directory and the services will be launched in the order you pass them to the script. The api-gateway and kafka services will be launched automatically.
-
-To simplify the development and allow you to work on a service without using the api-gateway, each business services are exposed to your host with a default port that can be seen in the docker-compose file and this value can overriden if you create a `.env` file in the project. An example is provided with the `.env.default` file.
-
-**Production:** 
-
-WIP
-
-## **Contributing**
-
-**Create a service**
-
-* Create its specification
-* Generate the service with the generator
-* Implement the "TODOs" by following the bellow information about editing a service
-
-**Edit a service**
-
-* Go in the service's directory
-* Install prisma CLI: https://www.prisma.io/docs/prisma-cli-and-configuration/using-the-prisma-cli-alx4/
-* Run `prisma generate`
-* Run `yarn install`
-
-These steps are necessary to have autocompletion.
-Now you can start coding but make sure to not edit code that will be overriden by the generator. See [services](services) for more informations.
+The API and pub/sub event specifications, and the datamodel of each microservice. To know how to create/update the specifications, see: [specification](specification).

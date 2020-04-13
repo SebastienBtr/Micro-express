@@ -15,7 +15,7 @@ dirs.forEach(dir => {
     && !apiSpec.name.includes('_')
     && !apiSpec.name.endsWith('s')
     && apiSpec.name === dir,
-    'The service name must be in singular kabab case, ' +
+    'The service name must be in singular kebab case, ' +
     'it must also be the same as the directory name'
   );
 

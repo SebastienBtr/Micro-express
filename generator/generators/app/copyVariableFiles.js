@@ -10,7 +10,7 @@ module.exports.run = (self, addEvents, apiSpec) => {
   self.fs.copyTpl(
     self.templatePath('README.md.ejs'),
     self.destinationPath('README.md'),
-    { name: self.options.serviceName },
+    { name: self.options.serviceName, description: apiSpec.description },
   );
   self.fs.copyTpl(
     self.templatePath('package.json.ejs'),
