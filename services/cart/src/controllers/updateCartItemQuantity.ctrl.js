@@ -5,8 +5,8 @@ const { updateCartItemQuantity } = require('../repository');
  * Check if the body of the request contains the good elements
  */
 const bodyIsValid = (body) => {
-  const { quantity } = body;
-  if (!quantity || quantity !== parseFloat(quantity, 10)) {
+  const { quantity, } = body;
+  if (!quantity || quantity !== parseInt(quantity, 10)) {
     return false;
   }
   return true;
@@ -14,7 +14,7 @@ const bodyIsValid = (body) => {
 
 /**
  * Update the quantity of an item of the cart
- * @see PUT /cart/items/:id/quantity
+ * @see PUT /cart/items/quantity/:id
  */
 module.exports.updateCartItemQuantity = async (req, res) => {
   if (bodyIsValid(req.body)) {

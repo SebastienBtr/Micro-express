@@ -17,6 +17,20 @@ router.get('/articles', routesVersioning({
 }));
 
 /**
+ * Get a specific article
+ */
+router.get('/articles/:id', routesVersioning({
+  '^1.0.0': ctrl.getArticleById,
+}));
+
+/**
+ * Update a specific article
+ */
+router.put('/articles/:id', routesVersioning({
+  '^1.0.0': ctrl.updateArticle,
+}));
+
+/**
  * Create an article
  */
 router.post('/articles', routesVersioning({
@@ -24,21 +38,7 @@ router.post('/articles', routesVersioning({
 }));
 
 /**
- * Update an article
- */
-router.put('/articles/:id', routesVersioning({
-  '^1.0.0': ctrl.updateArticle,
-}));
-
-/**
- * Get an article by id
- */
-router.get('/articles/:id', routesVersioning({
-  '^1.0.0': ctrl.getArticleById,
-}));
-
-/**
- * Delete an article
+ * Delete a specific article
  */
 router.delete('/articles/:id', routesVersioning({
   '^1.0.0': ctrl.deleteArticle,

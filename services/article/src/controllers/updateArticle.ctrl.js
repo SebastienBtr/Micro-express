@@ -7,7 +7,7 @@ const topics = require('../events/topics');
  * Check if the body of the request contains the good elements
  */
 const bodyIsValid = (body) => {
-  const { name, stock, price } = body;
+  const { name, stock, price, } = body;
   if (!name || !stock || stock !== parseInt(stock, 10)
     || !price || price !== parseFloat(price, 10)) {
     return false;
@@ -16,8 +16,8 @@ const bodyIsValid = (body) => {
 };
 
 /**
- * Update an article
- * @see PUT /article/:id
+ * Update a specific article
+ * @see PUT /articles/:id
  */
 module.exports.updateArticle = async (req, res) => {
   if (bodyIsValid(req.body)) {

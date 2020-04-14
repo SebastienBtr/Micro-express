@@ -10,7 +10,7 @@ const ctrl = require('./controllers');
 router.get('/health', (req, res) => res.status(200).send({ message: 'ok' }));
 
 /**
- * Get all the cart-items
+ * Get all the items of the cart
  */
 router.get('/cart/items', routesVersioning({
   '^1.0.0': ctrl.getAllCartItems,
@@ -25,7 +25,6 @@ router.post('/cart/items', routesVersioning({
 
 /**
  * Checkout the items for the payment
- * (in our POC this will update article's stocks and empty the cart)
  */
 router.put('/cart/items/checkout', routesVersioning({
   '^1.0.0': ctrl.checkout,

@@ -4,41 +4,34 @@ const app = require('../server');
 const { prisma } = require('../../generated/prisma-client');
 
 const sampleOk = {
-  name: 'article',
-  stock: 109,
-  price: 1020.5,
+  name: 'name',
+  stock: 10,
+  price: 10.5,
 };
+
 
 beforeEach(async (done) => {
   await prisma.deleteManyArticles();
   done();
 });
 
-
-describe('Get all Articles', () => {
-  it('should return an empty list', async (done) => {
-    const res = await request(app)
-      .get('/articles');
-    expect(res.statusCode).toEqual(200);
-    expect(Array.isArray(res.body)).toBeTruthy();
-    expect(res.body.length).toEqual(0);
-    done();
-  });
-  it('should return a list with one article', async (done) => {
-    const article = await prisma.createArticle(sampleOk);
+describe('Get all the articles', () => {
+  it('Nominal case', async (done) => {
+    const data = await prisma.createArticle(sampleOk);
     const res = await request(app)
       .get('/articles');
     expect(res.statusCode).toEqual(200);
     expect(Array.isArray(res.body)).toBeTruthy();
     expect(res.body.length).toEqual(1);
-    expect(res.body[0]).toHaveProperty('id');
-    expect(res.body[0]).toHaveProperty('name');
-    expect(res.body[0]).toHaveProperty('stock');
-    expect(res.body[0]).toHaveProperty('price');
-    expect(res.body[0].id).toEqual(article.id);
-    expect(res.body[0].name).toEqual(sampleOk.name);
-    expect(res.body[0].stock).toEqual(sampleOk.stock);
-    expect(res.body[0].price).toEqual(sampleOk.price);
+    res.body = res.body[0];
+    expect(res.body).toHaveProperty('id');
+    expect(res.body.id).toEqual(data.id);
+    expect(res.body).toHaveProperty('name');
+    expect(res.body.name).toEqual(sampleOk.name);
+    expect(res.body).toHaveProperty('stock');
+    expect(res.body.stock).toEqual(sampleOk.stock);
+    expect(res.body).toHaveProperty('price');
+    expect(res.body.price).toEqual(sampleOk.price);
     done();
   });
 });

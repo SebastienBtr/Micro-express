@@ -1,6 +1,6 @@
 {
   "name": "cart",
-  "description": "To simplify the POC, we consider that there is only one cart and we can operate on its elements",
+  "description": "Service to manage carts, to simplify the POC, we consider that there is only one cart and we can operate on its elements",
   "models": {
     "cart_item": {
       "description": "Represent a single cart-item in the system",
@@ -90,7 +90,7 @@
         },
         {
           "method": "PUT",
-          "description": "Checkout the items for the payment (in our POC this will update article's stocks and empty the cart); methodName: checkout",
+          "description": "Checkout the items for the payment; methodName: checkout",
           "path": "/checkout",
           "responses": {
             "204": {

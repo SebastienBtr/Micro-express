@@ -1,5 +1,5 @@
 {
-  "name": "article",
+  "name": "cart",
   "description": "",
   "version": "1.0.0",
   "license": "MIT",
@@ -25,14 +25,16 @@
     "eslint": "^5.3.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
-    "jest": "^25.2.3",
+    "jest": "^25.2.2",
     "nodemon": "^1.18.9",
     "supertest": "^4.0.2"
   },
   "jest": {
     "testEnvironment": "node",
     "collectCoverage": true,
-    "coverageReporters": ["text-summary"],
+    "coverageReporters": [
+      "text-summary"
+    ],
     "coveragePathIgnorePatterns": [
       "/node_modules/",
       "/generated/"

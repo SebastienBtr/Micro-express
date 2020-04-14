@@ -32,7 +32,9 @@
   "jest": {
     "testEnvironment": "node",
     "collectCoverage": true,
-    "coverageReporters": ["text-summary"],
+    "coverageReporters": [
+      "text-summary"
+    ],
     "coveragePathIgnorePatterns": [
       "/node_modules/",
       "/generated/"

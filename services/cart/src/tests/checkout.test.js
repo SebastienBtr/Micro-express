@@ -4,21 +4,20 @@ const app = require('../server');
 const { prisma } = require('../../generated/prisma-client');
 
 const sampleOk = {
-  articleId: '878887878H97BO98',
-  articleName: 'article',
-  articlePrice: 10,
-  quantity: 1,
+  articleId: '0909090909',
+  articleName: 'articleName',
+  articlePrice: 10.5,
+  quantity: 10,
 };
+
 
 beforeEach(async (done) => {
   await prisma.deleteManyCartItems();
-  await prisma.createCartItem(sampleOk);
   done();
 });
 
-
-describe('Checkout cart items', () => {
-  it('should checkout', async (done) => {
+describe('Checkout the items for the payment', () => {
+  it('Nominal case', async (done) => {
     const res = await request(app)
       .put('/cart/items/checkout');
     expect(res.statusCode).toEqual(204);

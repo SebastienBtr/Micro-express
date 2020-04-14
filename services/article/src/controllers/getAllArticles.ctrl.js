@@ -3,7 +3,7 @@ const { getAllArticles } = require('../repository');
 
 /**
  * Get all the articles
- * @see GET /article
+ * @see GET /articles
  */
 module.exports.getAllArticles = async (req, res) => {
   try {

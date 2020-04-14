@@ -14,7 +14,7 @@ This generator is made to generate Express.js microservices based on specificati
 
 * `yo micro-express create <service-name>`
 
-.
+* Once the service is generateds, implement the "TODOs" by following the information about [editing a service](../services).
 
 
 =========== WIP! DO NOT USE! =============

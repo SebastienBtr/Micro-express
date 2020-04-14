@@ -4,22 +4,14 @@ const app = require('../server');
 const { prisma } = require('../../generated/prisma-client');
 
 const sampleOk = {
-  articleId: '878887878H97BO98',
-  articleName: 'article',
-  articlePrice: 10,
-  quantity: 1,
+  articleId: '0909090909',
+  articleName: 'articleName',
+  articlePrice: 10.5,
+  quantity: 10,
 };
 
-const quantityOk = {
-  quantity: 4,
-};
-
-const quantityKo = {
-  blbl: 4,
-};
-
-const quantityNaN = {
-  quantity: '4',
+const requestBody = {
+  quantity: 20,
 };
 
 const notPresentId = '000000';
@@ -27,49 +19,52 @@ let presentId;
 
 beforeEach(async (done) => {
   await prisma.deleteManyCartItems();
-  const cartItem = await prisma.createCartItem(sampleOk);
-  presentId = cartItem.id;
+  const article = await prisma.createCartItem(sampleOk);
+  presentId = article.id;
   done();
 });
 
-
-describe('Update cart item quantity', () => {
-  it('should update quantity', async (done) => {
+describe('Update the quantity of an item of the cart', () => {
+  it('Nominal case', async (done) => {
     const res = await request(app)
       .put(`/cart/items/quantity/${presentId}`)
-      .send(quantityOk);
+      .send(requestBody);
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveProperty('id');
-    expect(res.body).toHaveProperty('articleId');
-    expect(res.body).toHaveProperty('articleName');
-    expect(res.body).toHaveProperty('articlePrice');
-    expect(res.body).toHaveProperty('quantity');
     expect(res.body.id).toEqual(presentId);
+    expect(res.body).toHaveProperty('articleId');
     expect(res.body.articleId).toEqual(sampleOk.articleId);
+    expect(res.body).toHaveProperty('articleName');
     expect(res.body.articleName).toEqual(sampleOk.articleName);
+    expect(res.body).toHaveProperty('articlePrice');
     expect(res.body.articlePrice).toEqual(sampleOk.articlePrice);
-    expect(res.body.quantity).toEqual(quantityOk.quantity);
+    expect(res.body).toHaveProperty('quantity');
+    expect(res.body.quantity).toEqual(requestBody.quantity);
     done();
   });
-  it('should return a 404 because the cart item does not exist', async (done) => {
+  it.each(
+    [{ "eeeoooo": "aboer" }]
+  )('Should return a 400 because a required field is missing', async (data, done) => {
     const res = await request(app)
       .put(`/cart/items/quantity/${notPresentId}`)
-      .send(quantityOk);
+      .send(data);
+    expect(res.statusCode).toEqual(400);
+    done();
+  });
+  it.each(
+    [{ "quantity": "10" }]
+  )('Should return a 400 because a required number field is not a number', async (data, done) => {
+    const res = await request(app)
+      .put(`/cart/items/quantity/${notPresentId}`)
+      .send(data);
+    expect(res.statusCode).toEqual(400);
+    done();
+  });
+  it('404 error case', async (done) => {
+    const res = await request(app)
+      .put(`/cart/items/quantity/${notPresentId}`)
+      .send(requestBody);
     expect(res.statusCode).toEqual(404);
-    done();
-  });
-  it('should return a 400 because the body does not contain quantity', async (done) => {
-    const res = await request(app)
-      .put(`/cart/items/quantity/${presentId}`)
-      .send(quantityKo);
-    expect(res.statusCode).toEqual(400);
-    done();
-  });
-  it('should return a 400 because quantity NaN', async (done) => {
-    const res = await request(app)
-      .put(`/cart/items/quantity/${presentId}`)
-      .send(quantityNaN);
-    expect(res.statusCode).toEqual(400);
     done();
   });
 });

@@ -4,8 +4,8 @@ const { produce } = require('../events/producer');
 const topics = require('../events/topics');
 
 /**
- * Delete an article
- * @see DELETE /article/:id
+ * Delete a specific article
+ * @see DELETE /articles/:id
  */
 module.exports.deleteArticle = async (req, res) => {
   try {

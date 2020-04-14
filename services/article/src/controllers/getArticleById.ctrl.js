@@ -2,8 +2,8 @@ const winston = require('winston');
 const { getArticleById } = require('../repository');
 
 /**
- * Get an article by id
- * @see GET /article/:id
+ * Get a specific article
+ * @see GET /articles/:id
  */
 module.exports.getArticleById = async (req, res) => {
   try {

@@ -5,7 +5,6 @@ const { deleteAllCartItems, getAllCartItems } = require('../repository');
 
 /**
  * Checkout the items for the payment
- * (in our POC this will update article's stocks and empty the cart)
  * @see PUT /cart/items/checkout
  */
 module.exports.checkout = async (req, res) => {

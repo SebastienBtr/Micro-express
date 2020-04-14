@@ -1,5 +1,6 @@
 {
   "name": "article",
+  "description": "Service to manage articles, an article is an item of an e-commerce website.",
   "models": {
     "article": {
       "description": "Represent a single article in the system",

@@ -4,10 +4,10 @@ const app = require('../server');
 const { prisma } = require('../../generated/prisma-client');
 
 const sampleOk = {
-  articleId: '878887878H97BO98',
-  articleName: 'article',
-  articlePrice: 10,
-  quantity: 1,
+  articleId: '0909090909',
+  articleName: 'articleName',
+  articlePrice: 10.5,
+  quantity: 10,
 };
 
 const notPresentId = '000000';
@@ -15,20 +15,19 @@ let presentId;
 
 beforeEach(async (done) => {
   await prisma.deleteManyCartItems();
-  const cartItem = await prisma.createCartItem(sampleOk);
-  presentId = cartItem.id;
+  const article = await prisma.createCartItem(sampleOk);
+  presentId = article.id;
   done();
 });
 
-
-describe('Delete cart item', () => {
-  it('should delete a cart item', async (done) => {
+describe('Delete an item of the cart', () => {
+  it('Nominal case', async (done) => {
     const res = await request(app)
       .delete(`/cart/items/${presentId}`);
     expect(res.statusCode).toEqual(204);
     done();
   });
-  it('should return a 404 because the cart item does not exist', async (done) => {
+  it('404 error case', async (done) => {
     const res = await request(app)
       .delete(`/cart/items/${notPresentId}`);
     expect(res.statusCode).toEqual(404);

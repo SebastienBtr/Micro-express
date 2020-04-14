@@ -1,6 +1,5 @@
-const winston = require('winston');
 const { Kafka } = require('kafkajs');
-const { updateCartItemByArticleId, deleteCartItemByArticleId } = require('../repository');
+const winston = require('winston');
 const topics = require('./topics');
 const kafkaConfig = require('./kafkaConfig');
 
@@ -18,39 +17,42 @@ const articleFieldsValid = (article) => {
 };
 
 /**
- * Update a cart-item from an updated article
+ * Delete a cart-item because of a deleted article
  */
-const updateArticleEvent = async (article) => {
-  if (articleFieldsValid(article)) {
-    const data = {
-      articleName: article.name,
-      articlePrice: article.price,
-    };
+const deleteArticleEvent = async (data) => {
+  if (articleFieldsValid(data)) {
     try {
-      await updateCartItemByArticleId(article.id, data);
+      await deleteCartItemByArticleId(data.id);
     } catch (e) {
       winston.error(e);
     }
   } else {
-    winston.error(`Invalid cart-item object received: ${article}`);
+    winston.error(`Invalid cart-item object received: ${data}`);
   }
 };
 
 /**
- * Delete a cart-item because of a deleted article
+ * Update a cart-item from an updated article
  */
-const deleteArticleEvent = async (article) => {
-  if (articleFieldsValid(article)) {
+const updateArticleEvent = async (data) => {
+  if (articleFieldsValid(data)) {
+    const article = {
+      articleName: data.name,
+      articlePrice: data.price,
+    };
     try {
-      await deleteCartItemByArticleId(article.id);
+      await updateCartItemByArticleId(data.id, article);
     } catch (e) {
       winston.error(e);
     }
   } else {
-    winston.error(`Invalid cart-item object received: ${article}`);
+    winston.error(`Invalid cart-item object received: ${data}`);
   }
 };
 
+/**
+ * Subscribe to kafka topics
+ */
 module.exports.launchConsumers = async () => {
   try {
     await consumer.connect();

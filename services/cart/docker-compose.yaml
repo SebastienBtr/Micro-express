@@ -1,12 +1,13 @@
-version: '3'
+version: "3"
 services:
   app:
     build: .
-    command: sh -c "./wait-for-it.sh -t 15 prisma:4466 --strict -- prisma deploy && yarn run ${ENV:-dev}"
+    command: sh -c "./wait-for-it.sh -t 15 prisma:4466 --strict -- prisma generate && prisma deploy && yarn run ${ENV:-dev}"
     volumes:
       - ./src:/app/src
       - /app/node_modules
-    networks: 
+      - /app/generated/prisma-client
+    networks:
       - api-gateway_krakend
       - app
     depends_on:
@@ -17,7 +18,7 @@ services:
   prisma:
     image: prismagraphql/prisma:1.34
     restart: always
-    networks: 
+    networks:
       - app
     environment:
       PRISMA_CONFIG: |
@@ -32,7 +33,7 @@ services:
             schema: public
             user: ${DB_USER}
             password: ${DB_PASSWORD}
-      
+
 networks:
   api-gateway_krakend:
     external: true

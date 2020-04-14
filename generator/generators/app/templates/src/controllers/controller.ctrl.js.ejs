@@ -1,5 +1,5 @@
 const winston = require('winston');
-<% if (body) { %>
+<% if (body) { body = body.filter(e => e.required != false); %>
 /**
  * Check if the body of the request contains the good elements
  */

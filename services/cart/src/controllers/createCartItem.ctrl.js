@@ -5,9 +5,8 @@ const { createCartItem, getCartItemByArticleId, updateCartItemQuantity } = requi
  * Check if the body of the request contains the good elements
  */
 const bodyIsValid = (body) => {
-  const { articleId, articleName, articlePrice } = body;
-  if (!articleId || !articleName || !articlePrice
-    || articlePrice !== parseFloat(articlePrice, 10)) {
+  const { articleId, articleName, articlePrice, quantity, } = body;
+  if (!articleId || !articleName || !articlePrice || articlePrice !== parseFloat(articlePrice, 10)) {
     return false;
   }
   return true;

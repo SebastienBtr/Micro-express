@@ -1,6 +1,5 @@
 const { Kafka } = require('kafkajs');
 const winston = require('winston');
-const { decrementArticleStock } = require('../repository');
 const topics = require('./topics');
 const kafkaConfig = require('./kafkaConfig');
 
@@ -21,8 +20,8 @@ const cartItemFieldsValid = (cartItem) => {
  * Update the stocks of the articles according to the quantity
  * that a user checked out in his cart
  */
-const cartCheckoutEvent = async (cartItems) => {
-  cartItems.forEach(async (item) => {
+const cartCheckoutEvent = async (data) => {
+  data.forEach(async (item) => {
     if (cartItemFieldsValid(item)) {
       try {
         await decrementArticleStock(item.articleId, item.quantity);

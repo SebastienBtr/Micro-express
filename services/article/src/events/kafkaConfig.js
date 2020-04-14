@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const config = {
-  clientId: 'cart',
+  clientId: 'kafka',
   brokers: [process.env.KAFKA_BROKER || 'kafka:9092'],
 };
 
