@@ -1,14 +1,31 @@
 {
   "version": 2,
+  "timeout": "3000ms",
+  "cache_ttl": "300s",
   "extra_config": {
     "github_com/devopsfaith/krakend-metrics": {
-      "listen_address": ":8090"
+      "listen_address":":8090"
     },
     "github_com/devopsfaith/krakend-gologging": {
-      "level": "DEBUG",
+      "level":  "DEBUG",
       "prefix": "[KRAKEND]",
       "syslog": false,
       "stdout": true
+    },
+    "github_com/devopsfaith/krakend-opencensus": {
+      "sample_rate": 100,
+      "reporting_period": 1,
+      "exporters": {
+        "influxdb": {
+          "address": "http://influxdb:8086",
+          "db": "krakend",
+          "timeout": "1s"
+        },
+        "jaeger": {
+          "endpoint": "http://jaeger:14268",
+          "service_name":"krakend"
+        }
+      }
     }
   },
   "endpoints": [
