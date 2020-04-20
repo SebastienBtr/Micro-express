@@ -12,6 +12,8 @@ services:
       - jaeger
     networks:
       - krakend
+    logging:
+      driver: ${LOGGING_DRIVER:-json-file}
     environment:
       FC_ENABLE: 1
       FC_SETTINGS: "/etc/krakend/settings"
@@ -22,6 +24,8 @@ services:
     container_name: influxdb
     networks:
       - krakend
+    logging:
+      driver: ${LOGGING_DRIVER:-json-file}
     environment:
       - INFLUXDB_DB=krakend
       - INFLUXDB_ADMIN_USER=${INFLUXDB_USERNAME:-admin}
@@ -37,6 +41,8 @@ services:
       - krakend
     depends_on:
       - influxdb
+    logging:
+      driver: ${LOGGING_DRIVER:-json-file}
     environment:
       - GF_SECURITY_ADMIN_USER=${GRAFANA_USERNAME:-admin}
       - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-kjhfkcvkugv24*l}
@@ -50,6 +56,8 @@ services:
       - krakend
     ports:
       - "9092:16686"
+    logging:
+      driver: ${LOGGING_DRIVER:-json-file}
 
 networks:
   krakend:

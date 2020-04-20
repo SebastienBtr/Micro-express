@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   app:
     build: .
@@ -7,11 +7,13 @@ services:
       - .:/app
       - /app/node_modules
     ports:
-      - '${SERVER_PORT:-3300}:3500'
-    networks: 
+      - "${SERVER_PORT:-3300}:3500"
+    networks:
       - app
       - api-gateway_krakend
-      
+    logging:
+      driver: ${LOGGING_DRIVER:-json-file}
+
 networks:
   api-gateway_krakend:
     external: true
