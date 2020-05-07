@@ -31,6 +31,7 @@ In production you will need to have hosted databases and a kafka service. You ne
 * Create its specification (see [specification](../specification)).
 * Generate the service with the generator (see [generator](../generator)).
 * Implement the "TODOs" by following the bellow information about editing a service.
+* Use `yarn lint-check` to make sure there is no style issues, you can also install the eslint plugin in your editor of it is available
 
 **Edit a service**
 
