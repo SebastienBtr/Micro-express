@@ -34,7 +34,7 @@ describe('Add an item in the cart', () => {
     done();
   });
   it.each(
-    [{ "articleId": "articleId", "articleName": "articleName" }, { "articleId": "articleId", "articlePrice": 10 }, { "articleName": "articleName", "articlePrice": 10 }]
+    [{ articleId: 'articleId', articleName: 'articleName' }, { articleId: 'articleId', articlePrice: 10 }, { articleName: 'articleName', articlePrice: 10 }],
   )('Should return a 400 because a required field is missing', async (data, done) => {
     const res = await request(app)
       .post('/cart/items')
@@ -43,7 +43,7 @@ describe('Add an item in the cart', () => {
     done();
   });
   it.each(
-    [{ "articleId": "articleId", "articleName": "articleName", "articlePrice": "10" }]
+    [{ articleId: 'articleId', articleName: 'articleName', articlePrice: '10' }],
   )('Should return a 400 because a required number field is not a number', async (data, done) => {
     const res = await request(app)
       .post('/cart/items')
@@ -52,7 +52,9 @@ describe('Add an item in the cart', () => {
     done();
   });
   it.each(
-    [{ articleId: '878887878H97BO98', articleName: 'article', articlePrice: 10.5 }, { articleId: '878887878H97BO98', articleName: 'article', articlePrice: 10.5, quantity: '56' }]
+    [{ articleId: '878887878H97BO98', articleName: 'article', articlePrice: 10.5 }, {
+      articleId: '878887878H97BO98', articleName: 'article', articlePrice: 10.5, quantity: '56',
+    }],
   )('should create a new cart item with default quantity to 1', async (data, done) => {
     const res = await request(app)
       .post('/cart/items')

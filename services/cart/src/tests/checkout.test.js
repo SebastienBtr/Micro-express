@@ -3,14 +3,6 @@ const request = require('supertest');
 const app = require('../server');
 const { prisma } = require('../../generated/prisma-client');
 
-const sampleOk = {
-  articleId: '0909090909',
-  articleName: 'articleName',
-  articlePrice: 10.5,
-  quantity: 10,
-};
-
-
 beforeEach(async (done) => {
   await prisma.deleteManyCartItems();
   done();

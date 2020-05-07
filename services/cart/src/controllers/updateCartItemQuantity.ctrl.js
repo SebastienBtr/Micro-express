@@ -5,7 +5,7 @@ const { updateCartItemQuantity } = require('../repository');
  * Check if the body of the request contains the good elements
  */
 const bodyIsValid = (body) => {
-  const { quantity, } = body;
+  const { quantity } = body;
   if (!quantity || quantity !== parseInt(quantity, 10)) {
     return false;
   }

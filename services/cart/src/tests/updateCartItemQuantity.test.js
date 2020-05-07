@@ -43,7 +43,7 @@ describe('Update the quantity of an item of the cart', () => {
     done();
   });
   it.each(
-    [{ "eeeoooo": "aboer" }]
+    [{ eeeoooo: 'aboer' }],
   )('Should return a 400 because a required field is missing', async (data, done) => {
     const res = await request(app)
       .put(`/cart/items/quantity/${notPresentId}`)
@@ -52,7 +52,7 @@ describe('Update the quantity of an item of the cart', () => {
     done();
   });
   it.each(
-    [{ "quantity": "10" }]
+    [{ quantity: '10' }],
   )('Should return a 400 because a required number field is not a number', async (data, done) => {
     const res = await request(app)
       .put(`/cart/items/quantity/${notPresentId}`)
