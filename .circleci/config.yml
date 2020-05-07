@@ -1,7 +1,6 @@
 version: 2.1
 jobs:
   specs:
-    working_directory: ~/micro-express/specification
     docker:
       - image: "cimg/base:stable"
     steps:
@@ -11,13 +10,12 @@ jobs:
       - node/install:
           install-npm: false
           node-version: latest
-      - run: node ./test-api.js
-      - run: node ./test-events.js
+      - run: node ~/micro-express/specification/test-api.js
+      - run: node ~/micro-express/specification/test-events.js
       - slack/status:
           fail_only: true
           webhook: webhook
   services:
-    working_directory: ~/micro-express/services
     docker:
       - image: "cimg/base:stable"
     steps:
@@ -27,7 +25,7 @@ jobs:
       - node/install:
           install-npm: false
           node-version: latest
-      - run: ./laucher.sh -e test
+      - run: ~/micro-express/services/laucher.sh -e test
       - slack/status:
           fail_only: true
           webhook: webhook
