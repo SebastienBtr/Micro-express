@@ -11,8 +11,8 @@ jobs:
       - node/install:
           install-npm: false
           node-version: latest
-      - run: node ~/micro-express/specification/test-api.js
-      - run: node ~/micro-express/specification/test-events.js
+      - run: node ~/micro-express/specification/test-apis.js
+      - run: node ./test-events.js
       - slack/status:
           fail_only: true
           webhook: webhook
@@ -27,7 +27,7 @@ jobs:
       - node/install:
           install-npm: false
           node-version: latest
-      - run: ~/micro-express/services/laucher.sh -e test
+      - run: ~/micro-express/services/launcher.sh -e test
       - slack/status:
           fail_only: true
           webhook: webhook
@@ -35,7 +35,7 @@ orbs:
   node: circleci/node@2.0.3
   slack: circleci/slack@3.4.2
 workflows:
-  services:
+  micro-express:
     jobs:
       - specs:
           filters:
