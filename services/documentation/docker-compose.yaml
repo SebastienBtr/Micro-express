@@ -4,7 +4,6 @@ services:
     build: .
     command: yarn run ${ENV:-dev}
     volumes:
-      - .:/app
       - /app/node_modules
     ports:
       - "${SERVER_PORT:-3300}:3500"

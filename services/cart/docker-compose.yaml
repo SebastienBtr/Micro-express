@@ -4,7 +4,6 @@ services:
     build: .
     command: sh -c "./wait-for-it.sh -t 15 prisma:4466 --strict -- prisma generate && prisma deploy && yarn lint-check && yarn ${ENV:-dev}"
     volumes:
-      - ./src:/app/src
       - /app/node_modules
       - /app/generated/prisma-client
     networks:
