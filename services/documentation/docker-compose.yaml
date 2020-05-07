@@ -12,6 +12,7 @@ services:
       - api-gateway_krakend
     logging:
       driver: ${LOGGING_DRIVER:-json-file}
+    restart: always
 
 networks:
   api-gateway_krakend:

@@ -19,6 +19,7 @@ services:
       FC_SETTINGS: "/etc/krakend/settings"
       FC_TEMPLATES: "/etc/krakend/templates"
       #FC_OUT: 'out.json' # only for debug purpose
+    restart: always
   influxdb:
     image: influxdb
     container_name: influxdb
@@ -32,6 +33,7 @@ services:
       - INFLUXDB_ADMIN_PASSWORD=${INFLUXDB_PASSWORD:-nffvbu08=uhg$hh}
     volumes:
       - influxdb-storage:/var/lib/influxdb
+    restart: always
   grafana:
     image: grafana/grafana
     container_name: grafana
@@ -49,6 +51,7 @@ services:
     volumes:
       - grafana-storage:/var/lib/grafana
       - ./grafana-provisioning/:/etc/grafana/provisioning
+    restart: always
   jaeger:
     image: jaegertracing/all-in-one:latest
     container_name: jaeger
@@ -58,6 +61,7 @@ services:
       - "9092:16686"
     logging:
       driver: ${LOGGING_DRIVER:-json-file}
+    restart: always
 
 networks:
   krakend:

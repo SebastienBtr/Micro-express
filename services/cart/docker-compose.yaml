@@ -15,6 +15,7 @@ services:
       driver: ${LOGGING_DRIVER:-json-file}
     environment:
       PRISMA_MANAGEMENT_API_SECRET: ${PRISMA_MANAGEMENT_API_SECRET:-wsflk897dh%£}
+    restart: always
 
   prisma:
     image: prismagraphql/prisma:1.34
