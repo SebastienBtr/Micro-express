@@ -1,0 +1,53 @@
+version: 2.1
+jobs:
+  specs:
+    working_directory: ~/micro-express/specification
+    docker:
+      - image: "cimg/base:stable"
+    steps:
+      - checkout:
+          path: ~/micro-express
+      - run: ~/micro-express/.circleci/exit-if-path-not-changed.sh ~/micro-express/specification
+      - node/install:
+          install-npm: false
+          node-version: latest
+      - run: node ./test-api.js
+      - run: node ./test-events.js
+      - slack/status:
+          fail_only: true
+          webhook: webhook
+  services:
+    working_directory: ~/micro-express/services
+    docker:
+      - image: "cimg/base:stable"
+    steps:
+      - checkout:
+          path: ~/micro-express
+      - run: ~/micro-express/.circleci/exit-if-path-not-changed.sh ~/micro-express/services
+      - node/install:
+          install-npm: false
+          node-version: latest
+      - run: ./laucher.sh -e test
+      - slack/status:
+          fail_only: true
+          webhook: webhook
+orbs:
+  node: circleci/node@2.0.3
+  slack: circleci/slack@3.4.2
+workflows:
+  services:
+    jobs:
+      - specs:
+          filters:
+            branches:
+              only:
+                - master
+                - staging
+                - dev
+      - services:
+          filters:
+            branches:
+              only:
+                - master
+                - staging
+                - dev
