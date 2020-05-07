@@ -46,4 +46,3 @@ Once your specification is ready you need to follow these steps:
 ## Tests
 
 Two tests are present to ensure style consistency and good formating: `test-apis.js` and `test-events.js`.
- 

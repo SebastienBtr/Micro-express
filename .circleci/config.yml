@@ -24,9 +24,7 @@ jobs:
       - checkout:
           path: ~/micro-express
       - run: ~/micro-express/.circleci/exit-if-path-not-changed.sh ~/micro-express/services
-      - node/install:
-          install-npm: false
-          node-version: latest
+      - setup_remote_docker
       - run: ./launcher.sh -e test
       - slack/status:
           fail_only: true
