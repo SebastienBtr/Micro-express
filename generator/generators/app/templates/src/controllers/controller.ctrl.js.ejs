@@ -4,7 +4,7 @@ const winston = require('winston');
  * Check if the body of the request contains the good elements
  */
 const bodyIsValid = (body) => {
-  const { <% body.forEach(item => { %><%= item.name %>, <% }) %>} = body;
+  const { <% body.forEach((item, i) => { %><%= item.name %><% if (i !== body.length - 1) { -%>,<% } -%> <% }) %>} = body;
   if (<% body.forEach((item, i) => { -%>
 !<%= item.name -%>
 <%_ if (item.type === 'integer') { -%> || <%= item.name %> !== parseInt(<%= item.name %>, 10)<% } -%>

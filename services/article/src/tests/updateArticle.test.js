@@ -42,7 +42,7 @@ describe('Update a specific article', () => {
     done();
   });
   it.each(
-    [{ "name": "name", "stock": 10 }, { "name": "name", "price": 10 }, { "stock": 10, "price": 10 }]
+    [{ name: 'name', stock: 10 }, { name: 'name', price: 10 }, { stock: 10, price: 10 }],
   )('Should return a 400 because a required field is missing', async (data, done) => {
     const res = await request(app)
       .put(`/articles/${notPresentId}`)
@@ -51,7 +51,7 @@ describe('Update a specific article', () => {
     done();
   });
   it.each(
-    [{ "name": "name", "stock": "10", "price": 10 }, { "name": "name", "stock": 10, "price": "10" }]
+    [{ name: 'name', stock: '10', price: 10 }, { name: 'name', stock: 10, price: '10' }],
   )('Should return a 400 because a required number field is not a number', async (data, done) => {
     const res = await request(app)
       .put(`/articles/${notPresentId}`)

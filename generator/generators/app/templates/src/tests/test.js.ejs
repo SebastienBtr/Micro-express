@@ -38,7 +38,7 @@ describe('<%= description %>', () => {<% responses.forEach(response => { if (res
     expect(res.statusCode).toEqual(<%= response.code %>);<% if (response.body) { %><% if (response.isList) { %>
     expect(Array.isArray(res.body)).toBeTruthy();
     expect(res.body.length).toEqual(1);
-    res.body = res.body[0];<% } %><% response.body.forEach(item => {%>
+    [res.body] = res.body;<% } %><% response.body.forEach(item => {%>
     expect(res.body).toHaveProperty('<%= item.name %>');<% if (item.name === 'id' && hasIdInPath) { %>
     expect(res.body.id).toEqual(presentId);<% } else if (item.name === 'id' && response.isList) { %>
     expect(res.body.id).toEqual(data.id);<% } else if (item.name !== 'id') { %><% if (requestBody && requestBody.filter(e => e.name === item.name).length > 0) { %>

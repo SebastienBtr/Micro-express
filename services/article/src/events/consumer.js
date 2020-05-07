@@ -1,5 +1,6 @@
 const { Kafka } = require('kafkajs');
 const winston = require('winston');
+const { decrementArticleStock } = require('../repository');
 const topics = require('./topics');
 const kafkaConfig = require('./kafkaConfig');
 

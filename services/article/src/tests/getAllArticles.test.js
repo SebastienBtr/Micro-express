@@ -23,7 +23,7 @@ describe('Get all the articles', () => {
     expect(res.statusCode).toEqual(200);
     expect(Array.isArray(res.body)).toBeTruthy();
     expect(res.body.length).toEqual(1);
-    res.body = res.body[0];
+    [res.body] = res.body;
     expect(res.body).toHaveProperty('id');
     expect(res.body.id).toEqual(data.id);
     expect(res.body).toHaveProperty('name');

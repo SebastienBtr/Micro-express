@@ -9,7 +9,7 @@
     "dev": "nodemon src/index.js",
     "prod": "node src/index.js",
     "test": "jest --testTimeout=20000 --runInBand",
-    "lint-check": "eslint ./ --ext js; exit 0",
+    "lint-check": "eslint ./ --ext js",
     "lint-fix": "eslint ./ --ext js --fix; exit 0"
   },
   "dependencies": {
