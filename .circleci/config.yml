@@ -11,7 +11,7 @@ jobs:
       - node/install:
           install-npm: false
           node-version: latest
-      - run: node ~/micro-express/specification/test-apis.js
+      - run: node ./test-apis.js
       - run: node ./test-events.js
       - slack/status:
           fail_only: true
@@ -27,7 +27,7 @@ jobs:
       - node/install:
           install-npm: false
           node-version: latest
-      - run: ~/micro-express/services/launcher.sh -e test
+      - run: ./launcher.sh -e test
       - slack/status:
           fail_only: true
           webhook: webhook
