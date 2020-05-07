@@ -5,7 +5,8 @@ jobs:
     docker:
       - image: "cimg/base:stable"
     steps:
-      - checkout
+      - checkout:
+          path: ~/micro-express
       - node/install:
           install-npm: false
           node-version: latest
@@ -19,7 +20,8 @@ jobs:
     docker:
       - image: "cimg/base:stable"
     steps:
-      - checkout
+      - checkout:
+          path: ~/micro-express
       - setup_remote_docker
       - run: ./launcher.sh -e test
       - slack/status:
