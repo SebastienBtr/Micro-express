@@ -26,11 +26,11 @@ then
   scriptArguments=(article cart documentation)
 fi
 cd "$root"/api-gateway
-ENV=$env docker-compose up -d --build --quiet-pull
+ENV=$env docker-compose up -d --build --quiet-pull --remove-orphans
 if [[ $env != "prod" ]]
 then
   cd "$root"/kafka
-  ENV=$env docker-compose up -d --build --quiet-pull
+  ENV=$env docker-compose up -d --build --quiet-pull --remove-orphans
 fi
 for i in "${scriptArguments[@]}"
 do 
@@ -40,8 +40,12 @@ do
   if [[ $env == "prod" ]]
   then 
     ENV=$env docker-compose -f docker-compose.yaml up --build -d --quiet-pull --remove-orphans
-  else
-    ENV=$env docker-compose up --build -d --quiet-pull --remove-orphans
+  elif [[ $env == "test" ]]
+  then
+    ENV=$env docker-compose -f docker-compose.yaml -f docker-compose.local.yaml up --build -d --quiet-pull --remove-orphans
+  elif [[ $env == "dev" ]]
+  then
+    ENV=$env docker-compose -f docker-compose.yaml -f docker-compose.local.yaml -f docker-compose.hot-reload.yaml up --build -d --quiet-pull --remove-orphans
   fi
   
   if [[ $env == "test" ]]

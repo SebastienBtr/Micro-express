@@ -16,6 +16,10 @@ module.exports.run = (self, addEvents) => {
     self.destinationPath('docker-compose.yaml'),
   );
   self.fs.copy(
+    self.templatePath('docker-compose.hot-reload.yaml'),
+    self.destinationPath('docker-compose.hot-reload.yaml'),
+  );
+  self.fs.copy(
     self.templatePath('.gitignore'),
     self.destinationPath('.gitignore'),
   );

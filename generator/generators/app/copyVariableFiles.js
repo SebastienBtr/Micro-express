@@ -18,8 +18,8 @@ module.exports.run = (self, addEvents, apiSpec) => {
     { pkgName: self.options.serviceName, addEvents },
   );
   self.fs.copyTpl(
-    self.templatePath('docker-compose.override.yaml.ejs'),
-    self.destinationPath('docker-compose.override.yaml'),
+    self.templatePath('docker-compose.local.yaml.ejs'),
+    self.destinationPath('docker-compose.local.yaml'),
     { port },
   );
 
