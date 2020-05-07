@@ -1,6 +1,7 @@
 version: 2.1
 jobs:
   specs:
+    working_directory: ~/micro-express/specification
     docker:
       - image: "cimg/base:stable"
     steps:
@@ -16,6 +17,7 @@ jobs:
           fail_only: true
           webhook: webhook
   services:
+    working_directory: ~/micro-express/services
     docker:
       - image: "cimg/base:stable"
     steps:
