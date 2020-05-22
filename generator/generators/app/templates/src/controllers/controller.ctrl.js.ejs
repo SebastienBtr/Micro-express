@@ -10,6 +10,7 @@ const bodyIsValid = (body) => {
 <%_ if (item.type === 'integer') { -%> || <%= item.name %> !== parseInt(<%= item.name %>, 10)<% } -%>
 <%_ if (item.type === 'double') { -%> || <%= item.name %> !== parseFloat(<%= item.name %>, 10)<% } -%>
 <%_ if (item.type === 'boolean') { -%> || typeof <%= item.name %> !== 'boolean'<% } -%>
+<%_ if (item.type.startsWith('[')) { -%> || <%= item.name %>.length <  1<% } -%>
 <%_ if (i !== body.length - 1) { -%> || <% } -%>
 <%_ }) -%>) {
     return false;
