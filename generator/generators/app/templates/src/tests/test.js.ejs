@@ -46,7 +46,7 @@ describe('<%= description %>', () => {<% responses.forEach(response => { if (res
     expect(res.body).toHaveProperty('<%= item.name %>');<% if (item.name === 'id' && hasIdInPath) { %>
     expect(res.body.id).toEqual(presentId);<% } else if (item.name === 'id' && response.isList) { %>
     expect(res.body.id).toEqual(data.id);<% } else if (item.name !== 'id') { %><% if (requestBody && requestBody.filter(e => e.name === item.name).length > 0) { %>
-    expect(res.body.<%= item.name %>).toEqual(requestBody.<%= item.name %>);<% } else { %>
+    expect(res.body.<%= item.name %>).toEqual(requestBody.<%= item.name %>);<% } else if (!requestBody || hasIdInPath) { %>
     expect(res.body.<%= item.name %>).toEqual(sampleOk.<%= item.name %>);<% }}})} %>
     done();
   });<% } else if (response.code === '404') { %>
