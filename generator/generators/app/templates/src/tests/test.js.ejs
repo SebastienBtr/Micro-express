@@ -8,7 +8,9 @@ const sampleOk = {<% resourceModel.forEach(item => { %>
   <%_ if (item.type === 'string') { %>: '<%= item.name %>'<% } -%>
   <%_ if (item.type === 'uuid') { %>: '0909090909'<% } -%>
   <%_ if (item.type === 'double') { %>: 10.5<% } -%>
-  <%_ if (item.type === 'integer') { %>: 10<% } -%>,<% }) %>
+  <%_ if (item.type === 'integer') { %>: 10<% } -%>
+  <%_ if (item.type === 'boolean') { %>: true<% } -%>
+  <%_ if (item.type.startsWith('[')) { %>: []<% } -%>,<% }) %>
 };<% } %><% if (requestBody) { %>
 
 const requestBody = {<% requestBody.forEach(item => { %>
@@ -16,7 +18,9 @@ const requestBody = {<% requestBody.forEach(item => { %>
   <%_ if (item.type === 'string') { %>: '<%= item.name %>!'<% } -%>
   <%_ if (item.type === 'uuid') { %>: '0606060606'<% } -%>
   <%_ if (item.type === 'double') { %>: 20.5<% } -%>
-  <%_ if (item.type === 'integer') { %>: 20<% } -%>,<% }) %>
+  <%_ if (item.type === 'integer') { %>: 20<% } -%>
+  <%_ if (item.type === 'boolean') { %>: true<% } -%>
+  <%_ if (item.type.startsWith('[')) { %>: []<% } -%>,<% }) %>
 };<% } %>
 <%_ if (hasIdInPath) { %>
 const notPresentId = '000000';
