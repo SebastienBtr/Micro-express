@@ -28,8 +28,8 @@ let presentId;<% } %>
 
 beforeEach(async (done) => {
   await prisma.deleteMany<%= resourceName -%>s();<% if (hasIdInPath) { %>
-  const article = await prisma.create<%= resourceName -%>(sampleOk);
-  presentId = article.id;<% } %>
+  const data = await prisma.create<%= resourceName -%>(sampleOk);
+  presentId = data.id;<% } %>
   done();
 });
 
