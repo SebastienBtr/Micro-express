@@ -15,8 +15,8 @@ let presentId;
 
 beforeEach(async (done) => {
   await prisma.deleteManyCartItems();
-  const article = await prisma.createCartItem(sampleOk);
-  presentId = article.id;
+  const data = await prisma.createCartItem(sampleOk);
+  presentId = data.id;
   done();
 });
 

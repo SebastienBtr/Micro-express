@@ -20,8 +20,8 @@ let presentId;
 
 beforeEach(async (done) => {
   await prisma.deleteManyArticles();
-  const article = await prisma.createArticle(sampleOk);
-  presentId = article.id;
+  const data = await prisma.createArticle(sampleOk);
+  presentId = data.id;
   done();
 });
 
