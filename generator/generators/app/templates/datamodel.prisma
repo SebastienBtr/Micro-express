@@ -1,6 +1,0 @@
-type Article {
-  id: ID! @id
-  name: String!
-  stock: Int!
-  price: Float!
-}
