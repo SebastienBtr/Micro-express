@@ -30,8 +30,11 @@ In production you will need to have hosted databases and a kafka service. You ne
 
 * Create its specification (see [specification](../specification)).
 * Generate the service with the generator (see [generator](../generator)).
+* Add the new documentation endpoints [here](documention/index.js).
+* Edit the `launcher.sh` and the `stop-all.sh` scripts to add this new service.
 * Implement the "TODOs" by following the bellow information about editing a service.
 * Use `yarn lint-check` to make sure there is no style issues, you can also install the eslint plugin in your editor of it is available
+* You might want to expose some routes with the [API gateway](../services/api-gateway).
 
 **Edit a service**
 

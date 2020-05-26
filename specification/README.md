@@ -41,7 +41,7 @@ Once your specification is ready you need to follow these steps:
 
 * Deploy the microservice using the [generator](../generator).
 
-* You might want to expose some routes with the [API gateway](../services/api-gateway).
+* Follow the information about [creating a service](../services).
 
 ## Tests
 
