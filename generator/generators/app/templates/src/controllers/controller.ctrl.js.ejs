@@ -7,8 +7,8 @@ const bodyIsValid = (body) => {
   const { <% body.forEach((item, i) => { %><%= item.name %><% if (i !== body.length - 1) { -%>,<% } -%> <% }) %>} = body;
   if (<% body.forEach((item, i) => { -%>
 <% if (item.type !== 'boolean') { -%>!<%= item.name -%><% } else { -%><%= item.name -%> == null<% } -%>
-<%_ if (item.type === 'integer') { -%> || <%= item.name %> !== parseInt(<%= item.name %>, 10)<% } -%>
-<%_ if (item.type === 'double') { -%> || <%= item.name %> !== parseFloat(<%= item.name %>, 10)<% } -%>
+<%_ if (item.type === 'integer' || item.type === 'long') { -%> || <%= item.name %> !== parseInt(<%= item.name %>, 10)<% } -%>
+<%_ if (item.type === 'double' || item.type === 'decimal') { -%> || <%= item.name %> !== parseFloat(<%= item.name %>, 10)<% } -%>
 <%_ if (item.type === 'boolean') { -%> || typeof <%= item.name %> !== 'boolean'<% } -%>
 <%_ if (item.type.startsWith('[')) { -%> || <%= item.name %>.length <  1<% } -%>
 <%_ if (i !== body.length - 1) { -%> || <% } -%>
