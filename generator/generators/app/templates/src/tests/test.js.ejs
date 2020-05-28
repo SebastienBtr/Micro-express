@@ -74,23 +74,20 @@ describe('<%= description %>', () => {<% responses.forEach(response => { if (res
       cases.push({'eeeoooo': 'aboer'});
     } else {
       for (let i = 0; i < params.length; i++) {
-        let currentValue = "";
-        if (params[i].type === 'string' || params[i].type === 'uuid') {
-          currentValue = params[i].name;
-        } else if (params[i].type === 'double' || params[i].type === 'integer') {
-          currentValue = 10;
-          numberIndexes.push(i);
-        }
-        for (let j = i + 1; j < params.length; j++) {
-          let data = {};
-          data[params[i].name] = currentValue;
-          if (params[j].type === 'string' || params[j].type === 'uuid') {
-            data[params[j].name] = params[j].name;
-          } else if (params[j].type === 'double' || params[j].type === 'integer') {
-            data[params[j].name] =  10;
+        let data = {};
+        for (let j = 0; j < params.length; j++) {
+          if (j !== i) {
+            let currentValue = "";
+            if (params[j].type === 'string' || params[j].type === 'uuid') {
+              currentValue = params[j].name;
+            } else if (params[j].type === 'double' || params[j].type === 'integer') {
+              currentValue = 10;
+              numberIndexes.push(j);
+            }
+            data[params[j].name] = currentValue;
           }
-          cases.push(data);
         }
+        cases.push(data);
       }
     }
   %>
