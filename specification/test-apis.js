@@ -25,7 +25,7 @@ dirs.forEach(dir => {
     assert(
       key === key.toLowerCase().replace(/\s/g, '')
       && !key.includes('-'),
-      'The field names must be in snake case'
+      'The model names must be in snake case'
     );
 
     apiSpec.models[key].fields.forEach(field => {

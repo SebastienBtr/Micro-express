@@ -9,7 +9,9 @@ const services = {};
 const consumers = new Set();
 
 dirs.forEach(dir => {
-  services[dir] = require(join(__dirname, dir, 'events.json'));
+  try {
+    services[dir] = require(join(__dirname, dir, 'events.json'));
+  } catch (error) { }
 });
 
 Object.entries(services).forEach(([name, value]) => {
