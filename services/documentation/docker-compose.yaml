@@ -5,8 +5,6 @@ services:
     command: yarn run ${ENV:-dev}
     volumes:
       - /app/node_modules
-    ports:
-      - "${SERVER_PORT:-3300}:3500"
     networks:
       - app
       - api-gateway_krakend

@@ -6,6 +6,9 @@ require('dotenv').config();
 const app = express();
 const port = 3500;
 
+const externalHost = process.env.EXTERNAL_HOST;
+const externalPort = process.env.EXTERNAL_PORT;
+
 /**
  * Add headers
  */
@@ -50,11 +53,11 @@ const options = {
     ],
     urls: [
       {
-        url: `http://localhost:${port}/article-swagger.json`,
+        url: `${externalHost}:${externalPort}/article-swagger.json`,
         name: 'Article',
       },
       {
-        url: `http://localhost:${port}/cart-swagger.json`,
+        url: `${externalHost}:${externalPort}/cart-swagger.json`,
         name: 'Cart',
       },
     ],
