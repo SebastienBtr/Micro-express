@@ -11,7 +11,7 @@ module.exports.run = (self, apiSpec) => {
       let hasIdInPath = false;
       if (operation.path) {
         hasIdInPath = operation.path.includes('/:id');
-        route += `${operation.path.replace('/:id', '')}`;
+        route += operation.path;
       }
 
       const descriptionParts = operation.description.split('; methodName: ');

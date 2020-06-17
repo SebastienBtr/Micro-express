@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+/* eslint-disable no-undef */ <% let presentIdRoute = route.replace(':id', '${presentId}'); let notPresentIdRoute = route.replace(':id', '${notPresentId}') %>
 const request = require('supertest');
 const app = require('../server');
 const { prisma } = require('../../generated/prisma-client');<% if (!requestBody || hasIdInPath) { %>
@@ -43,7 +43,7 @@ describe('<%= description %>', () => {<% responses.forEach(response => { if (res
   it('Nominal case', async (done) => {<% if (response.isList) { %>
     const data = await prisma.create<%= resourceName -%>(sampleOk);<% } %>
     const res = await request(app)
-      .<%= requestMethod %>(<% if (hasIdInPath) { %>`<%= route %>/${presentId}`<% } else {%>'<%= route %>'<% } %>)<% if (!requestBody) { %>;<% } else { %>
+      .<%= requestMethod %>(<% if (hasIdInPath) { %>`<%= presentIdRoute %>`<% } else {%>'<%= route %>'<% } %>)<% if (!requestBody) { %>;<% } else { %>
       .send(requestBody);<% } %>
     expect(res.statusCode).toEqual(<%= response.code %>);<% if (response.body) { %><% if (response.isList) { %>
     expect(Array.isArray(res.body)).toBeTruthy();
@@ -58,7 +58,7 @@ describe('<%= description %>', () => {<% responses.forEach(response => { if (res
   });<% } else if (response.code === '404') { %>
   it('404 error case', async (done) => {
     const res = await request(app)
-      .<%= requestMethod %>(<% if (hasIdInPath) { %>`<%= route %>/${notPresentId}`<% } else {%>'<%= route %>'<% } %>)<% if (!requestBody) { %>;<% } else { %>
+      .<%= requestMethod %>(<% if (hasIdInPath) { %>`<%= notPresentIdRoute %>`<% } else {%>'<%= route %>'<% } %>)<% if (!requestBody) { %>;<% } else { %>
       .send(requestBody);<% } %>
     expect(res.statusCode).toEqual(404);
     done();
@@ -95,7 +95,7 @@ describe('<%= description %>', () => {<% responses.forEach(response => { if (res
   <%- JSON.stringify(cases) %>
   )('Should return a 400 because a required field is missing', async (data, done) => {
     const res = await request(app)
-      .<%= requestMethod %>(<% if (hasIdInPath) { %>`<%= route %>/${notPresentId}`<% } else {%>'<%= route %>'<% } %>)
+      .<%= requestMethod %>(<% if (hasIdInPath) { %>`<%= presentIdRoute %>`<% } else {%>'<%= route %>'<% } %>)
       .send(data);
     expect(res.statusCode).toEqual(400);
     done();
@@ -118,7 +118,7 @@ describe('<%= description %>', () => {<% responses.forEach(response => { if (res
   <%- JSON.stringify(casesNaN) %>
   )('Should return a 400 because a required number field is not a number', async (data, done) => {
     const res = await request(app)
-      .<%= requestMethod %>(<% if (hasIdInPath) { %>`<%= route %>/${notPresentId}`<% } else {%>'<%= route %>'<% } %>)
+      .<%= requestMethod %>(<% if (hasIdInPath) { %>`<%= presentIdRoute %>`<% } else {%>'<%= route %>'<% } %>)
       .send(data);
     expect(res.statusCode).toEqual(400);
     done();
