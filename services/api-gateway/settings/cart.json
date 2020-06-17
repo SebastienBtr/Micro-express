@@ -6,27 +6,32 @@
     {
       "endpoint": "/cart/items",
       "method": "GET",
-      "url_pattern": "/cart/items"
+      "url_pattern": "/cart/items",
+      "extra_config": {}
     },
     {
       "endpoint": "/cart/items",
       "method": "POST",
-      "url_pattern": "/cart/items"
+      "url_pattern": "/cart/items",
+      "extra_config": {}
     },
     {
       "endpoint": "/cart/items/checkout",
       "method": "PUT",
-      "url_pattern": "/cart/items/checkout"
+      "url_pattern": "/cart/items/checkout",
+      "extra_config": {}
     },
     {
       "endpoint": "/cart/items/quantity/{id}",
       "method": "PUT",
-      "url_pattern": "/cart/items/quantity/{id}"
+      "url_pattern": "/cart/items/quantity/{id}",
+      "extra_config": {}
     },
     {
       "endpoint": "/cart/items/{id}",
       "method": "DELETE",
-      "url_pattern": "/cart/items/{id}"
+      "url_pattern": "/cart/items/{id}",
+      "extra_config": {}
     }
   ]
 }

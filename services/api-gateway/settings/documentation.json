@@ -6,47 +6,56 @@
     {
       "endpoint": "/documentation",
       "method": "GET",
-      "url_pattern": "/documentation"
+      "url_pattern": "/documentation",
+      "extra_config": {}
     },
     {
       "endpoint": "/article-swagger.json",
       "method": "GET",
-      "url_pattern": "/article-swagger.json"
+      "url_pattern": "/article-swagger.json",
+      "extra_config": {}
     },
     {
       "endpoint": "/cart-swagger.json",
       "method": "GET",
-      "url_pattern": "/cart-swagger.json"
+      "url_pattern": "/cart-swagger.json",
+      "extra_config": {}
     },
     {
       "endpoint": "/swagger-ui.css",
       "method": "GET",
-      "url_pattern": "/documentation/swagger-ui.css"
+      "url_pattern": "/documentation/swagger-ui.css",
+      "extra_config": {}
     },
     {
       "endpoint": "/swagger-ui-bundle.js",
       "method": "GET",
-      "url_pattern": "/documentation/swagger-ui-bundle.js"
+      "url_pattern": "/documentation/swagger-ui-bundle.js",
+      "extra_config": {}
     },
     {
       "endpoint": "/swagger-ui-standalone-preset.js",
       "method": "GET",
-      "url_pattern": "/documentation/swagger-ui-standalone-preset.js"
+      "url_pattern": "/documentation/swagger-ui-standalone-preset.js",
+      "extra_config": {}
     },
     {
       "endpoint": "/swagger-ui-init.js",
       "method": "GET",
-      "url_pattern": "/documentation/swagger-ui-init.js"
+      "url_pattern": "/documentation/swagger-ui-init.js",
+      "extra_config": {}
     },
     {
       "endpoint": "/favicon-32x32.png",
       "method": "GET",
-      "url_pattern": "/documentation/favicon-32x32.png"
+      "url_pattern": "/documentation/favicon-32x32.png",
+      "extra_config": {}
     },
     {
       "endpoint": "/favicon-16x16.png",
       "method": "GET",
-      "url_pattern": "/documentation/favicon-16x16.png"
+      "url_pattern": "/documentation/favicon-16x16.png",
+      "extra_config": {}
     }
   ]
 }
