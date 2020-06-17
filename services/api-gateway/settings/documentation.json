@@ -9,6 +9,16 @@
       "url_pattern": "/documentation"
     },
     {
+      "endpoint": "/article-swagger.json",
+      "method": "GET",
+      "url_pattern": "/article-swagger.json"
+    },
+    {
+      "endpoint": "/cart-swagger.json",
+      "method": "GET",
+      "url_pattern": "/cart-swagger.json"
+    },
+    {
       "endpoint": "/swagger-ui.css",
       "method": "GET",
       "url_pattern": "/documentation/swagger-ui.css"
