@@ -62,7 +62,7 @@ describe('<%= description %>', () => {<% responses.forEach(response => { if (res
       .send(requestBody);<% } %>
     expect(res.statusCode).toEqual(404);
     done();
-  });<% } else if (response.code === '400') { -%>
+  });<% } else if (response.code === '400' && requestBody != null) { -%>
   <%
     const cases = [];
     const numberIndexes = [];
