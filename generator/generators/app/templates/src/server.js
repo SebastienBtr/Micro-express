@@ -6,15 +6,6 @@ const routes = require('./routes');
 const app = express();
 
 /**
- * Add headers
- */
-app.use((req, res, next) => {
-  // Hosts you wish to allow to connect
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  next();
-});
-
-/**
  * Configure app to use bodyParser
  * This will let us get the data from a POST
  */

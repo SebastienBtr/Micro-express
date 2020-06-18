@@ -10,15 +10,6 @@ const externalHost = process.env.EXTERNAL_HOST;
 const externalPort = process.env.EXTERNAL_PORT;
 
 /**
- * Add headers
- */
-app.use((req, res, next) => {
-  // Hosts you wish to allow to connect
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  next();
-});
-
-/**
  * Configure winston
  */
 winston.add(new winston.transports.Console({

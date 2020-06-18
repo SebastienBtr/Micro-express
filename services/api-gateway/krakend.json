@@ -3,11 +3,29 @@
   "timeout": "3000ms",
   "cache_ttl": "300s",
   "extra_config": {
+    "github_com/devopsfaith/krakend-cors": {
+      "allow_origins": [],
+      "allow_methods": [
+        "POST",
+        "PUT",
+        "DELETE",
+        "GET",
+        "OPTIONS",
+        "PATCH"
+      ],
+      "allow_headers": [
+        "Origin",
+        "X-Requested-With",
+        "Authorization",
+        "Content-Type"
+      ],
+      "max_age": "12h"
+    },
     "github_com/devopsfaith/krakend-metrics": {
-      "listen_address":":8090"
+      "listen_address": ":8090"
     },
     "github_com/devopsfaith/krakend-gologging": {
-      "level":  "DEBUG",
+      "level": "DEBUG",
       "prefix": "[KRAKEND]",
       "syslog": false,
       "stdout": true
@@ -23,14 +41,23 @@
         },
         "jaeger": {
           "endpoint": "http://jaeger:14268",
-          "service_name":"krakend"
+          "service_name": "krakend"
         }
       }
     }
   },
   "endpoints": [
-    {{ template "endpoint.tmpl" .article }},
-    {{ template "endpoint.tmpl" .cart }},
-    {{ template "endpoint.tmpl" .documentation }}
+    {
+      { template "endpoint.tmpl" .article
+      }
+    },
+    {
+      { template "endpoint.tmpl" .cart
+      }
+    },
+    {
+      { template "endpoint.tmpl" .documentation
+      }
+    }
   ]
 }
