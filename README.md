@@ -1,6 +1,6 @@
 # POC microservices
 
-Example of a specs driven develoment microservices (SDD) architecture using code generation.
+Example of a specs driven development microservices (SDD) architecture using code generation.
 The project is keeping simple but includes all the necesary tools to be production ready. The business logic implemented does not really matter, the goal is to demonstrate how a SDD can be organized and the good pratices of a microservices architecture.
 
 ![](schema.png)
