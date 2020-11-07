@@ -16,6 +16,8 @@ There is a `launcher.sh` script to launch the desired services with docker.
 
 * A "`-e`" option can be added to the command to precise the environment: "dev", "test", "prod", the default value is "dev". When you switch between environments, make sure to call the `stop-all.sh` script before.
 
+* To lauch the API gateway, use the `gateway-launcher.sh` script, it is important that the `auth` service is already running, otherwise the the gateway wont be able to sign tokens.
+
 To stop all the services, you can use the `stop-all.sh` script.
 
 To simplify the development and allow you to work on a service without using the api-gateway, each business service is exposed to your host with a default port that can be seen in the `docker-compose.override.yaml` file of the service. This port value can overriden if you create a `.env` file in the project. An example is provided with the `.env.default` file.
@@ -31,9 +33,9 @@ In production you will need to have hosted databases and a kafka service. You ne
 * Create its specification (see [specification](../specification)).
 * Generate the service with the generator (see [generator](../generator)).
 * Add the new documentation endpoints [here](documention/index.js).
-* Edit the `launcher.sh` and the `stop-all.sh` scripts to add this new service.
+* Edit all the `.sh` scripts to add this new service.
 * Implement the "TODOs" by following the bellow information about editing a service.
-* Use `yarn lint-check` to make sure there is no style issues, you can also install the eslint plugin in your editor of it is available
+* Use `yarn lint-check` to make sure there is no style issues, you can also install the eslint plugin in your editor if it is available
 * You might want to expose some routes with the [API gateway](../services/api-gateway).
 
 **Edit a service**
