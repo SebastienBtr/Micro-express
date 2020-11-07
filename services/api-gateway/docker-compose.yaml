@@ -16,6 +16,7 @@ services:
       - auth_app
       - cart_app
       - documentation_app
+      - user_app
     logging:
       driver: ${LOGGING_DRIVER:-json-file}
     environment:
@@ -77,6 +78,8 @@ networks:
   cart_app:
     external: true
   documentation_app:
+    external: true
+  user_app:
     external: true
 
 volumes:
