@@ -4,7 +4,9 @@ const winston = require('winston');
  * Check if the body of the request contains the good elements
  */
 const bodyIsValid = (body) => {
-  const { firstName, lastName, email, password } = body;
+  const {
+    firstName, lastName, email, password,
+  } = body;
   if (!firstName || !lastName || !email || !password) {
     return false;
   }

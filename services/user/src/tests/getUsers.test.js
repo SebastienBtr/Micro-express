@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */ 
+/* eslint-disable no-undef */
 const request = require('supertest');
 const app = require('../server');
 const { prisma } = require('../../generated/prisma-client');

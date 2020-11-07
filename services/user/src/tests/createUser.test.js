@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */ 
+/* eslint-disable no-undef */
 const request = require('supertest');
 const app = require('../server');
 const { prisma } = require('../../generated/prisma-client');
@@ -32,9 +32,9 @@ describe('Create a user', () => {
     expect(res.body).toHaveProperty('createdAt');
     expect(res.body).toHaveProperty('updatedAt');
     done();
-  });  
+  });
   it.each(
-  [{"lastName":"lastName","email":"email","password":"password"},{"firstName":"firstName","email":"email","password":"password"},{"firstName":"firstName","lastName":"lastName","password":"password"},{"firstName":"firstName","lastName":"lastName","email":"email"}]
+    [{ lastName: 'lastName', email: 'email', password: 'password' }, { firstName: 'firstName', email: 'email', password: 'password' }, { firstName: 'firstName', lastName: 'lastName', password: 'password' }, { firstName: 'firstName', lastName: 'lastName', email: 'email' }],
   )('Should return a 400 because a required field is missing', async (data, done) => {
     const res = await request(app)
       .put('/users')
@@ -42,5 +42,4 @@ describe('Create a user', () => {
     expect(res.statusCode).toEqual(400);
     done();
   });
-  
 });
