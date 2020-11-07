@@ -12,5 +12,7 @@ cd "$root"/cart
 docker-compose -f docker-compose.yaml -f docker-compose.local.yaml -f docker-compose.hot-reload.yaml down
 cd "$root"/documentation
 docker-compose -f docker-compose.yaml -f docker-compose.local.yaml -f docker-compose.hot-reload.yaml down
+cd "$root"/user
+docker-compose -f docker-compose.yaml -f docker-compose.local.yaml -f docker-compose.hot-reload.yaml down
 cd "$root"/kafka
 docker-compose down

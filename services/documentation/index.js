@@ -55,6 +55,10 @@ const options = {
         url: `${externalHost}:${externalPort}/auth-swagger.json`,
         name: 'Auth',
       },
+      {
+        url: `${externalHost}:${externalPort}/user-swagger.json`,
+        name: 'User',
+      },
     ],
   },
   customCss: '.swagger-ui .topbar .link { display: none }',

@@ -6,3 +6,7 @@ cd "$root"/cart
 yarn audit
 cd "$root"/documentation
 yarn audit
+cd "$root"/auth
+yarn audit
+cd "$root"/user
+yarn audit

@@ -1,0 +1,564 @@
+{
+  "info" : {
+    "name" : "user",
+    "schema" : "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description" : {
+      "content" : "Service to manage users"
+    },
+    "version" : "1.0.0"
+  },
+  "item" : [ {
+    "name" : "users",
+    "item" : [ {
+      "request" : {
+        "url" : {
+          "raw" : "{{BASE_URL}}/users",
+          "host" : [ "{{BASE_URL}}" ],
+          "path" : [ "users" ],
+          "query" : [ {
+            "key" : "email",
+            "disabled" : true,
+            "description" : {
+              "content" : "Type: string  | Required: false"
+            }
+          } ],
+          "variable" : [ ]
+        },
+        "method" : "GET",
+        "description" : {
+          "content" : "Get users; methodName: getUsers"
+        },
+        "header" : [ ]
+      },
+      "name" : "GET /users",
+      "description" : {
+        "content" : "Get users; methodName: getUsers"
+      },
+      "event" : [ {
+        "listen" : "test",
+        "script" : {
+          "exec" : [ "pm.test(\"GET requests should return 2xx\", function () {", "    pm.response.to.be.success;", "});" ],
+          "type" : "text/javascript"
+        }
+      } ],
+      "response" : [ {
+        "name" : "Example 200 - [user]",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/users",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "users" ],
+            "query" : [ {
+              "key" : "email",
+              "disabled" : true,
+              "description" : {
+                "content" : "Type: string  | Required: false"
+              }
+            } ],
+            "variable" : [ ]
+          },
+          "method" : "GET",
+          "description" : {
+            "content" : "Get users; methodName: getUsers"
+          },
+          "header" : [ ]
+        },
+        "body" : "[ {\n  \"updatedAt\" : \"2020-11-07T11:53:39.125Z\",\n  \"email\" : \"20f3fe7e92c1\",\n  \"lastName\" : \"bfd3faf79685\",\n  \"createdAt\" : \"2020-11-07T11:53:39.125Z\",\n  \"firstName\" : \"9850bebb76c8\",\n  \"id\" : \"f41470bf-4bc3-43b7-90ed-cad1f5da1a1d\"\n} ]",
+        "code" : 200
+      }, {
+        "name" : "Example 400 - unit",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/users",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "users" ],
+            "query" : [ {
+              "key" : "email",
+              "disabled" : true,
+              "description" : {
+                "content" : "Type: string  | Required: false"
+              }
+            } ],
+            "variable" : [ ]
+          },
+          "method" : "GET",
+          "description" : {
+            "content" : "Get users; methodName: getUsers"
+          },
+          "header" : [ ]
+        },
+        "code" : 400
+      } ],
+      "type" : "item"
+    }, {
+      "request" : {
+        "url" : {
+          "raw" : "{{BASE_URL}}/users/:id",
+          "host" : [ "{{BASE_URL}}" ],
+          "path" : [ "users", ":id" ],
+          "query" : [ ],
+          "variable" : [ {
+            "key" : "id",
+            "value" : "{{id}}",
+            "description" : {
+              "content" : "Type: uuid  | Required: true"
+            },
+            "disabled" : false
+          } ]
+        },
+        "method" : "GET",
+        "description" : {
+          "content" : "Get a user by id; methodName: getUserById"
+        },
+        "header" : [ ]
+      },
+      "name" : "GET /users/:id",
+      "description" : {
+        "content" : "Get a user by id; methodName: getUserById"
+      },
+      "event" : [ {
+        "listen" : "test",
+        "script" : {
+          "exec" : [ "pm.test(\"GET requests should return 2xx\", function () {", "    pm.response.to.be.success;", "});" ],
+          "type" : "text/javascript"
+        }
+      } ],
+      "response" : [ {
+        "name" : "Example 200 - user",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/users/:id",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "users", ":id" ],
+            "query" : [ ],
+            "variable" : [ {
+              "key" : "id",
+              "value" : "{{id}}",
+              "description" : {
+                "content" : "Type: uuid  | Required: true"
+              },
+              "disabled" : false
+            } ]
+          },
+          "method" : "GET",
+          "description" : {
+            "content" : "Get a user by id; methodName: getUserById"
+          },
+          "header" : [ ]
+        },
+        "body" : "{\n  \"updatedAt\" : \"2020-11-07T11:53:39.125Z\",\n  \"email\" : \"da0d87f85268\",\n  \"lastName\" : \"3e4bf8e6b14a\",\n  \"createdAt\" : \"2020-11-07T11:53:39.125Z\",\n  \"firstName\" : \"d333e90195c0\",\n  \"id\" : \"ae391b41-b357-4e64-b5a3-9a60792af2d5\"\n}",
+        "code" : 200
+      }, {
+        "name" : "Example 404 - unit",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/users/:id",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "users", ":id" ],
+            "query" : [ ],
+            "variable" : [ {
+              "key" : "id",
+              "value" : "{{id}}",
+              "description" : {
+                "content" : "Type: uuid  | Required: true"
+              },
+              "disabled" : false
+            } ]
+          },
+          "method" : "GET",
+          "description" : {
+            "content" : "Get a user by id; methodName: getUserById"
+          },
+          "header" : [ ]
+        },
+        "code" : 404
+      } ],
+      "type" : "item"
+    }, {
+      "request" : {
+        "url" : {
+          "raw" : "{{BASE_URL}}/users",
+          "host" : [ "{{BASE_URL}}" ],
+          "path" : [ "users" ],
+          "query" : [ ],
+          "variable" : [ ]
+        },
+        "method" : "PUT",
+        "description" : {
+          "content" : "Create a user; methodName: createUser"
+        },
+        "header" : [ {
+          "key" : "Content-Type",
+          "value" : "application/json",
+          "description" : {
+            "content" : "Required to send JSON body"
+          }
+        } ],
+        "body" : {
+          "raw" : "{\n  \"firstName\" : \"2728feff8290\",\n  \"lastName\" : \"4c6d4433f956\",\n  \"email\" : \"336b4b563f3c\",\n  \"password\" : \"b6575c2e4032\"\n}",
+          "mode" : "raw"
+        }
+      },
+      "name" : "PUT /users",
+      "description" : {
+        "content" : "Create a user; methodName: createUser"
+      },
+      "event" : [ {
+        "listen" : "test",
+        "script" : {
+          "exec" : [ "pm.test(\"PUT requests should return 2xx\", function () {", "    pm.response.to.be.success;", "});" ],
+          "type" : "text/javascript"
+        }
+      } ],
+      "response" : [ {
+        "name" : "Example 201 - user",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/users",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "users" ],
+            "query" : [ ],
+            "variable" : [ ]
+          },
+          "method" : "PUT",
+          "description" : {
+            "content" : "Create a user; methodName: createUser"
+          },
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json",
+            "description" : {
+              "content" : "Required to send JSON body"
+            }
+          } ],
+          "body" : {
+            "raw" : "{\n  \"firstName\" : \"2728feff8290\",\n  \"lastName\" : \"4c6d4433f956\",\n  \"email\" : \"336b4b563f3c\",\n  \"password\" : \"b6575c2e4032\"\n}",
+            "mode" : "raw"
+          }
+        },
+        "body" : "{\n  \"updatedAt\" : \"2020-11-07T11:53:39.125Z\",\n  \"email\" : \"2b172eff76da\",\n  \"lastName\" : \"e8d49e227692\",\n  \"createdAt\" : \"2020-11-07T11:53:39.125Z\",\n  \"firstName\" : \"8344b2bc535a\",\n  \"id\" : \"13f035b4-ca1f-4947-b1a8-2e582b178798\"\n}",
+        "code" : 201
+      }, {
+        "name" : "Example 400 - unit",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/users",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "users" ],
+            "query" : [ ],
+            "variable" : [ ]
+          },
+          "method" : "PUT",
+          "description" : {
+            "content" : "Create a user; methodName: createUser"
+          },
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json",
+            "description" : {
+              "content" : "Required to send JSON body"
+            }
+          } ],
+          "body" : {
+            "raw" : "{\n  \"firstName\" : \"2728feff8290\",\n  \"lastName\" : \"4c6d4433f956\",\n  \"email\" : \"336b4b563f3c\",\n  \"password\" : \"b6575c2e4032\"\n}",
+            "mode" : "raw"
+          }
+        },
+        "code" : 400
+      }, {
+        "name" : "Example 422 - unit",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/users",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "users" ],
+            "query" : [ ],
+            "variable" : [ ]
+          },
+          "method" : "PUT",
+          "description" : {
+            "content" : "Create a user; methodName: createUser"
+          },
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json",
+            "description" : {
+              "content" : "Required to send JSON body"
+            }
+          } ],
+          "body" : {
+            "raw" : "{\n  \"firstName\" : \"2728feff8290\",\n  \"lastName\" : \"4c6d4433f956\",\n  \"email\" : \"336b4b563f3c\",\n  \"password\" : \"b6575c2e4032\"\n}",
+            "mode" : "raw"
+          }
+        },
+        "code" : 422
+      } ],
+      "type" : "item"
+    }, {
+      "request" : {
+        "url" : {
+          "raw" : "{{BASE_URL}}/users/:id",
+          "host" : [ "{{BASE_URL}}" ],
+          "path" : [ "users", ":id" ],
+          "query" : [ ],
+          "variable" : [ {
+            "key" : "id",
+            "value" : "{{id}}",
+            "description" : {
+              "content" : "Type: uuid  | Required: true"
+            },
+            "disabled" : false
+          } ]
+        },
+        "method" : "PUT",
+        "description" : {
+          "content" : "Update a user by id; methodName: updateUserById"
+        },
+        "header" : [ {
+          "key" : "Content-Type",
+          "value" : "application/json",
+          "description" : {
+            "content" : "Required to send JSON body"
+          }
+        } ],
+        "body" : {
+          "raw" : "{\n  \"firstName\" : \"cc37e0e8f87d\",\n  \"lastName\" : \"a9d8ad9429c1\",\n  \"email\" : \"8a7be82447a0\",\n  \"password\" : \"264af3ce0eb6\"\n}",
+          "mode" : "raw"
+        }
+      },
+      "name" : "PUT /users/:id",
+      "description" : {
+        "content" : "Update a user by id; methodName: updateUserById"
+      },
+      "event" : [ {
+        "listen" : "test",
+        "script" : {
+          "exec" : [ "pm.test(\"PUT requests should return 2xx\", function () {", "    pm.response.to.be.success;", "});" ],
+          "type" : "text/javascript"
+        }
+      } ],
+      "response" : [ {
+        "name" : "Example 200 - user",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/users/:id",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "users", ":id" ],
+            "query" : [ ],
+            "variable" : [ {
+              "key" : "id",
+              "value" : "{{id}}",
+              "description" : {
+                "content" : "Type: uuid  | Required: true"
+              },
+              "disabled" : false
+            } ]
+          },
+          "method" : "PUT",
+          "description" : {
+            "content" : "Update a user by id; methodName: updateUserById"
+          },
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json",
+            "description" : {
+              "content" : "Required to send JSON body"
+            }
+          } ],
+          "body" : {
+            "raw" : "{\n  \"firstName\" : \"cc37e0e8f87d\",\n  \"lastName\" : \"a9d8ad9429c1\",\n  \"email\" : \"8a7be82447a0\",\n  \"password\" : \"264af3ce0eb6\"\n}",
+            "mode" : "raw"
+          }
+        },
+        "body" : "{\n  \"updatedAt\" : \"2020-11-07T11:53:39.126Z\",\n  \"email\" : \"7d7af19a3e39\",\n  \"lastName\" : \"f59051a5847b\",\n  \"createdAt\" : \"2020-11-07T11:53:39.126Z\",\n  \"firstName\" : \"7d61b18143f9\",\n  \"id\" : \"bdd895ae-1ec0-470a-901a-e53bb68fcba0\"\n}",
+        "code" : 200
+      }, {
+        "name" : "Example 404 - unit",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/users/:id",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "users", ":id" ],
+            "query" : [ ],
+            "variable" : [ {
+              "key" : "id",
+              "value" : "{{id}}",
+              "description" : {
+                "content" : "Type: uuid  | Required: true"
+              },
+              "disabled" : false
+            } ]
+          },
+          "method" : "PUT",
+          "description" : {
+            "content" : "Update a user by id; methodName: updateUserById"
+          },
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json",
+            "description" : {
+              "content" : "Required to send JSON body"
+            }
+          } ],
+          "body" : {
+            "raw" : "{\n  \"firstName\" : \"cc37e0e8f87d\",\n  \"lastName\" : \"a9d8ad9429c1\",\n  \"email\" : \"8a7be82447a0\",\n  \"password\" : \"264af3ce0eb6\"\n}",
+            "mode" : "raw"
+          }
+        },
+        "code" : 404
+      }, {
+        "name" : "Example 400 - unit",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/users/:id",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "users", ":id" ],
+            "query" : [ ],
+            "variable" : [ {
+              "key" : "id",
+              "value" : "{{id}}",
+              "description" : {
+                "content" : "Type: uuid  | Required: true"
+              },
+              "disabled" : false
+            } ]
+          },
+          "method" : "PUT",
+          "description" : {
+            "content" : "Update a user by id; methodName: updateUserById"
+          },
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json",
+            "description" : {
+              "content" : "Required to send JSON body"
+            }
+          } ],
+          "body" : {
+            "raw" : "{\n  \"firstName\" : \"cc37e0e8f87d\",\n  \"lastName\" : \"a9d8ad9429c1\",\n  \"email\" : \"8a7be82447a0\",\n  \"password\" : \"264af3ce0eb6\"\n}",
+            "mode" : "raw"
+          }
+        },
+        "code" : 400
+      }, {
+        "name" : "Example 412 - unit",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/users/:id",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "users", ":id" ],
+            "query" : [ ],
+            "variable" : [ {
+              "key" : "id",
+              "value" : "{{id}}",
+              "description" : {
+                "content" : "Type: uuid  | Required: true"
+              },
+              "disabled" : false
+            } ]
+          },
+          "method" : "PUT",
+          "description" : {
+            "content" : "Update a user by id; methodName: updateUserById"
+          },
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json",
+            "description" : {
+              "content" : "Required to send JSON body"
+            }
+          } ],
+          "body" : {
+            "raw" : "{\n  \"firstName\" : \"cc37e0e8f87d\",\n  \"lastName\" : \"a9d8ad9429c1\",\n  \"email\" : \"8a7be82447a0\",\n  \"password\" : \"264af3ce0eb6\"\n}",
+            "mode" : "raw"
+          }
+        },
+        "code" : 412
+      } ],
+      "type" : "item"
+    }, {
+      "request" : {
+        "url" : {
+          "raw" : "{{BASE_URL}}/users/:id",
+          "host" : [ "{{BASE_URL}}" ],
+          "path" : [ "users", ":id" ],
+          "query" : [ ],
+          "variable" : [ {
+            "key" : "id",
+            "value" : "{{id}}",
+            "description" : {
+              "content" : "Type: uuid  | Required: true"
+            },
+            "disabled" : false
+          } ]
+        },
+        "method" : "DELETE",
+        "description" : {
+          "content" : "Delete a user; methodName: deleteUser"
+        },
+        "header" : [ ]
+      },
+      "name" : "DELETE /users/:id",
+      "description" : {
+        "content" : "Delete a user; methodName: deleteUser"
+      },
+      "response" : [ {
+        "name" : "Example 204 - unit",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/users/:id",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "users", ":id" ],
+            "query" : [ ],
+            "variable" : [ {
+              "key" : "id",
+              "value" : "{{id}}",
+              "description" : {
+                "content" : "Type: uuid  | Required: true"
+              },
+              "disabled" : false
+            } ]
+          },
+          "method" : "DELETE",
+          "description" : {
+            "content" : "Delete a user; methodName: deleteUser"
+          },
+          "header" : [ ]
+        },
+        "code" : 204
+      }, {
+        "name" : "Example 404 - unit",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/users/:id",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "users", ":id" ],
+            "query" : [ ],
+            "variable" : [ {
+              "key" : "id",
+              "value" : "{{id}}",
+              "description" : {
+                "content" : "Type: uuid  | Required: true"
+              },
+              "disabled" : false
+            } ]
+          },
+          "method" : "DELETE",
+          "description" : {
+            "content" : "Delete a user; methodName: deleteUser"
+          },
+          "header" : [ ]
+        },
+        "code" : 404
+      } ],
+      "type" : "item"
+    } ],
+    "type" : "folder"
+  } ],
+  "event" : [ ],
+  "variable" : [ {
+    "key" : "BASE_URL",
+    "value" : "",
+    "type" : "string"
+  } ]
+}
