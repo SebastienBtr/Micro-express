@@ -10,6 +10,13 @@ const requestBody = {
   password: 'password!',
 };
 
+const sampleOk = {
+  firstName: 'firstName',
+  lastName: 'lastName',
+  email: 'email!',
+  password: 'password',
+};
+
 
 beforeEach(async (done) => {
   await prisma.deleteManyUsers();
@@ -31,6 +38,14 @@ describe('Create a user', () => {
     expect(res.body.email).toEqual(requestBody.email);
     expect(res.body).toHaveProperty('createdAt');
     expect(res.body).toHaveProperty('updatedAt');
+    done();
+  });
+  it('422 error because the user already exist', async (done) => {
+    await prisma.createUser(sampleOk);
+    const res = await request(app)
+      .put('/users')
+      .send(requestBody);
+    expect(res.statusCode).toEqual(422);
     done();
   });
   it.each(

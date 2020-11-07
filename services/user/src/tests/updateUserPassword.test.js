@@ -11,9 +11,6 @@ const sampleOk = {
 };
 
 const requestBody = {
-  firstName: 'firstName!',
-  lastName: 'lastName!',
-  email: 'email!',
   password: 'password!',
 };
 
@@ -27,39 +24,29 @@ beforeEach(async (done) => {
   done();
 });
 
-describe('Update a user by id', () => {
+describe('Update the password of a user', () => {
   it('Nominal case', async (done) => {
     const res = await request(app)
-      .put(`/users/${presentId}`)
+      .put(`/users/${presentId}/password`)
       .send(requestBody);
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveProperty('id');
     expect(res.body.id).toEqual(presentId);
     expect(res.body).toHaveProperty('firstName');
-    expect(res.body.firstName).toEqual(requestBody.firstName);
+    expect(res.body.firstName).toEqual(sampleOk.firstName);
     expect(res.body).toHaveProperty('lastName');
-    expect(res.body.lastName).toEqual(requestBody.lastName);
+    expect(res.body.lastName).toEqual(sampleOk.lastName);
     expect(res.body).toHaveProperty('email');
-    expect(res.body.email).toEqual(requestBody.email);
+    expect(res.body.email).toEqual(sampleOk.email);
     expect(res.body).toHaveProperty('createdAt');
     expect(res.body).toHaveProperty('updatedAt');
     done();
   });
-  it('422 error because the user already exist', async (done) => {
-    const user = { ...sampleOk };
-    user.email = requestBody.email;
-    await prisma.createUser(user);
-    const res = await request(app)
-      .put(`/users/${presentId}`)
-      .send(requestBody);
-    expect(res.statusCode).toEqual(422);
-    done();
-  });
   it.each(
-    [{ lastName: 'lastName', email: 'email' }, { firstName: 'firstName', email: 'email' }, { firstName: 'firstName', lastName: 'lastName' }],
+    [{ eeeoooo: 'aboer' }],
   )('Should return a 400 because a required field is missing', async (data, done) => {
     const res = await request(app)
-      .put(`/users/${presentId}`)
+      .put(`/users/${notPresentId}/password`)
       .send(data);
     expect(res.statusCode).toEqual(400);
     done();
@@ -67,7 +54,7 @@ describe('Update a user by id', () => {
 
   it('404 error case', async (done) => {
     const res = await request(app)
-      .put(`/users/${notPresentId}`)
+      .put(`/users/${notPresentId}/password`)
       .send(requestBody);
     expect(res.statusCode).toEqual(404);
     done();

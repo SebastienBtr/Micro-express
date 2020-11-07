@@ -44,4 +44,11 @@ router.delete('/users/:id', routesVersioning({
   '^1.0.0': ctrl.deleteUser,
 }));
 
+/**
+ * Update the password of a user
+ */
+router.put('/users/:id/password', routesVersioning({
+  '^1.0.0': ctrl.updateUserPassword,
+}));
+
 module.exports = router;

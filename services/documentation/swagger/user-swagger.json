@@ -3,7 +3,7 @@
   "info": {
     "title": "user",
     "description": "Service to manage users",
-    "version": "1.0.0"
+    "version": "1.0.1"
   },
   "consumes": [
     "application/json"
@@ -42,10 +42,10 @@
         "description": "Create a user; methodName: createUser",
         "parameters": [
           {
-            "name": "user_form",
+            "name": "user_create_form",
             "in": "body",
             "schema": {
-              "$ref": "#/definitions/user_form"
+              "$ref": "#/definitions/user_create_form"
             }
           }
         ],
@@ -100,10 +100,10 @@
             "format": "uuid"
           },
           {
-            "name": "user_form",
+            "name": "user_update_form",
             "in": "body",
             "schema": {
-              "$ref": "#/definitions/user_form"
+              "$ref": "#/definitions/user_update_form"
             }
           }
         ],
@@ -139,6 +139,41 @@
         "responses": {
           "204": {
             "description": "204 response"
+          },
+          "404": {
+            "description": "404 response"
+          }
+        }
+      }
+    },
+    "/users/{id}/password": {
+      "put": {
+        "description": "Update the password of a user; methodName: updateUserPassword",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "name": "user_password_form",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/user_password_form"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/user"
+            }
+          },
+          "400": {
+            "description": "400 response"
           },
           "404": {
             "description": "404 response"
@@ -184,10 +219,10 @@
         }
       }
     },
-    "user_form": {
+    "user_create_form": {
       "type": "object",
-      "description": "The model used to create/update instances of users",
-      "title": "user_form",
+      "description": "The model used to create instances of users",
+      "title": "user_create_form",
       "required": [
         "firstName",
         "lastName",
@@ -205,6 +240,40 @@
           "type": "string"
         },
         "password": {
+          "type": "string"
+        }
+      }
+    },
+    "user_password_form": {
+      "type": "object",
+      "description": "The model used to update the 'password' field of a user",
+      "title": "user_password_form",
+      "required": [
+        "password"
+      ],
+      "properties": {
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "user_update_form": {
+      "type": "object",
+      "description": "The model used to update instances of users",
+      "title": "user_update_form",
+      "required": [
+        "firstName",
+        "lastName",
+        "email"
+      ],
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
           "type": "string"
         }
       }

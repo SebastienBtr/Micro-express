@@ -31,8 +31,8 @@
         }
       ]
     },
-    "user_form": {
-      "description": "The model used to create/update instances of users",
+    "user_create_form": {
+      "description": "The model used to create instances of users",
       "fields": [
         {
           "name": "firstName",
@@ -46,6 +46,32 @@
           "name": "email",
           "type": "string"
         },
+        {
+          "name": "password",
+          "type": "string"
+        }
+      ]
+    },
+    "user_update_form": {
+      "description": "The model used to update instances of users",
+      "fields": [
+        {
+          "name": "firstName",
+          "type": "string"
+        },
+        {
+          "name": "lastName",
+          "type": "string"
+        },
+        {
+          "name": "email",
+          "type": "string"
+        }
+      ]
+    },
+    "user_password_form": {
+      "description": "The model used to update the 'password' field of a user",
+      "fields": [
         {
           "name": "password",
           "type": "string"
@@ -92,7 +118,7 @@
           "method": "PUT",
           "description": "Create a user; methodName: createUser",
           "body": {
-            "type": "user_form"
+            "type": "user_create_form"
           },
           "responses": {
             "201": {
@@ -111,7 +137,7 @@
           "description": "Update a user by id; methodName: updateUserById",
           "path": "/:id",
           "body": {
-            "type": "user_form"
+            "type": "user_update_form"
           },
           "responses": {
             "200": {
@@ -124,6 +150,25 @@
               "type": "unit"
             },
             "412": {
+              "type": "unit"
+            }
+          }
+        },
+        {
+          "method": "PUT",
+          "description": "Update the password of a user; methodName: updateUserPassword",
+          "path": "/:id/password",
+          "body": {
+            "type": "user_password_form"
+          },
+          "responses": {
+            "200": {
+              "type": "user"
+            },
+            "404": {
+              "type": "unit"
+            },
+            "400": {
               "type": "unit"
             }
           }

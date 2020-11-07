@@ -34,9 +34,7 @@ describe('Get a user by id', () => {
     expect(res.body).toHaveProperty('email');
     expect(res.body.email).toEqual(sampleOk.email);
     expect(res.body).toHaveProperty('createdAt');
-    expect(res.body.createdAt).toEqual(sampleOk.createdAt);
     expect(res.body).toHaveProperty('updatedAt');
-    expect(res.body.updatedAt).toEqual(sampleOk.updatedAt);
     done();
   });
   it('404 error case', async (done) => {

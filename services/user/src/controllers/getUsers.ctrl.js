@@ -1,4 +1,5 @@
 const winston = require('winston');
+const { getUsers } = require('../repository');
 
 /**
  * Get users
@@ -6,8 +7,14 @@ const winston = require('winston');
  */
 module.exports.getUsers = async (req, res) => {
   try {
-    // TODO:
-    res.status(200).send({});
+    const { email } = req.query;
+
+    const filters = {
+      ...email != null && { email },
+    };
+
+    const users = await getUsers(filters);
+    res.status(200).send(users);
   } catch (e) {
     winston.error(e);
     res.status(500).send({ message: e });

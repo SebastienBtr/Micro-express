@@ -8,8 +8,6 @@ services:
       - /app/node_modules
     networks:
       - app
-    depends_on:
-      - prisma
     logging:
       driver: ${LOGGING_DRIVER:-json-file}
     environment:

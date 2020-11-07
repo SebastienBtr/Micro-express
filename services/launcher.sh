@@ -26,8 +26,7 @@ then
   # The Auth service must be launch after user.
   scriptArguments=(article cart documentation user auth)
 fi
-cd "$root"/api-gateway
-ENV=$env docker-compose up -d --build --quiet-pull --remove-orphans
+
 if [[ $env != "prod" ]]
 then
   cd "$root"/kafka

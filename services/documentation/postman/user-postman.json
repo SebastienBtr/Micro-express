@@ -5,7 +5,7 @@
     "description" : {
       "content" : "Service to manage users"
     },
-    "version" : "1.0.0"
+    "version" : "1.0.1"
   },
   "item" : [ {
     "name" : "users",
@@ -63,7 +63,7 @@
           },
           "header" : [ ]
         },
-        "body" : "[ {\n  \"updatedAt\" : \"2020-11-07T11:53:39.125Z\",\n  \"email\" : \"20f3fe7e92c1\",\n  \"lastName\" : \"bfd3faf79685\",\n  \"createdAt\" : \"2020-11-07T11:53:39.125Z\",\n  \"firstName\" : \"9850bebb76c8\",\n  \"id\" : \"f41470bf-4bc3-43b7-90ed-cad1f5da1a1d\"\n} ]",
+        "body" : "[ {\n  \"updatedAt\" : \"2020-11-07T14:24:30.337Z\",\n  \"email\" : \"a8ed5478d629\",\n  \"lastName\" : \"c4a431b5ae47\",\n  \"createdAt\" : \"2020-11-07T14:24:30.337Z\",\n  \"firstName\" : \"d54c1c6f10b4\",\n  \"id\" : \"b22cebac-f4cb-421c-be8e-ae908a0f459c\"\n} ]",
         "code" : 200
       }, {
         "name" : "Example 400 - unit",
@@ -146,7 +146,7 @@
           },
           "header" : [ ]
         },
-        "body" : "{\n  \"updatedAt\" : \"2020-11-07T11:53:39.125Z\",\n  \"email\" : \"da0d87f85268\",\n  \"lastName\" : \"3e4bf8e6b14a\",\n  \"createdAt\" : \"2020-11-07T11:53:39.125Z\",\n  \"firstName\" : \"d333e90195c0\",\n  \"id\" : \"ae391b41-b357-4e64-b5a3-9a60792af2d5\"\n}",
+        "body" : "{\n  \"updatedAt\" : \"2020-11-07T14:24:30.337Z\",\n  \"email\" : \"7db6cb21cb8f\",\n  \"lastName\" : \"1a5cfaf91e56\",\n  \"createdAt\" : \"2020-11-07T14:24:30.337Z\",\n  \"firstName\" : \"8b040f6155f2\",\n  \"id\" : \"63a291a9-82b7-40b5-bd71-cea6300ad5f6\"\n}",
         "code" : 200
       }, {
         "name" : "Example 404 - unit",
@@ -195,7 +195,7 @@
           }
         } ],
         "body" : {
-          "raw" : "{\n  \"firstName\" : \"2728feff8290\",\n  \"lastName\" : \"4c6d4433f956\",\n  \"email\" : \"336b4b563f3c\",\n  \"password\" : \"b6575c2e4032\"\n}",
+          "raw" : "{\n  \"firstName\" : \"728604980ff9\",\n  \"lastName\" : \"f57955a59d33\",\n  \"email\" : \"e64518fa927e\",\n  \"password\" : \"f32f04ebe6d9\"\n}",
           "mode" : "raw"
         }
       },
@@ -232,11 +232,11 @@
             }
           } ],
           "body" : {
-            "raw" : "{\n  \"firstName\" : \"2728feff8290\",\n  \"lastName\" : \"4c6d4433f956\",\n  \"email\" : \"336b4b563f3c\",\n  \"password\" : \"b6575c2e4032\"\n}",
+            "raw" : "{\n  \"firstName\" : \"728604980ff9\",\n  \"lastName\" : \"f57955a59d33\",\n  \"email\" : \"e64518fa927e\",\n  \"password\" : \"f32f04ebe6d9\"\n}",
             "mode" : "raw"
           }
         },
-        "body" : "{\n  \"updatedAt\" : \"2020-11-07T11:53:39.125Z\",\n  \"email\" : \"2b172eff76da\",\n  \"lastName\" : \"e8d49e227692\",\n  \"createdAt\" : \"2020-11-07T11:53:39.125Z\",\n  \"firstName\" : \"8344b2bc535a\",\n  \"id\" : \"13f035b4-ca1f-4947-b1a8-2e582b178798\"\n}",
+        "body" : "{\n  \"updatedAt\" : \"2020-11-07T14:24:30.337Z\",\n  \"email\" : \"b205c7190385\",\n  \"lastName\" : \"1dac52de474c\",\n  \"createdAt\" : \"2020-11-07T14:24:30.337Z\",\n  \"firstName\" : \"86fe348d5eea\",\n  \"id\" : \"67ae47b2-5947-4d2f-8c3b-7ce2f37f1a2a\"\n}",
         "code" : 201
       }, {
         "name" : "Example 400 - unit",
@@ -260,7 +260,7 @@
             }
           } ],
           "body" : {
-            "raw" : "{\n  \"firstName\" : \"2728feff8290\",\n  \"lastName\" : \"4c6d4433f956\",\n  \"email\" : \"336b4b563f3c\",\n  \"password\" : \"b6575c2e4032\"\n}",
+            "raw" : "{\n  \"firstName\" : \"728604980ff9\",\n  \"lastName\" : \"f57955a59d33\",\n  \"email\" : \"e64518fa927e\",\n  \"password\" : \"f32f04ebe6d9\"\n}",
             "mode" : "raw"
           }
         },
@@ -287,7 +287,7 @@
             }
           } ],
           "body" : {
-            "raw" : "{\n  \"firstName\" : \"2728feff8290\",\n  \"lastName\" : \"4c6d4433f956\",\n  \"email\" : \"336b4b563f3c\",\n  \"password\" : \"b6575c2e4032\"\n}",
+            "raw" : "{\n  \"firstName\" : \"728604980ff9\",\n  \"lastName\" : \"f57955a59d33\",\n  \"email\" : \"e64518fa927e\",\n  \"password\" : \"f32f04ebe6d9\"\n}",
             "mode" : "raw"
           }
         },
@@ -322,7 +322,7 @@
           }
         } ],
         "body" : {
-          "raw" : "{\n  \"firstName\" : \"cc37e0e8f87d\",\n  \"lastName\" : \"a9d8ad9429c1\",\n  \"email\" : \"8a7be82447a0\",\n  \"password\" : \"264af3ce0eb6\"\n}",
+          "raw" : "{\n  \"firstName\" : \"23005c32346d\",\n  \"lastName\" : \"1db2f6c372fc\",\n  \"email\" : \"637418c94579\"\n}",
           "mode" : "raw"
         }
       },
@@ -366,11 +366,11 @@
             }
           } ],
           "body" : {
-            "raw" : "{\n  \"firstName\" : \"cc37e0e8f87d\",\n  \"lastName\" : \"a9d8ad9429c1\",\n  \"email\" : \"8a7be82447a0\",\n  \"password\" : \"264af3ce0eb6\"\n}",
+            "raw" : "{\n  \"firstName\" : \"23005c32346d\",\n  \"lastName\" : \"1db2f6c372fc\",\n  \"email\" : \"637418c94579\"\n}",
             "mode" : "raw"
           }
         },
-        "body" : "{\n  \"updatedAt\" : \"2020-11-07T11:53:39.126Z\",\n  \"email\" : \"7d7af19a3e39\",\n  \"lastName\" : \"f59051a5847b\",\n  \"createdAt\" : \"2020-11-07T11:53:39.126Z\",\n  \"firstName\" : \"7d61b18143f9\",\n  \"id\" : \"bdd895ae-1ec0-470a-901a-e53bb68fcba0\"\n}",
+        "body" : "{\n  \"updatedAt\" : \"2020-11-07T14:24:30.337Z\",\n  \"email\" : \"6cfd14097c9f\",\n  \"lastName\" : \"d78de82b5e4e\",\n  \"createdAt\" : \"2020-11-07T14:24:30.337Z\",\n  \"firstName\" : \"ef9b0f852423\",\n  \"id\" : \"43fe22b3-5598-4ae9-bfaa-c8e7b2c70725\"\n}",
         "code" : 200
       }, {
         "name" : "Example 404 - unit",
@@ -401,7 +401,7 @@
             }
           } ],
           "body" : {
-            "raw" : "{\n  \"firstName\" : \"cc37e0e8f87d\",\n  \"lastName\" : \"a9d8ad9429c1\",\n  \"email\" : \"8a7be82447a0\",\n  \"password\" : \"264af3ce0eb6\"\n}",
+            "raw" : "{\n  \"firstName\" : \"23005c32346d\",\n  \"lastName\" : \"1db2f6c372fc\",\n  \"email\" : \"637418c94579\"\n}",
             "mode" : "raw"
           }
         },
@@ -435,7 +435,7 @@
             }
           } ],
           "body" : {
-            "raw" : "{\n  \"firstName\" : \"cc37e0e8f87d\",\n  \"lastName\" : \"a9d8ad9429c1\",\n  \"email\" : \"8a7be82447a0\",\n  \"password\" : \"264af3ce0eb6\"\n}",
+            "raw" : "{\n  \"firstName\" : \"23005c32346d\",\n  \"lastName\" : \"1db2f6c372fc\",\n  \"email\" : \"637418c94579\"\n}",
             "mode" : "raw"
           }
         },
@@ -469,11 +469,159 @@
             }
           } ],
           "body" : {
-            "raw" : "{\n  \"firstName\" : \"cc37e0e8f87d\",\n  \"lastName\" : \"a9d8ad9429c1\",\n  \"email\" : \"8a7be82447a0\",\n  \"password\" : \"264af3ce0eb6\"\n}",
+            "raw" : "{\n  \"firstName\" : \"23005c32346d\",\n  \"lastName\" : \"1db2f6c372fc\",\n  \"email\" : \"637418c94579\"\n}",
             "mode" : "raw"
           }
         },
         "code" : 412
+      } ],
+      "type" : "item"
+    }, {
+      "request" : {
+        "url" : {
+          "raw" : "{{BASE_URL}}/users/:id/password",
+          "host" : [ "{{BASE_URL}}" ],
+          "path" : [ "users", ":id", "password" ],
+          "query" : [ ],
+          "variable" : [ {
+            "key" : "id",
+            "value" : "{{id}}",
+            "description" : {
+              "content" : "Type: uuid  | Required: true"
+            },
+            "disabled" : false
+          } ]
+        },
+        "method" : "PUT",
+        "description" : {
+          "content" : "Update the password of a user; methodName: updateUserPassword"
+        },
+        "header" : [ {
+          "key" : "Content-Type",
+          "value" : "application/json",
+          "description" : {
+            "content" : "Required to send JSON body"
+          }
+        } ],
+        "body" : {
+          "raw" : "{\n  \"password\" : \"77f1a01b6510\"\n}",
+          "mode" : "raw"
+        }
+      },
+      "name" : "PUT /users/:id/password",
+      "description" : {
+        "content" : "Update the password of a user; methodName: updateUserPassword"
+      },
+      "event" : [ {
+        "listen" : "test",
+        "script" : {
+          "exec" : [ "pm.test(\"PUT requests should return 2xx\", function () {", "    pm.response.to.be.success;", "});" ],
+          "type" : "text/javascript"
+        }
+      } ],
+      "response" : [ {
+        "name" : "Example 200 - user",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/users/:id/password",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "users", ":id", "password" ],
+            "query" : [ ],
+            "variable" : [ {
+              "key" : "id",
+              "value" : "{{id}}",
+              "description" : {
+                "content" : "Type: uuid  | Required: true"
+              },
+              "disabled" : false
+            } ]
+          },
+          "method" : "PUT",
+          "description" : {
+            "content" : "Update the password of a user; methodName: updateUserPassword"
+          },
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json",
+            "description" : {
+              "content" : "Required to send JSON body"
+            }
+          } ],
+          "body" : {
+            "raw" : "{\n  \"password\" : \"77f1a01b6510\"\n}",
+            "mode" : "raw"
+          }
+        },
+        "body" : "{\n  \"updatedAt\" : \"2020-11-07T14:24:30.337Z\",\n  \"email\" : \"c2a8134de22a\",\n  \"lastName\" : \"4cade6e838c4\",\n  \"createdAt\" : \"2020-11-07T14:24:30.337Z\",\n  \"firstName\" : \"bfa178599874\",\n  \"id\" : \"50675bf2-78d9-4f7e-91d8-fd4ba6844888\"\n}",
+        "code" : 200
+      }, {
+        "name" : "Example 404 - unit",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/users/:id/password",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "users", ":id", "password" ],
+            "query" : [ ],
+            "variable" : [ {
+              "key" : "id",
+              "value" : "{{id}}",
+              "description" : {
+                "content" : "Type: uuid  | Required: true"
+              },
+              "disabled" : false
+            } ]
+          },
+          "method" : "PUT",
+          "description" : {
+            "content" : "Update the password of a user; methodName: updateUserPassword"
+          },
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json",
+            "description" : {
+              "content" : "Required to send JSON body"
+            }
+          } ],
+          "body" : {
+            "raw" : "{\n  \"password\" : \"77f1a01b6510\"\n}",
+            "mode" : "raw"
+          }
+        },
+        "code" : 404
+      }, {
+        "name" : "Example 400 - unit",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/users/:id/password",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "users", ":id", "password" ],
+            "query" : [ ],
+            "variable" : [ {
+              "key" : "id",
+              "value" : "{{id}}",
+              "description" : {
+                "content" : "Type: uuid  | Required: true"
+              },
+              "disabled" : false
+            } ]
+          },
+          "method" : "PUT",
+          "description" : {
+            "content" : "Update the password of a user; methodName: updateUserPassword"
+          },
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json",
+            "description" : {
+              "content" : "Required to send JSON body"
+            }
+          } ],
+          "body" : {
+            "raw" : "{\n  \"password\" : \"77f1a01b6510\"\n}",
+            "mode" : "raw"
+          }
+        },
+        "code" : 400
       } ],
       "type" : "item"
     }, {
