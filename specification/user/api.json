@@ -1,0 +1,147 @@
+{
+  "name": "user",
+  "description": "Service to manage users",
+  "models": {
+    "user": {
+      "description": "The model of a user in a get request",
+      "fields": [
+        {
+          "name": "id",
+          "type": "uuid"
+        },
+        {
+          "name": "firstName",
+          "type": "string"
+        },
+        {
+          "name": "lastName",
+          "type": "string"
+        },
+        {
+          "name": "email",
+          "type": "string"
+        },
+        {
+          "name": "createdAt",
+          "type": "date-time-iso8601"
+        },
+        {
+          "name": "updatedAt",
+          "type": "date-time-iso8601"
+        }
+      ]
+    },
+    "user_form": {
+      "description": "The model used to create/update instances of users",
+      "fields": [
+        {
+          "name": "firstName",
+          "type": "string"
+        },
+        {
+          "name": "lastName",
+          "type": "string"
+        },
+        {
+          "name": "email",
+          "type": "string"
+        },
+        {
+          "name": "password",
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "resources": {
+    "user": {
+      "operations": [
+        {
+          "method": "GET",
+          "description": "Get users; methodName: getUsers",
+          "parameters": [
+            {
+              "name": "email",
+              "type": "string",
+              "required": false
+            }
+          ],
+          "responses": {
+            "200": {
+              "type": "[user]"
+            },
+            "400": {
+              "type": "unit"
+            }
+          }
+        },
+        {
+          "method": "GET",
+          "description": "Get a user by id; methodName: getUserById",
+          "path": "/:id",
+          "responses": {
+            "200": {
+              "type": "user"
+            },
+            "404": {
+              "type": "unit"
+            }
+          }
+        },
+        {
+          "method": "PUT",
+          "description": "Create a user; methodName: createUser",
+          "body": {
+            "type": "user_form"
+          },
+          "responses": {
+            "201": {
+              "type": "user"
+            },
+            "400": {
+              "type": "unit"
+            },
+            "422": {
+              "type": "unit"
+            }
+          }
+        },
+        {
+          "method": "PUT",
+          "description": "Update a user by id; methodName: updateUserById",
+          "path": "/:id",
+          "body": {
+            "type": "user_form"
+          },
+          "responses": {
+            "200": {
+              "type": "user"
+            },
+            "404": {
+              "type": "unit"
+            },
+            "400": {
+              "type": "unit"
+            },
+            "412": {
+              "type": "unit"
+            }
+          }
+        },
+        {
+          "method": "DELETE",
+          "description": "Delete a user; methodName: deleteUser",
+          "path": "/:id",
+          "responses": {
+            "204": {
+              "type": "unit"
+            },
+            "404": {
+              "type": "unit"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
