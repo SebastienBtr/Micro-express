@@ -1,0 +1,42 @@
+version: "3"
+services:
+  app:
+    build: .
+    command: sh -c "./wait-for-it.sh -t 15 prisma:4466 --strict -- prisma generate && prisma deploy && yarn lint-check && yarn ${ENV:-dev}"
+    volumes:
+      - /app/node_modules
+      - /app/generated/prisma-client
+    networks:
+      - app
+    depends_on:
+      - prisma
+    logging:
+      driver: ${LOGGING_DRIVER:-json-file}
+    environment:
+      PRISMA_MANAGEMENT_API_SECRET: ${PRISMA_MANAGEMENT_API_SECRET:-wsflk897dh%£}
+    restart: always
+
+  prisma:
+    image: prismagraphql/prisma:1.34
+    restart: always
+    networks:
+      - app
+    logging:
+      driver: ${LOGGING_DRIVER:-json-file}
+    environment:
+      PRISMA_CONFIG: |
+        port: 4466
+        managementApiSecret: ${PRISMA_MANAGEMENT_API_SECRET:-wsflk897dh%£}
+        databases:
+          default:
+            connector: postgres
+            host: ${DB_HOST}
+            port: ${DB_PORT}
+            database: ${DB_NAME}
+            schema: public
+            user: ${DB_USER}
+            password: ${DB_PASSWORD}
+
+networks:
+  app:
+    driver: bridge

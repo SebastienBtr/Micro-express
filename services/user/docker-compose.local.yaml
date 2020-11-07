@@ -1,0 +1,44 @@
+version: '3'
+services:
+  app:
+    ports:
+      - '${SERVER_PORT:-3506}:3500'
+    networks: 
+      - kafka_broker
+
+  prisma:
+    networks: 
+      - postgres
+    environment:
+      PRISMA_CONFIG: |
+        port: 4466
+        managementApiSecret: ${PRISMA_MANAGEMENT_API_SECRET:-wsflk897dh%£}
+        databases:
+          default:
+            connector: postgres
+            host: postgres
+            port: 5432
+            user: postgres
+            password: postgres
+
+  postgres:
+    image: postgres:10.3
+    restart: always
+    networks: 
+      - postgres
+    environment:
+      POSTGRES_DB: prisma
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres-${ENV:-dev}:/var/lib/postgresql/data
+      
+networks:
+  kafka_broker:
+    external: true
+  postgres:
+    driver: bridge
+
+volumes:
+  postgres-dev:
+  postgres-test:
