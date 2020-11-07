@@ -10,8 +10,6 @@ services:
       - app
     logging:
       driver: ${LOGGING_DRIVER:-json-file}
-    environment:
-      PRISMA_MANAGEMENT_API_SECRET: ${PRISMA_MANAGEMENT_API_SECRET:-wsflk897dh%£}
     restart: always
 
 networks:
