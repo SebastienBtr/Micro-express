@@ -1,0 +1,94 @@
+{
+  "name": "auth",
+  "description": "Authentication service",
+  "models": {
+    "auth": {
+      "description": "Token response given by the Auth service",
+      "fields": [
+        {
+          "name": "accessToken",
+          "type": "string"
+        }
+      ]
+    },
+    "login": {
+      "description": "Body for login",
+      "fields": [
+        {
+          "name": "email",
+          "type": "string"
+        },
+        {
+          "name": "password",
+          "type": "string"
+        }
+      ]
+    },
+    "signup": {
+      "description": "Body of a sign up",
+      "fields": [
+        {
+          "name": "firstName",
+          "type": "string"
+        },
+        {
+          "name": "lastName",
+          "type": "string"
+        },
+        {
+          "name": "email",
+          "type": "string"
+        },
+        {
+          "name": "password",
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "resources": {
+    "auth": {
+      "path": "/auth",
+      "operations": [
+        {
+          "method": "POST",
+          "description": "Login; methodName: login",
+          "path": "/login",
+          "body": {
+            "type": "login"
+          },
+          "responses": {
+            "200": {
+              "type": "auth"
+            },
+            "400": {
+              "type": "unit"
+            },
+            "401": {
+              "type": "unit"
+            }
+          }
+        },
+        {
+          "method": "PUT",
+          "description": "Sign up; methodName: signUp",
+          "path": "/sign-up",
+          "body": {
+            "type": "signup"
+          },
+          "responses": {
+            "200": {
+              "type": "unit"
+            },
+            "412": {
+              "type": "unit"
+            },
+            "400": {
+              "type": "unit"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
