@@ -51,6 +51,10 @@ const options = {
         url: `${externalHost}:${externalPort}/cart-swagger.json`,
         name: 'Cart',
       },
+      {
+        url: `${externalHost}:${externalPort}/auth-swagger.json`,
+        name: 'Auth',
+      },
     ],
   },
   customCss: '.swagger-ui .topbar .link { display: none }',

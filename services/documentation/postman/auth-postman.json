@@ -1,0 +1,260 @@
+{
+  "info" : {
+    "name" : "auth",
+    "schema" : "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description" : {
+      "content" : "Authentication service"
+    },
+    "version" : "1.0.0"
+  },
+  "item" : [ {
+    "name" : "auths",
+    "item" : [ {
+      "request" : {
+        "url" : {
+          "raw" : "{{BASE_URL}}/auth/login",
+          "host" : [ "{{BASE_URL}}" ],
+          "path" : [ "auth", "login" ],
+          "query" : [ ],
+          "variable" : [ ]
+        },
+        "method" : "POST",
+        "description" : {
+          "content" : "Login; methodName: login"
+        },
+        "header" : [ {
+          "key" : "Content-Type",
+          "value" : "application/json",
+          "description" : {
+            "content" : "Required to send JSON body"
+          }
+        } ],
+        "body" : {
+          "raw" : "{\n  \"email\" : \"2055c000259b\",\n  \"password\" : \"b77535ea19b1\"\n}",
+          "mode" : "raw"
+        }
+      },
+      "name" : "POST /auth/login",
+      "description" : {
+        "content" : "Login; methodName: login"
+      },
+      "event" : [ {
+        "listen" : "test",
+        "script" : {
+          "exec" : [ "pm.test(\"POST requests should return 2xx\", function () {", "    pm.response.to.be.success;", "});" ],
+          "type" : "text/javascript"
+        }
+      } ],
+      "response" : [ {
+        "name" : "Example 200 - auth",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/auth/login",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "auth", "login" ],
+            "query" : [ ],
+            "variable" : [ ]
+          },
+          "method" : "POST",
+          "description" : {
+            "content" : "Login; methodName: login"
+          },
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json",
+            "description" : {
+              "content" : "Required to send JSON body"
+            }
+          } ],
+          "body" : {
+            "raw" : "{\n  \"email\" : \"2055c000259b\",\n  \"password\" : \"b77535ea19b1\"\n}",
+            "mode" : "raw"
+          }
+        },
+        "body" : "{\n  \"accessToken\" : \"59ff1e162d0c\"\n}",
+        "code" : 200
+      }, {
+        "name" : "Example 400 - unit",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/auth/login",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "auth", "login" ],
+            "query" : [ ],
+            "variable" : [ ]
+          },
+          "method" : "POST",
+          "description" : {
+            "content" : "Login; methodName: login"
+          },
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json",
+            "description" : {
+              "content" : "Required to send JSON body"
+            }
+          } ],
+          "body" : {
+            "raw" : "{\n  \"email\" : \"2055c000259b\",\n  \"password\" : \"b77535ea19b1\"\n}",
+            "mode" : "raw"
+          }
+        },
+        "code" : 400
+      }, {
+        "name" : "Example 401 - unit",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/auth/login",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "auth", "login" ],
+            "query" : [ ],
+            "variable" : [ ]
+          },
+          "method" : "POST",
+          "description" : {
+            "content" : "Login; methodName: login"
+          },
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json",
+            "description" : {
+              "content" : "Required to send JSON body"
+            }
+          } ],
+          "body" : {
+            "raw" : "{\n  \"email\" : \"2055c000259b\",\n  \"password\" : \"b77535ea19b1\"\n}",
+            "mode" : "raw"
+          }
+        },
+        "code" : 401
+      } ],
+      "type" : "item"
+    }, {
+      "request" : {
+        "url" : {
+          "raw" : "{{BASE_URL}}/auth/sign-up",
+          "host" : [ "{{BASE_URL}}" ],
+          "path" : [ "auth", "sign-up" ],
+          "query" : [ ],
+          "variable" : [ ]
+        },
+        "method" : "PUT",
+        "description" : {
+          "content" : "Sign up; methodName: signUp"
+        },
+        "header" : [ {
+          "key" : "Content-Type",
+          "value" : "application/json",
+          "description" : {
+            "content" : "Required to send JSON body"
+          }
+        } ],
+        "body" : {
+          "raw" : "{\n  \"firstName\" : \"b02f417ee8a5\",\n  \"lastName\" : \"4d7a59a4a96b\",\n  \"email\" : \"be999b3ee0e0\",\n  \"password\" : \"e03c36660258\"\n}",
+          "mode" : "raw"
+        }
+      },
+      "name" : "PUT /auth/sign-up",
+      "description" : {
+        "content" : "Sign up; methodName: signUp"
+      },
+      "event" : [ {
+        "listen" : "test",
+        "script" : {
+          "exec" : [ "pm.test(\"PUT requests should return 2xx\", function () {", "    pm.response.to.be.success;", "});" ],
+          "type" : "text/javascript"
+        }
+      } ],
+      "response" : [ {
+        "name" : "Example 200 - unit",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/auth/sign-up",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "auth", "sign-up" ],
+            "query" : [ ],
+            "variable" : [ ]
+          },
+          "method" : "PUT",
+          "description" : {
+            "content" : "Sign up; methodName: signUp"
+          },
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json",
+            "description" : {
+              "content" : "Required to send JSON body"
+            }
+          } ],
+          "body" : {
+            "raw" : "{\n  \"firstName\" : \"b02f417ee8a5\",\n  \"lastName\" : \"4d7a59a4a96b\",\n  \"email\" : \"be999b3ee0e0\",\n  \"password\" : \"e03c36660258\"\n}",
+            "mode" : "raw"
+          }
+        },
+        "code" : 200
+      }, {
+        "name" : "Example 412 - unit",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/auth/sign-up",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "auth", "sign-up" ],
+            "query" : [ ],
+            "variable" : [ ]
+          },
+          "method" : "PUT",
+          "description" : {
+            "content" : "Sign up; methodName: signUp"
+          },
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json",
+            "description" : {
+              "content" : "Required to send JSON body"
+            }
+          } ],
+          "body" : {
+            "raw" : "{\n  \"firstName\" : \"b02f417ee8a5\",\n  \"lastName\" : \"4d7a59a4a96b\",\n  \"email\" : \"be999b3ee0e0\",\n  \"password\" : \"e03c36660258\"\n}",
+            "mode" : "raw"
+          }
+        },
+        "code" : 412
+      }, {
+        "name" : "Example 400 - unit",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/auth/sign-up",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "auth", "sign-up" ],
+            "query" : [ ],
+            "variable" : [ ]
+          },
+          "method" : "PUT",
+          "description" : {
+            "content" : "Sign up; methodName: signUp"
+          },
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json",
+            "description" : {
+              "content" : "Required to send JSON body"
+            }
+          } ],
+          "body" : {
+            "raw" : "{\n  \"firstName\" : \"b02f417ee8a5\",\n  \"lastName\" : \"4d7a59a4a96b\",\n  \"email\" : \"be999b3ee0e0\",\n  \"password\" : \"e03c36660258\"\n}",
+            "mode" : "raw"
+          }
+        },
+        "code" : 400
+      } ],
+      "type" : "item"
+    } ],
+    "type" : "folder"
+  } ],
+  "event" : [ ],
+  "variable" : [ {
+    "key" : "BASE_URL",
+    "value" : "",
+    "type" : "string"
+  } ]
+}
