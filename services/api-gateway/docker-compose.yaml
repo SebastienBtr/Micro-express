@@ -12,6 +12,10 @@ services:
       - jaeger
     networks:
       - krakend
+      - article_app
+      - auth_app
+      - cart_app
+      - documentation_app
     logging:
       driver: ${LOGGING_DRIVER:-json-file}
     environment:
@@ -66,6 +70,14 @@ services:
 networks:
   krakend:
     driver: bridge
+  article_app:
+    external: true
+  auth_app:
+    external: true
+  cart_app:
+    external: true
+  documentation_app:
+    external: true
 
 volumes:
   influxdb-storage:

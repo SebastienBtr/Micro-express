@@ -7,7 +7,6 @@ services:
       - /app/node_modules
       - /app/generated/prisma-client
     networks:
-      - api-gateway_krakend
       - app
     depends_on:
       - prisma
@@ -39,7 +38,5 @@ services:
             password: ${DB_PASSWORD}
 
 networks:
-  api-gateway_krakend:
-    external: true
   app:
     driver: bridge

@@ -23,7 +23,7 @@ done
 if test ${#scriptArguments[@]} -lt 1
 then
   echo "Launch all"
-  scriptArguments=(article cart documentation)
+  scriptArguments=(article cart documentation auth)
 fi
 cd "$root"/api-gateway
 ENV=$env docker-compose up -d --build --quiet-pull --remove-orphans
