@@ -47,17 +47,10 @@
     }
   },
   "endpoints": [
-    {
-      { template "endpoint.tmpl" .article
-      }
-    },
-    {
-      { template "endpoint.tmpl" .cart
-      }
-    },
-    {
-      { template "endpoint.tmpl" .documentation
-      }
-    }
+    {{ template "endpoint.tmpl" .auth }},
+    {{ template "endpoint.tmpl" .user }},
+    {{ template "endpoint.tmpl" .article }},
+    {{ template "endpoint.tmpl" .cart}},
+    {{ template "endpoint.tmpl" .documentation}}
   ]
 }

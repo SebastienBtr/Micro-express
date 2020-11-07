@@ -1,0 +1,76 @@
+{
+  "hosts": [
+    "http://user_app_1:3500"
+  ],
+  "endpoints": [
+    {
+      "endpoint": "/users",
+      "method": "GET",
+      "url_pattern": "/users",
+      "encoding": "no-op",
+      "extra_config": {
+        "github.com/devopsfaith/krakend-jose/validator": {
+          "alg": "HS256",
+          "jwk-url": "http://auth_app_1:3500/symmetric.json",
+          "disable_jwk_security": true
+        }
+      }
+    },
+    {
+      "endpoint": "/users/{id}",
+      "method": "GET",
+      "url_pattern": "/users/{id}",
+      "encoding": "no-op",
+      "extra_config": {
+        "github.com/devopsfaith/krakend-jose/validator": {
+          "alg": "HS256",
+          "jwk-url": "http://auth_app_1:3500/symmetric.json",
+          "disable_jwk_security": true
+        }
+      }
+    },
+    {
+      "endpoint": "/users/{id}",
+      "method": "PUT",
+      "url_pattern": "/users/{id}",
+      "encoding": "no-op",
+      "extra_config": {
+        "github.com/devopsfaith/krakend-jose/validator": {
+          "alg": "HS256",
+          "jwk-url": "http://auth_app_1:3500/symmetric.json",
+          "disable_jwk_security": true
+        }
+      }
+    },
+    {
+      "endpoint": "/users/{id}",
+      "method": "DELETE",
+      "url_pattern": "/users/{id}",
+      "encoding": "no-op",
+      "extra_config": {
+        "github.com/devopsfaith/krakend-jose/validator": {
+          "alg": "HS256",
+          "roles_key": "roles",
+          "roles": [
+            "manager"
+          ],
+          "jwk-url": "http://auth_app_1:3500/symmetric.json",
+          "disable_jwk_security": true
+        }
+      }
+    },
+    {
+      "endpoint": "/users/{id}/password",
+      "method": "PUT",
+      "url_pattern": "/users/{id}/password",
+      "encoding": "no-op",
+      "extra_config": {
+        "github.com/devopsfaith/krakend-jose/validator": {
+          "alg": "HS256",
+          "jwk-url": "http://auth_app_1:3500/symmetric.json",
+          "disable_jwk_security": true
+        }
+      }
+    }
+  ]
+}
