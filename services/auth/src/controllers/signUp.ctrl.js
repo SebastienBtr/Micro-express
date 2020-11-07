@@ -1,10 +1,13 @@
 const winston = require('winston');
+const { createUser } = require('../services/usersService');
 
 /**
  * Check if the body of the request contains the good elements
  */
 const bodyIsValid = (body) => {
-  const { firstName, lastName, email, password } = body;
+  const {
+    firstName, lastName, email, password,
+  } = body;
   if (!firstName || !lastName || !email || !password) {
     return false;
   }
@@ -18,11 +21,12 @@ const bodyIsValid = (body) => {
 module.exports.signUp = async (req, res) => {
   if (bodyIsValid(req.body)) {
     try {
-      // TODO:
+      await createUser(req.body.firstName, req.body.lastName,
+        req.body.email, req.body.password);
       res.status(200).send({});
     } catch (e) {
-      winston.error(e);
-      res.status(500).send({ message: e });
+      winston.error(e.response.data.message);
+      res.status(e.response.status).send({ message: e.response.data.message });
     }
   } else {
     res.status(400).send({ message: 'Invalid body format' });

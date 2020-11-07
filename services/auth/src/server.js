@@ -28,4 +28,9 @@ winston.add(new winston.transports.Console({
  */
 app.use(routes);
 
+/**
+ * Expose jwk-url
+ */
+app.use(express.static('src/jwk'));
+
 module.exports = app;

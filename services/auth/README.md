@@ -7,6 +7,7 @@ To run this service use the [launcher script](../launcher.sh) as described in th
 # Description
 
 Authentication service
+This service is an orchestrator and needs `user` service to work.
 
 # Install
 
