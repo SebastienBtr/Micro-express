@@ -23,7 +23,7 @@ module.exports.signUp = async (req, res) => {
     try {
       await createUser(req.body.firstName, req.body.lastName,
         req.body.email, req.body.password);
-      res.status(200).send({});
+      res.status(204).send();
     } catch (e) {
       winston.error(e.response.data.message);
       res.status(e.response.status).send({ message: e.response.data.message });

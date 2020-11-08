@@ -77,7 +77,7 @@
             "type": "signup"
           },
           "responses": {
-            "200": {
+            "204": {
               "type": "unit"
             },
             "412": {
