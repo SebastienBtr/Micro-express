@@ -3,9 +3,9 @@
     "name" : "cart",
     "schema" : "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description" : {
-      "content" : "To simplify the POC, we consider that there is only one cart and we can operate on its elements"
+      "content" : "Service to manage carts, to simplify the POC, we consider that there is only one cart and we can operate on its elements"
     },
-    "version" : "0.0.1"
+    "version" : "1.0.0"
   },
   "item" : [ {
     "name" : "cart_items",
@@ -51,7 +51,7 @@
           },
           "header" : [ ]
         },
-        "body" : "[ {\n  \"quantity\" : 1,\n  \"articleName\" : \"8c77f6e99d18\",\n  \"id\" : \"538566d2-c020-4555-8565-36c012e1ba43\",\n  \"articlePrice\" : 1,\n  \"articleId\" : \"a5172b3e-bd48-4e36-a75a-cfce82a6fac1\"\n} ]",
+        "body" : "[ {\n  \"quantity\" : 1,\n  \"articleName\" : \"af6caf5f4c2b\",\n  \"id\" : \"a77b14ce-2950-4b10-ad3c-97a3b00a2765\",\n  \"articlePrice\" : 1,\n  \"articleId\" : \"8aab1411-f180-42bf-9c45-0b51e3efcb3c\"\n} ]",
         "code" : 200
       } ],
       "type" : "item"
@@ -76,7 +76,7 @@
           }
         } ],
         "body" : {
-          "raw" : "{\n  \"articleId\" : \"775805ad-db5b-4e27-93a8-6d03add1f67e\",\n  \"articleName\" : \"bec2113e4f5a\",\n  \"articlePrice\" : 1,\n  \"quantity\" : 1\n}",
+          "raw" : "{\n  \"articleId\" : \"62a6c89e-dffe-4a11-8abd-67ac38f3c3cb\",\n  \"articleName\" : \"de8789e52595\",\n  \"articlePrice\" : 1,\n  \"quantity\" : 1\n}",
           "mode" : "raw"
         }
       },
@@ -113,11 +113,11 @@
             }
           } ],
           "body" : {
-            "raw" : "{\n  \"articleId\" : \"775805ad-db5b-4e27-93a8-6d03add1f67e\",\n  \"articleName\" : \"bec2113e4f5a\",\n  \"articlePrice\" : 1,\n  \"quantity\" : 1\n}",
+            "raw" : "{\n  \"articleId\" : \"62a6c89e-dffe-4a11-8abd-67ac38f3c3cb\",\n  \"articleName\" : \"de8789e52595\",\n  \"articlePrice\" : 1,\n  \"quantity\" : 1\n}",
             "mode" : "raw"
           }
         },
-        "body" : "{\n  \"quantity\" : 1,\n  \"articleName\" : \"cf4b9a3043e3\",\n  \"id\" : \"8fe3b7a1-0195-4346-af14-e79fde1c19a3\",\n  \"articlePrice\" : 1,\n  \"articleId\" : \"8caceaeb-049c-4488-b533-6b5958710d2c\"\n}",
+        "body" : "{\n  \"quantity\" : 1,\n  \"articleName\" : \"a5d584e2b7f5\",\n  \"id\" : \"2bcf52d7-7216-46cb-ba8c-4bec4cef3c29\",\n  \"articlePrice\" : 1,\n  \"articleId\" : \"59f7ec42-61a6-4035-bde6-292cb2df8513\"\n}",
         "code" : 201
       }, {
         "name" : "Example 400 - unit",
@@ -141,7 +141,7 @@
             }
           } ],
           "body" : {
-            "raw" : "{\n  \"articleId\" : \"775805ad-db5b-4e27-93a8-6d03add1f67e\",\n  \"articleName\" : \"bec2113e4f5a\",\n  \"articlePrice\" : 1,\n  \"quantity\" : 1\n}",
+            "raw" : "{\n  \"articleId\" : \"62a6c89e-dffe-4a11-8abd-67ac38f3c3cb\",\n  \"articleName\" : \"de8789e52595\",\n  \"articlePrice\" : 1,\n  \"quantity\" : 1\n}",
             "mode" : "raw"
           }
         },
@@ -159,13 +159,13 @@
         },
         "method" : "PUT",
         "description" : {
-          "content" : "Checkout the items for the payment (in our POC this will update article's stocks and empty the cart); methodName: checkout"
+          "content" : "Checkout the items for the payment; methodName: checkout"
         },
         "header" : [ ]
       },
       "name" : "PUT /cart/items/checkout",
       "description" : {
-        "content" : "Checkout the items for the payment (in our POC this will update article's stocks and empty the cart); methodName: checkout"
+        "content" : "Checkout the items for the payment; methodName: checkout"
       },
       "event" : [ {
         "listen" : "test",
@@ -186,7 +186,7 @@
           },
           "method" : "PUT",
           "description" : {
-            "content" : "Checkout the items for the payment (in our POC this will update article's stocks and empty the cart); methodName: checkout"
+            "content" : "Checkout the items for the payment; methodName: checkout"
           },
           "header" : [ ]
         },
@@ -269,7 +269,7 @@
             "mode" : "raw"
           }
         },
-        "body" : "{\n  \"quantity\" : 1,\n  \"articleName\" : \"a65b640148ca\",\n  \"id\" : \"3a924b6b-8f82-46dc-bb16-6cad74912294\",\n  \"articlePrice\" : 1,\n  \"articleId\" : \"a9fab911-8d7a-474c-a4a8-6f11c61a8cd3\"\n}",
+        "body" : "{\n  \"quantity\" : 1,\n  \"articleName\" : \"6c91a556fbf2\",\n  \"id\" : \"364f0093-1e3d-4992-a0a0-b9312b09fb34\",\n  \"articlePrice\" : 1,\n  \"articleId\" : \"cb25b89b-c841-4a23-85bb-550ba3c54232\"\n}",
         "code" : 200
       }, {
         "name" : "Example 400 - unit",

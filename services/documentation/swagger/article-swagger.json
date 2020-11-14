@@ -2,7 +2,8 @@
   "swagger": "2.0",
   "info": {
     "title": "article",
-    "version": "0.0.1"
+    "description": "Service to manage articles, an article is an item of an e-commerce website.",
+    "version": "1.0.0"
   },
   "consumes": [
     "application/json"

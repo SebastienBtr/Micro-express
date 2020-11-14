@@ -30,7 +30,7 @@
           }
         } ],
         "body" : {
-          "raw" : "{\n  \"email\" : \"2055c000259b\",\n  \"password\" : \"b77535ea19b1\"\n}",
+          "raw" : "{\n  \"email\" : \"42ac120b66e2\",\n  \"password\" : \"324f78fde642\"\n}",
           "mode" : "raw"
         }
       },
@@ -67,11 +67,11 @@
             }
           } ],
           "body" : {
-            "raw" : "{\n  \"email\" : \"2055c000259b\",\n  \"password\" : \"b77535ea19b1\"\n}",
+            "raw" : "{\n  \"email\" : \"42ac120b66e2\",\n  \"password\" : \"324f78fde642\"\n}",
             "mode" : "raw"
           }
         },
-        "body" : "{\n  \"accessToken\" : \"59ff1e162d0c\"\n}",
+        "body" : "{\n  \"accessToken\" : \"dcc0d30db497\"\n}",
         "code" : 200
       }, {
         "name" : "Example 400 - unit",
@@ -95,7 +95,7 @@
             }
           } ],
           "body" : {
-            "raw" : "{\n  \"email\" : \"2055c000259b\",\n  \"password\" : \"b77535ea19b1\"\n}",
+            "raw" : "{\n  \"email\" : \"42ac120b66e2\",\n  \"password\" : \"324f78fde642\"\n}",
             "mode" : "raw"
           }
         },
@@ -122,7 +122,7 @@
             }
           } ],
           "body" : {
-            "raw" : "{\n  \"email\" : \"2055c000259b\",\n  \"password\" : \"b77535ea19b1\"\n}",
+            "raw" : "{\n  \"email\" : \"42ac120b66e2\",\n  \"password\" : \"324f78fde642\"\n}",
             "mode" : "raw"
           }
         },
@@ -150,7 +150,7 @@
           }
         } ],
         "body" : {
-          "raw" : "{\n  \"firstName\" : \"b02f417ee8a5\",\n  \"lastName\" : \"4d7a59a4a96b\",\n  \"email\" : \"be999b3ee0e0\",\n  \"password\" : \"e03c36660258\"\n}",
+          "raw" : "{\n  \"firstName\" : \"a18fd8b5a34f\",\n  \"lastName\" : \"c6c9c5c463a5\",\n  \"email\" : \"ab3dd111b5a8\",\n  \"password\" : \"b140a849a926\"\n}",
           "mode" : "raw"
         }
       },
@@ -166,7 +166,7 @@
         }
       } ],
       "response" : [ {
-        "name" : "Example 200 - unit",
+        "name" : "Example 204 - unit",
         "originalRequest" : {
           "url" : {
             "raw" : "{{BASE_URL}}/auth/sign-up",
@@ -187,13 +187,13 @@
             }
           } ],
           "body" : {
-            "raw" : "{\n  \"firstName\" : \"b02f417ee8a5\",\n  \"lastName\" : \"4d7a59a4a96b\",\n  \"email\" : \"be999b3ee0e0\",\n  \"password\" : \"e03c36660258\"\n}",
+            "raw" : "{\n  \"firstName\" : \"a18fd8b5a34f\",\n  \"lastName\" : \"c6c9c5c463a5\",\n  \"email\" : \"ab3dd111b5a8\",\n  \"password\" : \"b140a849a926\"\n}",
             "mode" : "raw"
           }
         },
-        "code" : 200
+        "code" : 204
       }, {
-        "name" : "Example 412 - unit",
+        "name" : "Example 422 - unit",
         "originalRequest" : {
           "url" : {
             "raw" : "{{BASE_URL}}/auth/sign-up",
@@ -214,11 +214,11 @@
             }
           } ],
           "body" : {
-            "raw" : "{\n  \"firstName\" : \"b02f417ee8a5\",\n  \"lastName\" : \"4d7a59a4a96b\",\n  \"email\" : \"be999b3ee0e0\",\n  \"password\" : \"e03c36660258\"\n}",
+            "raw" : "{\n  \"firstName\" : \"a18fd8b5a34f\",\n  \"lastName\" : \"c6c9c5c463a5\",\n  \"email\" : \"ab3dd111b5a8\",\n  \"password\" : \"b140a849a926\"\n}",
             "mode" : "raw"
           }
         },
-        "code" : 412
+        "code" : 422
       }, {
         "name" : "Example 400 - unit",
         "originalRequest" : {
@@ -241,7 +241,7 @@
             }
           } ],
           "body" : {
-            "raw" : "{\n  \"firstName\" : \"b02f417ee8a5\",\n  \"lastName\" : \"4d7a59a4a96b\",\n  \"email\" : \"be999b3ee0e0\",\n  \"password\" : \"e03c36660258\"\n}",
+            "raw" : "{\n  \"firstName\" : \"a18fd8b5a34f\",\n  \"lastName\" : \"c6c9c5c463a5\",\n  \"email\" : \"ab3dd111b5a8\",\n  \"password\" : \"b140a849a926\"\n}",
             "mode" : "raw"
           }
         },

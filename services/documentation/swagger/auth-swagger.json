@@ -53,14 +53,14 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "200 response"
+          "204": {
+            "description": "204 response"
           },
           "400": {
             "description": "400 response"
           },
-          "412": {
-            "description": "412 response"
+          "422": {
+            "description": "422 response"
           }
         }
       }

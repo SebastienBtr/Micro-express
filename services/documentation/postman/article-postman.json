@@ -2,8 +2,10 @@
   "info" : {
     "name" : "article",
     "schema" : "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description" : { },
-    "version" : "0.0.1"
+    "description" : {
+      "content" : "Service to manage articles, an article is an item of an e-commerce website."
+    },
+    "version" : "1.0.0"
   },
   "item" : [ {
     "name" : "articles",
@@ -18,13 +20,13 @@
         },
         "method" : "GET",
         "description" : {
-          "content" : "Get all the articles"
+          "content" : "Get all the articles; methodName: getAllArticles"
         },
         "header" : [ ]
       },
       "name" : "GET /articles",
       "description" : {
-        "content" : "Get all the articles"
+        "content" : "Get all the articles; methodName: getAllArticles"
       },
       "event" : [ {
         "listen" : "test",
@@ -45,11 +47,11 @@
           },
           "method" : "GET",
           "description" : {
-            "content" : "Get all the articles"
+            "content" : "Get all the articles; methodName: getAllArticles"
           },
           "header" : [ ]
         },
-        "body" : "[ {\n  \"id\" : \"ccbb80e2-cdf9-4e8c-aa60-dfc8dca2d21e\",\n  \"name\" : \"6f978d7331e7\",\n  \"stock\" : 1,\n  \"price\" : 1\n} ]",
+        "body" : "[ {\n  \"id\" : \"c708de77-67ad-4098-9c2d-e7c67bafa924\",\n  \"name\" : \"da3e291645b2\",\n  \"stock\" : 1,\n  \"price\" : 1\n} ]",
         "code" : 200
       } ],
       "type" : "item"
@@ -71,13 +73,13 @@
         },
         "method" : "GET",
         "description" : {
-          "content" : "Get a specific article"
+          "content" : "Get a specific article; methodName: getArticleById"
         },
         "header" : [ ]
       },
       "name" : "GET /articles/:id",
       "description" : {
-        "content" : "Get a specific article"
+        "content" : "Get a specific article; methodName: getArticleById"
       },
       "event" : [ {
         "listen" : "test",
@@ -105,11 +107,11 @@
           },
           "method" : "GET",
           "description" : {
-            "content" : "Get a specific article"
+            "content" : "Get a specific article; methodName: getArticleById"
           },
           "header" : [ ]
         },
-        "body" : "{\n  \"id\" : \"d5224ea7-e677-4274-a16c-4e88e41ac175\",\n  \"name\" : \"c4c1d27a3b25\",\n  \"stock\" : 1,\n  \"price\" : 1\n}",
+        "body" : "{\n  \"id\" : \"650601f3-87ef-450c-801e-1655eb17e8c4\",\n  \"name\" : \"dfa07e300474\",\n  \"stock\" : 1,\n  \"price\" : 1\n}",
         "code" : 200
       }, {
         "name" : "Example 404 - unit",
@@ -130,7 +132,7 @@
           },
           "method" : "GET",
           "description" : {
-            "content" : "Get a specific article"
+            "content" : "Get a specific article; methodName: getArticleById"
           },
           "header" : [ ]
         },
@@ -155,7 +157,7 @@
         },
         "method" : "PUT",
         "description" : {
-          "content" : "Update a specific article"
+          "content" : "Update a specific article; methodName: updateArticle"
         },
         "header" : [ {
           "key" : "Content-Type",
@@ -165,13 +167,13 @@
           }
         } ],
         "body" : {
-          "raw" : "{\n  \"name\" : \"9d9cf423bbfb\",\n  \"stock\" : 1,\n  \"price\" : 1\n}",
+          "raw" : "{\n  \"name\" : \"4eded4dd0abe\",\n  \"stock\" : 1,\n  \"price\" : 1\n}",
           "mode" : "raw"
         }
       },
       "name" : "PUT /articles/:id",
       "description" : {
-        "content" : "Update a specific article"
+        "content" : "Update a specific article; methodName: updateArticle"
       },
       "event" : [ {
         "listen" : "test",
@@ -199,7 +201,7 @@
           },
           "method" : "PUT",
           "description" : {
-            "content" : "Update a specific article"
+            "content" : "Update a specific article; methodName: updateArticle"
           },
           "header" : [ {
             "key" : "Content-Type",
@@ -209,11 +211,11 @@
             }
           } ],
           "body" : {
-            "raw" : "{\n  \"name\" : \"9d9cf423bbfb\",\n  \"stock\" : 1,\n  \"price\" : 1\n}",
+            "raw" : "{\n  \"name\" : \"4eded4dd0abe\",\n  \"stock\" : 1,\n  \"price\" : 1\n}",
             "mode" : "raw"
           }
         },
-        "body" : "{\n  \"id\" : \"dccc17bb-a49c-4295-8e9f-d94a316194ce\",\n  \"name\" : \"2fc35c535b99\",\n  \"stock\" : 1,\n  \"price\" : 1\n}",
+        "body" : "{\n  \"id\" : \"264c18da-a5ee-40b1-a0c1-0ad637b9deee\",\n  \"name\" : \"aa22420624cb\",\n  \"stock\" : 1,\n  \"price\" : 1\n}",
         "code" : 200
       }, {
         "name" : "Example 404 - unit",
@@ -234,7 +236,7 @@
           },
           "method" : "PUT",
           "description" : {
-            "content" : "Update a specific article"
+            "content" : "Update a specific article; methodName: updateArticle"
           },
           "header" : [ {
             "key" : "Content-Type",
@@ -244,7 +246,7 @@
             }
           } ],
           "body" : {
-            "raw" : "{\n  \"name\" : \"9d9cf423bbfb\",\n  \"stock\" : 1,\n  \"price\" : 1\n}",
+            "raw" : "{\n  \"name\" : \"4eded4dd0abe\",\n  \"stock\" : 1,\n  \"price\" : 1\n}",
             "mode" : "raw"
           }
         },
@@ -268,7 +270,7 @@
           },
           "method" : "PUT",
           "description" : {
-            "content" : "Update a specific article"
+            "content" : "Update a specific article; methodName: updateArticle"
           },
           "header" : [ {
             "key" : "Content-Type",
@@ -278,7 +280,7 @@
             }
           } ],
           "body" : {
-            "raw" : "{\n  \"name\" : \"9d9cf423bbfb\",\n  \"stock\" : 1,\n  \"price\" : 1\n}",
+            "raw" : "{\n  \"name\" : \"4eded4dd0abe\",\n  \"stock\" : 1,\n  \"price\" : 1\n}",
             "mode" : "raw"
           }
         },
@@ -296,7 +298,7 @@
         },
         "method" : "POST",
         "description" : {
-          "content" : "Create an article"
+          "content" : "Create an article; methodName: createArticle"
         },
         "header" : [ {
           "key" : "Content-Type",
@@ -306,13 +308,13 @@
           }
         } ],
         "body" : {
-          "raw" : "{\n  \"name\" : \"72a5f8c72125\",\n  \"stock\" : 1,\n  \"price\" : 1\n}",
+          "raw" : "{\n  \"name\" : \"3bfc0eb1b8d7\",\n  \"stock\" : 1,\n  \"price\" : 1\n}",
           "mode" : "raw"
         }
       },
       "name" : "POST /articles",
       "description" : {
-        "content" : "Create an article"
+        "content" : "Create an article; methodName: createArticle"
       },
       "event" : [ {
         "listen" : "test",
@@ -333,7 +335,7 @@
           },
           "method" : "POST",
           "description" : {
-            "content" : "Create an article"
+            "content" : "Create an article; methodName: createArticle"
           },
           "header" : [ {
             "key" : "Content-Type",
@@ -343,11 +345,11 @@
             }
           } ],
           "body" : {
-            "raw" : "{\n  \"name\" : \"72a5f8c72125\",\n  \"stock\" : 1,\n  \"price\" : 1\n}",
+            "raw" : "{\n  \"name\" : \"3bfc0eb1b8d7\",\n  \"stock\" : 1,\n  \"price\" : 1\n}",
             "mode" : "raw"
           }
         },
-        "body" : "{\n  \"id\" : \"0ae5882f-4df6-4c0e-bdd2-98bc9727fcad\",\n  \"name\" : \"30f4989abcd7\",\n  \"stock\" : 1,\n  \"price\" : 1\n}",
+        "body" : "{\n  \"id\" : \"bd6ed470-bf6b-47d8-8a2c-214671c5151f\",\n  \"name\" : \"90c190a05e7f\",\n  \"stock\" : 1,\n  \"price\" : 1\n}",
         "code" : 201
       }, {
         "name" : "Example 400 - unit",
@@ -361,7 +363,7 @@
           },
           "method" : "POST",
           "description" : {
-            "content" : "Create an article"
+            "content" : "Create an article; methodName: createArticle"
           },
           "header" : [ {
             "key" : "Content-Type",
@@ -371,7 +373,7 @@
             }
           } ],
           "body" : {
-            "raw" : "{\n  \"name\" : \"72a5f8c72125\",\n  \"stock\" : 1,\n  \"price\" : 1\n}",
+            "raw" : "{\n  \"name\" : \"3bfc0eb1b8d7\",\n  \"stock\" : 1,\n  \"price\" : 1\n}",
             "mode" : "raw"
           }
         },
@@ -396,13 +398,13 @@
         },
         "method" : "DELETE",
         "description" : {
-          "content" : "Delete a specific article"
+          "content" : "Delete a specific article; methodName: deleteArticle"
         },
         "header" : [ ]
       },
       "name" : "DELETE /articles/:id",
       "description" : {
-        "content" : "Delete a specific article"
+        "content" : "Delete a specific article; methodName: deleteArticle"
       },
       "response" : [ {
         "name" : "Example 204 - unit",
@@ -423,11 +425,35 @@
           },
           "method" : "DELETE",
           "description" : {
-            "content" : "Delete a specific article"
+            "content" : "Delete a specific article; methodName: deleteArticle"
           },
           "header" : [ ]
         },
         "code" : 204
+      }, {
+        "name" : "Example 404 - unit",
+        "originalRequest" : {
+          "url" : {
+            "raw" : "{{BASE_URL}}/articles/:id",
+            "host" : [ "{{BASE_URL}}" ],
+            "path" : [ "articles", ":id" ],
+            "query" : [ ],
+            "variable" : [ {
+              "key" : "id",
+              "value" : "{{id}}",
+              "description" : {
+                "content" : "Type: uuid  | Required: true"
+              },
+              "disabled" : false
+            } ]
+          },
+          "method" : "DELETE",
+          "description" : {
+            "content" : "Delete a specific article; methodName: deleteArticle"
+          },
+          "header" : [ ]
+        },
+        "code" : 404
       } ],
       "type" : "item"
     } ],

@@ -3,7 +3,7 @@
   "info": {
     "title": "user",
     "description": "Service to manage users",
-    "version": "1.0.1"
+    "version": "1.0.0"
   },
   "consumes": [
     "application/json"
@@ -120,8 +120,8 @@
           "404": {
             "description": "404 response"
           },
-          "412": {
-            "description": "412 response"
+          "422": {
+            "description": "422 response"
           }
         }
       },

@@ -2,8 +2,8 @@
   "swagger": "2.0",
   "info": {
     "title": "cart",
-    "description": "To simplify the POC, we consider that there is only one cart and we can operate on its elements",
-    "version": "0.0.1"
+    "description": "Service to manage carts, to simplify the POC, we consider that there is only one cart and we can operate on its elements",
+    "version": "1.0.0"
   },
   "consumes": [
     "application/json"
@@ -54,7 +54,7 @@
     },
     "/cart/items/checkout": {
       "put": {
-        "description": "Checkout the items for the payment (in our POC this will update article's stocks and empty the cart); methodName: checkout",
+        "description": "Checkout the items for the payment; methodName: checkout",
         "parameters": [],
         "responses": {
           "204": {
