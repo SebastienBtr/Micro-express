@@ -6,8 +6,8 @@ require('dotenv').config();
 const app = express();
 const port = 3500;
 
-const externalHost = process.env.EXTERNAL_HOST;
-const externalPort = process.env.EXTERNAL_PORT;
+const externalHost = process.env.EXTERNAL_HOST || 'http://localhost';
+const externalPort = process.env.EXTERNAL_PORT || 9898;
 
 /**
  * Configure winston

@@ -2,4 +2,4 @@ version: "3"
 services:
   app:
     ports:
-      - "${SERVER_PORT:-3501}:3500"
+      - "${SERVER_EXPOSED_PORT:-3501}:3500"

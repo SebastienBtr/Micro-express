@@ -2,7 +2,7 @@ version: '3'
 services:
   app:
     ports:
-      - '${SERVER_PORT:-3503}:3500'
+      - '${SERVER_EXPOSED_PORT:-3503}:3500'
     networks: 
       - kafka_broker
 
@@ -23,6 +23,8 @@ services:
 
   postgres:
     image: postgres:10.3
+    ports:
+      - '${DB_EXPOSED_PORT:-5403}:5432'
     restart: always
     networks: 
       - postgres

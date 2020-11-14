@@ -6,7 +6,7 @@ services:
     volumes:
       - .:/etc/krakend
     ports:
-      - "${API_PORT:-8080}:8080"
+      - "${API_PORT:-9898}:8080"
     depends_on:
       - influxdb
       - jaeger

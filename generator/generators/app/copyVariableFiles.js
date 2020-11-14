@@ -3,8 +3,10 @@ const ports = require('./usedPorts.json');
 
 module.exports.run = (self, addEvents, apiSpec) => {
   let port = 3500;
+  let dbport = 5400;
   while (ports.used.includes(port)) {
     port += 1;
+    dbport += 1;
   }
 
   self.fs.copyTpl(
@@ -20,7 +22,7 @@ module.exports.run = (self, addEvents, apiSpec) => {
   self.fs.copyTpl(
     self.templatePath('docker-compose.local.yaml.ejs'),
     self.destinationPath('docker-compose.local.yaml'),
-    { port },
+    { port, dbport },
   );
 
   ports.used.push(port);
