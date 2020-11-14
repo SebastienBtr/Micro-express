@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "timeout": "3000ms",
+  "timeout": "20000ms",
   "cache_ttl": "300s",
   "extra_config": {
     "github_com/devopsfaith/krakend-cors": {
@@ -20,6 +20,16 @@
         "Content-Type"
       ],
       "max_age": "12h"
+    },
+    "github_com/devopsfaith/bloomfilter": {
+      "N": 10000000,
+      "P": 0.0000001,
+      "HashName": "optimal",
+      "TTL": 1500,
+      "port": 1234,
+      "TokenKeys": [
+        "jti"
+      ]
     },
     "github_com/devopsfaith/krakend-metrics": {
       "listen_address": ":8090"

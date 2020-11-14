@@ -9,11 +9,11 @@
       "*"
   ],
   "extra_config": {{ marshal $el.extra_config }},
-  "output_encoding": "no-op",
+  "output_encoding": "{{ $el.encoding }}",
   "method": "{{ $el.method }}",
   "backend": [
     {
-      "encoding": "no-op",
+      "encoding": "{{ $el.encoding }}",
       "host": {{ marshal $.hosts }},
       "url_pattern": "{{ $el.url_pattern }}",
       "method": "{{ $el.method }}"

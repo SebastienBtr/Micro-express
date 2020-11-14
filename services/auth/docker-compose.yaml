@@ -7,11 +7,14 @@ services:
       - ./src:/app/src
       - /app/node_modules
     networks:
+      - user_app
       - app
     logging:
       driver: ${LOGGING_DRIVER:-json-file}
     restart: always
 
 networks:
+  user_app:
+    external: true
   app:
     driver: bridge

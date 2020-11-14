@@ -3,7 +3,7 @@
     {
       "kty": "oct",
       "k": "AyM1SysPpbyDfgZld3umj1qzKObwVMkoqQ-EstJQLr_T-1qS0gZH75aKtMN3Yj0iPS4hcgUuTwjAzZr1Z9CAow",
-      "kid": "micro-express",
+      "kid": "micro",
       "alg": "HS256"
     }
   ]
