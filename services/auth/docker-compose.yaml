@@ -4,7 +4,6 @@ services:
     build: .
     command: sh -c "yarn lint-check && yarn ${ENV:-dev}"
     volumes:
-      - ./src:/app/src
       - /app/node_modules
     networks:
       - user_app
