@@ -7,30 +7,35 @@
       "endpoint": "/cart/items",
       "method": "GET",
       "url_pattern": "/cart/items",
+      "encoding": "no-op",
       "extra_config": {}
     },
     {
       "endpoint": "/cart/items",
       "method": "POST",
       "url_pattern": "/cart/items",
+      "encoding": "no-op",
       "extra_config": {}
     },
     {
       "endpoint": "/cart/items/checkout",
       "method": "PUT",
       "url_pattern": "/cart/items/checkout",
+      "encoding": "no-op",
       "extra_config": {}
     },
     {
       "endpoint": "/cart/items/quantity/{id}",
       "method": "PUT",
       "url_pattern": "/cart/items/quantity/{id}",
+      "encoding": "no-op",
       "extra_config": {}
     },
     {
       "endpoint": "/cart/items/{id}",
       "method": "DELETE",
       "url_pattern": "/cart/items/{id}",
+      "encoding": "no-op",
       "extra_config": {}
     }
   ]

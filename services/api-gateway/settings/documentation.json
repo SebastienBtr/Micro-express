@@ -7,54 +7,77 @@
       "endpoint": "/documentation",
       "method": "GET",
       "url_pattern": "/documentation",
+      "encoding": "no-op",
       "extra_config": {}
     },
     {
       "endpoint": "/article-swagger.json",
       "method": "GET",
       "url_pattern": "/article-swagger.json",
+      "encoding": "no-op",
       "extra_config": {}
     },
     {
       "endpoint": "/cart-swagger.json",
       "method": "GET",
       "url_pattern": "/cart-swagger.json",
+      "encoding": "no-op",
+      "extra_config": {}
+    },
+    {
+      "endpoint": "/user-swagger.json",
+      "method": "GET",
+      "url_pattern": "/user-swagger.json",
+      "encoding": "no-op",
+      "extra_config": {}
+    },
+    {
+      "endpoint": "/auth-swagger.json",
+      "method": "GET",
+      "url_pattern": "/auth-swagger.json",
+      "encoding": "no-op",
       "extra_config": {}
     },
     {
       "endpoint": "/swagger-ui.css",
       "method": "GET",
       "url_pattern": "/documentation/swagger-ui.css",
+      "encoding": "no-op",
       "extra_config": {}
     },
     {
       "endpoint": "/swagger-ui-bundle.js",
       "method": "GET",
       "url_pattern": "/documentation/swagger-ui-bundle.js",
+      "encoding": "no-op",
       "extra_config": {}
     },
     {
       "endpoint": "/swagger-ui-standalone-preset.js",
       "method": "GET",
       "url_pattern": "/documentation/swagger-ui-standalone-preset.js",
+      "encoding": "no-op",
       "extra_config": {}
     },
     {
       "endpoint": "/swagger-ui-init.js",
       "method": "GET",
       "url_pattern": "/documentation/swagger-ui-init.js",
+      "encoding": "no-op",
       "extra_config": {}
     },
     {
       "endpoint": "/favicon-32x32.png",
       "method": "GET",
       "url_pattern": "/documentation/favicon-32x32.png",
+      "encoding": "no-op",
       "extra_config": {}
     },
     {
       "endpoint": "/favicon-16x16.png",
       "method": "GET",
       "url_pattern": "/documentation/favicon-16x16.png",
+      "encoding": "no-op",
       "extra_config": {}
     }
   ]

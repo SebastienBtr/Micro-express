@@ -7,30 +7,35 @@
       "endpoint": "/articles",
       "method": "GET",
       "url_pattern": "/articles",
+      "encoding": "no-op",
       "extra_config": {}
     },
     {
       "endpoint": "/articles",
       "method": "POST",
       "url_pattern": "/articles",
+      "encoding": "no-op",
       "extra_config": {}
     },
     {
       "endpoint": "/articles/{id}",
       "method": "GET",
       "url_pattern": "/articles/{id}",
+      "encoding": "no-op",
       "extra_config": {}
     },
     {
       "endpoint": "/articles/{id}",
       "method": "PUT",
       "url_pattern": "/articles/{id}",
+      "encoding": "no-op",
       "extra_config": {}
     },
     {
       "endpoint": "/articles/{id}",
       "method": "DELETE",
       "url_pattern": "/articles/{id}",
+      "encoding": "no-op",
       "extra_config": {}
     }
   ]
