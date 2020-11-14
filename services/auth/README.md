@@ -16,7 +16,7 @@ This service is an orchestrator and needs `user` service to work.
 * Run `prisma generate`
 
 These steps are necessary to have autocompletion.
-Now you can start coding but make sure to not edit code that will be overriden by the generator. In case you want to do any change in the service contracts, you need to do it through the [specification](../specification).
+Now you can start coding but make sure to not edit code that will be overriden by the generator. In case you want to do any change in the service contracts, you need to do it through the [specification](../../specification).
 
 # Documentation
 

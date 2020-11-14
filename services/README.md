@@ -12,11 +12,11 @@ There is a `launcher.sh` script to launch the desired services with docker.
 
 * To launch all: `./launcher.sh`
 
-* To launch specific services: `./launcher.sh <service_name> <service_name_2>`. The "service_name" is the same as the service's directory and the services will be launched in the order you pass them to the script. The kafka (exept in "prod" env) and api-gateway services will be launched automatically.
+* To launch specific services: `./launcher.sh <service_name> <service_name_2>`. The "service_name" is the same as the service's directory and the services will be launched in the order you pass them to the script. The kafka service (exept in "prod" env) and api-gateway services will be launched automatically.
 
 * A "`-e`" option can be added to the command to precise the environment: "dev", "test", "prod", the default value is "dev". When you switch between environments, make sure to call the `stop-all.sh` script before.
 
-* To lauch the API gateway, use the `gateway-launcher.sh` script, it is important that the `auth` service is already running, otherwise the the gateway wont be able to sign tokens.
+* To launch the API gateway, use the `gateway-launcher.sh` script, it is important that the `auth` service is already running, otherwise the the gateway wont be able to sign tokens.
 
 To stop all the services, you can use the `stop-all.sh` script.
 
@@ -32,11 +32,12 @@ In production you will need to have hosted databases and a kafka service. You ne
 
 * Create its specification (see [specification](../specification)).
 * Generate the service with the generator (see [generator](../generator)).
-* Add the new documentation endpoints [here](documention/index.js).
+* Add the new documentation endpoint [here](documention/index.js).
+* Add the new documentation endpoint to the api gateway [here](api-gateway/settings/documentation.json)
 * Edit all the `.sh` scripts to add this new service.
 * Implement the "TODOs" by following the bellow information about editing a service.
 * Use `yarn lint-check` to make sure there is no style issues, you can also install the eslint plugin in your editor if it is available
-* You might want to expose some routes with the [API gateway](../services/api-gateway).
+* You might want to expose some routes with the [API gateway](api-gateway).
 
 **Edit a service**
 
